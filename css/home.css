@@ -1,125 +1,1286 @@
+/* ==========================================================
+   AIRLYNX — HOME PAGE
+   File: /css/home.css
+   ========================================================== */
+
+/* HERO BACKGROUND SLIDESHOW */
+
 .home-hero {
-  position: relative; min-height: clamp(560px, 76vh, 780px); overflow: clip; display: grid; place-items: center; border-bottom: 1px solid rgba(225,77,87,.28); background: #030812;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    min-height: clamp(560px, 78vh, 760px);
+    place-items: center;
+    overflow: hidden;
+    padding-block: calc(var(--header-height) + 3.2rem) 3.8rem;
+    border-bottom: 1px solid rgba(94, 214, 240, 0.16);
+    text-align: center;
 }
-.hero-slides, .hero-slide { position: absolute; inset: 0; }
-.hero-slide { opacity: 0; background-size: cover; background-position: center; transform: scale(1.02); transition: opacity 900ms ease, transform 6200ms ease; }
-.hero-slide.is-active { opacity: 1; transform: scale(1.07); }
-.home-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(3,8,18,.82), rgba(3,8,18,.44) 45%, rgba(3,8,18,.78)), linear-gradient(180deg, rgba(3,8,18,.22), rgba(3,8,18,.82)); }
-.home-hero::after { content: ""; position: absolute; inset: 0; z-index: 2; background-image: radial-gradient(circle, rgba(94,214,240,.65) 1px, transparent 1.5px); background-size: 44px 44px; opacity: .14; animation: airflowDrift 18s linear infinite; mask-image: linear-gradient(180deg, transparent, #000 30%, transparent 90%); }
-.hero-content { position: relative; z-index: 4; width: min(840px, calc(100vw - 40px)); display: grid; justify-items: center; gap: 1.1rem; text-align: center; padding-top: var(--header-height); }
-.hero-title { max-width: 800px; }
-.hero-text { max-width: 650px; color: var(--color-text); font-size: clamp(1rem, 2vw, 1.2rem); }
-.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: .4rem; }
-.hero-note { color: rgba(221,234,242,.78); font-size: .88rem; max-width: 680px; }
-.hero-dots { position: absolute; z-index: 5; left: 50%; bottom: 1.35rem; transform: translateX(-50%); display: flex; gap: .45rem; }
-.hero-dot { width: 36px; height: 4px; border: 0; border-radius: 999px; background: rgba(221,234,242,.34); }
-.hero-dot.is-active { background: var(--color-warm); box-shadow: 0 0 20px rgba(225,77,87,.58); }
-.trust-strip { border-bottom: 1px solid rgba(94,214,240,.16); background: rgba(3,8,18,.78); }
-.trust-grid { min-height: 78px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
-.trust-item { display: flex; gap: .8rem; align-items: center; padding: 1rem 1.2rem; border-right: 1px solid rgba(94,214,240,.14); }
-.trust-item:last-child { border-right: 0; }
-.trust-icon { color: var(--color-cold); font-size: 1.55rem; }
-.trust-item strong { display: block; color: var(--color-heading); line-height: 1.15; }
-.trust-item span { color: var(--color-muted); font-size: .85rem; }
-.marquee-section { padding-block: .75rem; border-block: 1px solid rgba(94,214,240,.16); background: linear-gradient(90deg, rgba(94,214,240,.08), rgba(225,77,87,.06)); overflow: hidden; }
-.marquee-track { display: flex; width: max-content; gap: 1rem; animation: marquee 34s linear infinite; }
-.marquee-section:hover .marquee-track { animation-play-state: paused; }
-.marquee-item { display: inline-flex; align-items: center; gap: .6rem; min-width: max-content; padding: .75rem 1.2rem; color: var(--color-heading); border-right: 1px solid rgba(94,214,240,.18); transition: color .2s ease, transform .2s ease; }
-.marquee-item:hover { color: var(--color-cold); transform: translateY(-1px); }
-.services-feature { background: linear-gradient(180deg, rgba(6,16,29,.72), rgba(3,8,18,.9)); }
-.services-showcase { display: grid; grid-template-columns: .72fr 1fr 180px 1fr; gap: 1.2rem; align-items: center; }
-.services-intro { align-self: stretch; display: grid; align-content: center; gap: 1rem; padding: 1.2rem 1rem 1.2rem 0; }
-.services-intro p { color: var(--color-muted); }
-.service-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.2rem; }
-.service-card { position: relative; min-height: 245px; overflow: hidden; border-radius: 18px; border: 1px solid rgba(94,214,240,.34); background: var(--color-card); box-shadow: 0 18px 56px rgba(0,0,0,.26); isolation: isolate; }
-.service-card::before { content: ""; position: absolute; inset: 0; background-image: var(--card-image); background-size: cover; background-position: center; transform: scale(1.02); transition: transform .55s ease; z-index: -2; }
-.service-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,18,.2), rgba(3,8,18,.86)), linear-gradient(90deg, rgba(3,8,18,.55), transparent); z-index: -1; }
-.service-card:hover { border-color: var(--color-cold); box-shadow: var(--shadow-glow-cold); }
-.service-card:hover::before { transform: scale(1.07); }
-.service-card-content { min-height: inherit; display: grid; align-content: end; gap: .45rem; padding: 1.1rem; }
-.service-card-icon { position: absolute; top: .85rem; left: .85rem; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 10px; background: rgba(3,8,18,.58); color: var(--color-cold); border: 1px solid rgba(94,214,240,.28); transition: .25s ease; }
-.service-card:hover .service-card-icon { color: var(--color-warm); border-color: rgba(225,77,87,.38); box-shadow: var(--shadow-glow-warm); }
-.service-card h3 { font-size: 1.05rem; }
-.service-card p { color: var(--color-text); font-size: .9rem; max-width: 260px; }
-.service-card span { color: var(--color-cold); font-weight: 800; margin-top: .45rem; }
-.thermometer-wrap { display: grid; place-items: center; }
-.thermometer-card { position: relative; width: 150px; height: 260px; border-radius: 72px; border: 1px solid rgba(94,214,240,.36); background: radial-gradient(circle at 50% 35%, rgba(225,77,87,.18), transparent 5rem), rgba(8,22,39,.78); box-shadow: inset 0 0 30px rgba(94,214,240,.16), var(--shadow-glow-cold); display: grid; place-items: center; }
-.temp-high, .temp-low { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--font-heading); font-weight: 800; }
-.temp-high { top: 18px; color: var(--color-warm); font-size: 1.55rem; }
-.temp-low { bottom: 14px; color: var(--color-cold); font-size: 1.45rem; }
-.thermo-tube { position: relative; width: 19px; height: 150px; border-radius: 999px; border: 2px solid rgba(255,255,255,.48); background: rgba(3,8,18,.72); overflow: hidden; box-shadow: 0 0 18px rgba(94,214,240,.4); }
-.thermo-fill { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; border-radius: inherit; background: linear-gradient(0deg, var(--color-cold), var(--color-fresh), var(--color-warm)); animation: tempRise 5s ease-in-out infinite; }
-.thermo-bulb { position: absolute; top: 50%; left: 50%; width: 28px; height: 28px; border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 35%, #fff, var(--color-warm-soft)); box-shadow: 0 0 28px rgba(225,77,87,.54); animation: bulbMove 5s ease-in-out infinite; }
-.thermo-marks { position: absolute; inset: 56px 28px; background: repeating-linear-gradient(0deg, transparent 0 17px, rgba(94,214,240,.36) 17px 18px); opacity: .65; }
-.about-home { background: radial-gradient(circle at 20% 30%, rgba(94,214,240,.1), transparent 24rem), rgba(3,8,18,.62); }
-.about-home-grid { display: grid; grid-template-columns: .8fr 1.1fr .7fr; gap: 2rem; align-items: center; }
-.check-list { display: grid; gap: .5rem; margin-top: 1rem; color: var(--color-text); }
-.check-list li { list-style: none; position: relative; padding-left: 1.55rem; }
-.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--color-fresh); font-weight: 900; }
-.about-photo { position: relative; min-height: 350px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(94,214,240,.24); background: url("../assets/images/about-hvac.jpg") center/cover; box-shadow: 0 28px 80px rgba(0,0,0,.38); }
-.about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(3,8,18,.46)); }
-.float-badge { position: absolute; z-index: 2; padding: .7rem .85rem; border-radius: 14px; color: var(--color-heading); background: rgba(3,8,18,.72); border: 1px solid rgba(94,214,240,.22); box-shadow: var(--shadow-glow-cold); font-size: .84rem; font-weight: 800; }
-.float-badge.one { left: 1rem; top: 1rem; }
-.float-badge.two { right: 1rem; bottom: 1rem; color: var(--color-fresh); }
-.metrics-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
-.metric-card { min-height: 110px; padding: 1rem; border-radius: 16px; border: 1px solid rgba(94,214,240,.16); background: linear-gradient(145deg, rgba(16,43,66,.72), rgba(3,8,18,.46)); display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: center; }
-.metric-card .metric-icon { color: var(--color-cold); font-size: 1.8rem; }
-.metric-card strong { display: block; color: var(--color-heading); font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1; }
-.metric-card span { color: var(--color-muted); font-size: .82rem; }
-.process-section { background: linear-gradient(135deg, rgba(94,214,240,.08), rgba(225,77,87,.06) 55%, transparent); }
-.process-flow { margin-top: 2rem; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
-.process-step { position: relative; min-height: 220px; padding: 1.2rem; border-radius: 22px; border: 1px solid rgba(94,214,240,.16); background: rgba(3,8,18,.52); overflow: hidden; }
-.process-step::before { content: attr(data-step); position: absolute; right: .8rem; top: .25rem; color: rgba(94,214,240,.16); font-family: var(--font-heading); font-size: 4rem; font-weight: 800; line-height: 1; }
-.process-step .step-icon { color: var(--color-cold); font-size: 2.1rem; margin-bottom: 1rem; transition: .25s ease; }
-.process-step:hover .step-icon { color: var(--color-warm); transform: rotate(-8deg) scale(1.05); }
-.process-step p { color: var(--color-muted); font-size: .92rem; margin-top: .6rem; }
-.benefit-strip { background: linear-gradient(90deg, rgba(3,8,18,.84), rgba(3,8,18,.78)), url("../assets/images/hvac-benefits-bg.jpg") center/cover; border-block: 1px solid rgba(94,214,240,.18); }
-.benefit-grid { display: grid; grid-template-columns: .9fr repeat(3, 1fr); gap: 1rem; align-items: stretch; }
-.benefit-card { padding: 1.1rem; border-radius: 18px; border: 1px solid rgba(94,214,240,.22); background: rgba(3,8,18,.58); }
-.benefit-card strong { color: var(--color-heading); display: block; margin-bottom: .35rem; }
-.benefit-card p { color: var(--color-muted); font-size: .92rem; }
-.testimonials { overflow: hidden; }
-.testimonial-track { display: flex; gap: 1rem; width: max-content; animation: marquee 38s linear infinite; margin-top: 2rem; }
-.testimonial-track:hover { animation-play-state: paused; }
-.testimonial-card { width: min(380px, 82vw); padding: 1.1rem; border-radius: 20px; border: 1px solid rgba(94,214,240,.16); background: linear-gradient(180deg, rgba(16,43,66,.78), rgba(3,8,18,.64)); }
-.testimonial-card p { color: var(--color-text); }
-.testimonial-card strong { display: block; color: var(--color-heading); margin-top: 1rem; }
-.testimonial-card span { color: var(--color-muted); font-size: .85rem; }
-.cta-form-section { background: radial-gradient(circle at 15% 20%, rgba(225,77,87,.12), transparent 22rem), rgba(5,14,26,.86); }
-.cta-form-grid { display: grid; grid-template-columns: 1fr minmax(330px, 470px); gap: 2rem; align-items: center; }
-.cta-visual { min-height: 470px; border-radius: 30px; border: 1px solid rgba(94,214,240,.2); background: linear-gradient(180deg, rgba(3,8,18,.16), rgba(3,8,18,.82)), url("../assets/images/cta-hvac.jpg") center/cover; position: relative; overflow: hidden; box-shadow: 0 28px 80px rgba(0,0,0,.38); }
-.cta-visual::after { content: ""; position: absolute; inset: auto 1rem 1rem 1rem; height: 120px; border-radius: 22px; border: 1px solid rgba(94,214,240,.22); background: rgba(3,8,18,.62); backdrop-filter: blur(12px); }
-.cta-copy { position: absolute; z-index: 2; left: 2rem; bottom: 2.2rem; max-width: 460px; }
-.cta-copy p { color: var(--color-muted); margin-top: .5rem; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes airflowDrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(88px,-44px,0); } }
-@keyframes tempRise { 0%,100% { height: 30%; filter: hue-rotate(0deg); } 50% { height: 84%; filter: hue-rotate(-55deg); } }
-@keyframes bulbMove { 0%,100% { top: 68%; background: radial-gradient(circle at 35% 35%, #fff, var(--color-cold)); } 50% { top: 42%; background: radial-gradient(circle at 35% 35%, #fff, var(--color-warm-soft)); } }
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: -6;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(94, 214, 240, 0.18), transparent 24rem),
+        linear-gradient(135deg, #06101d, #030812);
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.03);
+    transition:
+        opacity 1s ease,
+        transform 5.5s ease;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.12) contrast(1.07);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 44%, rgba(94, 214, 240, 0.16), transparent 24rem),
+        radial-gradient(circle at 76% 34%, rgba(225, 77, 87, 0.2), transparent 22rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.88), rgba(3, 8, 18, 0.5), rgba(3, 8, 18, 0.88)),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.18), rgba(3, 8, 18, 0.86) 74%, rgba(3, 8, 18, 0.98));
+}
+
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(94, 214, 240, 0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 214, 240, 0.05) 1px, transparent 1px);
+    background-size: 82px 82px;
+    mask-image: linear-gradient(to bottom, transparent, black 18%, black 70%, transparent);
+    opacity: 0.42;
+}
+
+.hero-airflow {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-airflow span {
+    position: absolute;
+    width: min(520px, 42vw);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(94, 214, 240, 0.58), transparent);
+    opacity: 0.48;
+    animation: heroAirflowMove 7s ease-in-out infinite;
+}
+
+.hero-airflow span:nth-child(1) {
+    top: 24%;
+    left: -7%;
+}
+
+.hero-airflow span:nth-child(2) {
+    top: 48%;
+    right: -9%;
+    animation-delay: -2s;
+}
+
+.hero-airflow span:nth-child(3) {
+    bottom: 23%;
+    left: 24%;
+    animation-delay: -3.8s;
+}
+
+@keyframes heroAirflowMove {
+
+    0%,
+    100% {
+        transform: translateX(-18px);
+        opacity: 0.22;
+    }
+
+    50% {
+        transform: translateX(30px);
+        opacity: 0.7;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    justify-items: center;
+    width: min(100%, 880px);
+    margin-inline: auto;
+}
+
+.hero-kicker {
+    margin-bottom: 0.95rem;
+}
+
+.hero-content h1 {
+    max-width: 860px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: 0 auto 1.45rem;
+    color: var(--color-text);
+    font-size: clamp(1rem, 1.45vw, 1.18rem);
+    line-height: 1.62;
+    text-align: center;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+    margin-bottom: 0.95rem;
+}
+
+.hero-actions .btn {
+    min-width: 180px;
+}
+
+.hero-note {
+    max-width: 700px;
+    margin: 0.45rem auto 0;
+    color: rgba(221, 234, 242, 0.72);
+    font-size: 0.76rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.hero-dots {
+    position: absolute;
+    right: 0;
+    bottom: -2.65rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.42rem;
+}
+
+.hero-dot {
+    width: 2.1rem;
+    height: 0.22rem;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.3);
+    transition:
+        width 0.24s ease,
+        background 0.24s ease,
+        box-shadow 0.24s ease;
+}
+
+.hero-dot.is-active {
+    width: 3rem;
+    background: var(--color-warm);
+    box-shadow: 0 0 18px rgba(225, 77, 87, 0.58);
+}
+
+/* COMPACT MARQUEE */
+
+.home-marquee {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(94, 214, 240, 0.14);
+    background:
+        linear-gradient(90deg, rgba(3, 8, 18, 0.94), rgba(10, 33, 54, 0.72), rgba(3, 8, 18, 0.94));
+}
+
+.home-marquee::before,
+.home-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 7rem;
+    pointer-events: none;
+}
+
+.home-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-bg-deep), transparent);
+}
+
+.home-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-bg-deep), transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    will-change: transform;
+    animation: marqueeMove 34s linear infinite;
+}
+
+.home-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.62rem;
+    min-height: 3.75rem;
+    padding-inline: 1.45rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 750;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.marquee-item .ui-icon {
+    color: var(--color-cold);
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.marquee-item:hover {
+    color: var(--color-heading);
+}
+
+.marquee-item:hover .ui-icon {
+    color: var(--color-warm);
+    transform: rotate(-6deg) scale(1.06);
+}
+
+@keyframes marqueeMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* SERVICES WITH THERMOMETER */
+
+.home-services {
+    overflow: hidden;
+}
+
+.services-intro {
+    margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.services-thermo-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(86px, 110px) minmax(0, 1fr);
+    gap: clamp(0.85rem, 1.8vw, 1.35rem);
+    align-items: stretch;
+    max-width: 1120px;
+    margin-inline: auto;
+}
+
+.service-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.85rem, 1.5vw, 1.05rem);
+}
+
+.services-thermo-layout .service-card {
+    min-height: 260px;
+}
+
+.thermometer-stage {
+    position: relative;
+    display: grid;
+    min-height: 260px;
+    place-items: center;
+    align-self: stretch;
+}
+
+.thermometer-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(225, 77, 87, 0.18), transparent 40%),
+        radial-gradient(circle at 50% 82%, rgba(94, 214, 240, 0.18), transparent 42%);
+    filter: blur(8px);
+}
+
+.thermometer {
+    position: relative;
+    display: grid;
+    width: 82px;
+    min-height: 260px;
+    place-items: center;
+    padding: 0.85rem 0.7rem;
+    border: 1px solid rgba(94, 214, 240, 0.38);
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, rgba(225, 77, 87, 0.12), rgba(94, 214, 240, 0.1)),
+        rgba(3, 8, 18, 0.72);
+    box-shadow:
+        0 0 32px rgba(94, 214, 240, 0.22),
+        inset 0 0 24px rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(14px);
+}
+
+.thermometer-temp-top,
+.thermometer-temp-bottom {
+    position: absolute;
+    left: 50%;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 850;
+    line-height: 1;
+    transform: translateX(-50%);
+}
+
+.thermometer-temp-top {
+    top: 0.8rem;
+    color: var(--color-warm);
+}
+
+.thermometer-temp-bottom {
+    bottom: 0.8rem;
+    color: var(--color-cold);
+}
+
+.thermometer-track {
+    position: relative;
+    width: 14px;
+    height: 156px;
+    margin-block: 2.15rem;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, rgba(225, 77, 87, 0.15), rgba(94, 214, 240, 0.16));
+    box-shadow:
+        inset 0 0 10px rgba(255, 255, 255, 0.14),
+        0 0 16px rgba(94, 214, 240, 0.2);
+}
+
+.thermometer-fill {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    height: 38%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--color-warm), var(--color-cold));
+    box-shadow:
+        0 0 16px rgba(94, 214, 240, 0.62),
+        0 0 16px rgba(225, 77, 87, 0.42);
+    animation: thermometerRise 4.8s ease-in-out infinite;
+}
+
+.thermometer-bulb {
+    position: absolute;
+    bottom: 42px;
+    left: 50%;
+    width: 31px;
+    height: 31px;
+    border: 3px solid rgba(255, 255, 255, 0.78);
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.9), transparent 18%),
+        linear-gradient(180deg, var(--color-warm), var(--color-cold));
+    box-shadow:
+        0 0 22px rgba(225, 77, 87, 0.42),
+        0 0 24px rgba(94, 214, 240, 0.34);
+    transform: translateX(-50%);
+    animation: bulbPulse 4.8s ease-in-out infinite;
+}
+
+.thermometer-marks {
+    position: absolute;
+    inset: 3.3rem 0;
+    pointer-events: none;
+}
+
+.thermometer-marks span {
+    position: absolute;
+    left: 15px;
+    width: 12px;
+    height: 1px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.38);
+}
+
+.thermometer-marks span:nth-child(even) {
+    right: 15px;
+    left: auto;
+}
+
+.thermometer-marks span:nth-child(1) {
+    top: 14%;
+}
+
+.thermometer-marks span:nth-child(2) {
+    top: 28%;
+}
+
+.thermometer-marks span:nth-child(3) {
+    top: 42%;
+}
+
+.thermometer-marks span:nth-child(4) {
+    top: 56%;
+}
+
+.thermometer-marks span:nth-child(5) {
+    top: 70%;
+}
+
+.thermometer-marks span:nth-child(6) {
+    top: 84%;
+}
+
+@keyframes thermometerRise {
+
+    0%,
+    100% {
+        height: 30%;
+        background: linear-gradient(180deg, var(--color-fresh), var(--color-cold));
+    }
+
+    50% {
+        height: 78%;
+        background: linear-gradient(180deg, var(--color-warm), var(--color-warm-soft), var(--color-cold));
+    }
+}
+
+@keyframes bulbPulse {
+
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        filter: hue-rotate(-22deg);
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+/* ABOUT */
+
+.home-about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.4rem, 4vw, 3.2rem);
+    align-items: center;
+}
+
+.home-about-copy {
+    max-width: 540px;
+}
+
+.home-about-copy .section-kicker {
+    justify-content: flex-start;
+}
+
+.home-about-media {
+    min-height: clamp(310px, 38vw, 470px);
+}
+
+.home-about-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 36%, rgba(3, 8, 18, 0.62)),
+        radial-gradient(circle at 82% 16%, rgba(94, 214, 240, 0.18), transparent 14rem);
+}
+
+.about-sticker {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.68rem 0.8rem;
+    border: 1px solid rgba(94, 214, 240, 0.24);
+    border-radius: 999px;
+    color: var(--color-heading);
+    background: rgba(3, 8, 18, 0.72);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.about-sticker .ui-icon {
+    color: var(--color-fresh);
+}
+
+.about-sticker-one {
+    top: 1rem;
+    left: 1rem;
+}
+
+.about-sticker-two {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+/* METRICS */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.85rem, 1.8vw, 1.1rem);
+}
+
+.metric-card {
+    position: relative;
+    isolation: isolate;
+    min-height: 142px;
+    overflow: hidden;
+    padding: 1.1rem;
+    border: 1px solid rgba(94, 214, 240, 0.18);
+    border-radius: var(--radius-md);
+    background:
+        radial-gradient(circle at 0% 0%, rgba(94, 214, 240, 0.14), transparent 13rem),
+        linear-gradient(180deg, rgba(16, 43, 66, 0.72), rgba(6, 16, 29, 0.9));
+    box-shadow: var(--shadow-card);
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(94, 214, 240, 0.46);
+    box-shadow:
+        var(--shadow-card),
+        0 0 28px rgba(94, 214, 240, 0.14);
+}
+
+.metric-icon {
+    display: grid;
+    width: 2.65rem;
+    height: 2.65rem;
+    margin-bottom: 0.85rem;
+    place-items: center;
+    color: var(--color-cold);
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 0.9rem;
+    background: rgba(94, 214, 240, 0.08);
+}
+
+.metric-card strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.metric-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+    line-height: 1.35;
+}
+
+/* PROCESS */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.85rem, 1.8vw, 1.1rem);
+}
+
+.process-step {
+    position: relative;
+    min-height: 245px;
+    padding: 1.1rem;
+    border: 1px solid rgba(94, 214, 240, 0.16);
+    border-radius: var(--radius-md);
+    background:
+        radial-gradient(circle at 16% 0%, rgba(94, 214, 240, 0.12), transparent 13rem),
+        rgba(255, 255, 255, 0.034);
+    box-shadow: var(--shadow-card);
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-4px);
+    border-color: rgba(110, 243, 214, 0.4);
+    background:
+        radial-gradient(circle at 16% 0%, rgba(110, 243, 214, 0.13), transparent 13rem),
+        rgba(255, 255, 255, 0.045);
+}
+
+.process-step-number {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: rgba(94, 214, 240, 0.52);
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.process-step-icon {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    place-items: center;
+    color: var(--color-cold);
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 0.95rem;
+    background: rgba(94, 214, 240, 0.08);
+    transition:
+        color 0.22s ease,
+        border-color 0.22s ease,
+        transform 0.22s ease;
+}
+
+.process-step:hover .process-step-icon {
+    color: var(--color-warm);
+    border-color: rgba(225, 77, 87, 0.42);
+    transform: rotate(-5deg) scale(1.04);
+}
+
+.process-step h3 {
+    margin-bottom: 0.55rem;
+}
+
+.process-step p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    line-height: 1.48;
+}
+
+/* BENEFIT PHOTO STRIP */
+
+.benefit-photo-strip {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-block: 1px solid rgba(94, 214, 240, 0.16);
+    background: var(--color-bg-deep);
+}
+
+.benefit-photo-bg,
+.benefit-photo-bg img {
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    width: 100%;
+    height: 100%;
+}
+
+.benefit-photo-bg img {
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.07);
+}
+
+.benefit-photo-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 28%, rgba(94, 214, 240, 0.18), transparent 22rem),
+        radial-gradient(circle at 86% 38%, rgba(225, 77, 87, 0.16), transparent 22rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.92), rgba(3, 8, 18, 0.62), rgba(3, 8, 18, 0.92));
+}
+
+.benefit-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: center;
+}
+
+.benefit-layout .section-header {
+    margin: 0;
+    text-align: left;
+}
+
+.benefit-layout .section-kicker {
+    justify-content: flex-start;
+}
+
+.benefit-layout .section-text {
+    margin-inline: 0;
+}
+
+.benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.benefit-card {
+    min-height: 170px;
+    padding: 1rem;
+    border: 1px solid rgba(94, 214, 240, 0.18);
+    border-radius: var(--radius-md);
+    background: rgba(3, 8, 18, 0.6);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-card);
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(94, 214, 240, 0.5);
+    background: rgba(10, 33, 54, 0.68);
+}
+
+.benefit-icon {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: 0.85rem;
+    place-items: center;
+    color: var(--color-fresh);
+    border: 1px solid rgba(110, 243, 214, 0.22);
+    border-radius: 0.88rem;
+    background: rgba(110, 243, 214, 0.08);
+    transition:
+        color 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    color: var(--color-warm);
+    border-color: rgba(225, 77, 87, 0.38);
+    background: rgba(225, 77, 87, 0.08);
+}
+
+.benefit-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.04rem;
+}
+
+.benefit-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+    line-height: 1.46;
+}
+
+/* TESTIMONIALS — INSIDE CONTAINER */
+
+.testimonials-section {
+    overflow: hidden;
+}
+
+.testimonial-container {
+    overflow: hidden;
+    width: min(100% - 2rem, var(--container));
+    margin-inline: auto;
+    padding: 0.25rem 0 0.4rem;
+}
+
+.testimonial-window {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+
+.testimonial-window::before,
+.testimonial-window::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 5rem;
+    pointer-events: none;
+}
+
+.testimonial-window::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-bg), transparent);
+}
+
+.testimonial-window::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-bg), transparent);
+}
+
+.testimonial-track {
+    display: flex;
+    width: max-content;
+    max-width: none;
+    gap: 0.9rem;
+    will-change: transform;
+    animation: testimonialMove 38s linear infinite;
+}
+
+.testimonial-window:hover .testimonial-track {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    flex: 0 0 310px;
+    min-height: 190px;
+    padding: 1.1rem;
+    border: 1px solid rgba(94, 214, 240, 0.16);
+    border-radius: var(--radius-md);
+    background:
+        radial-gradient(circle at 0% 0%, rgba(94, 214, 240, 0.12), transparent 13rem),
+        linear-gradient(180deg, rgba(16, 43, 66, 0.7), rgba(6, 16, 29, 0.94));
+    box-shadow: var(--shadow-card);
+}
+
+.testimonial-card p {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.testimonial-card footer {
+    display: grid;
+    gap: 0.12rem;
+    margin-top: auto;
+}
+
+.testimonial-card strong {
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+}
+
+.testimonial-card span {
+    color: var(--color-cold);
+    font-size: 0.8rem;
+    font-weight: 750;
+}
+
+@keyframes testimonialMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* CTA FORM */
+
+.home-cta-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+    gap: clamp(1.4rem, 4vw, 2.8rem);
+    align-items: center;
+}
+
+.cta-visual-panel {
+    min-height: 450px;
+}
+
+.cta-visual-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(94, 214, 240, 0.18), transparent 14rem),
+        linear-gradient(180deg, transparent, rgba(3, 8, 18, 0.66));
+}
+
+.cta-floating-card {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 3;
+    padding: 1rem;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 1rem;
+    background: rgba(3, 8, 18, 0.72);
+    backdrop-filter: blur(16px);
+}
+
+.cta-floating-card strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+}
+
+.cta-floating-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.84rem;
+}
+
+.home-form-card {
+    max-width: 500px;
+    margin-left: auto;
+}
+
+.home-form-card .section-kicker {
+    justify-content: flex-start;
+    margin-bottom: 0.55rem;
+}
+
+.home-form-card h2 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.72rem, 3.2vw, 2.55rem);
+}
+
+.home-form-card>p {
+    margin-bottom: 1.05rem;
+    color: var(--color-muted);
+}
+
+/* RESPONSIVE */
+
 @media (max-width: 1180px) {
-  .services-showcase { grid-template-columns: 1fr 160px 1fr; }
-  .services-intro { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: end; }
-  .about-home-grid { grid-template-columns: 1fr 1fr; }
-  .metrics-grid { grid-column: 1 / -1; grid-template-columns: repeat(4,1fr); }
+    .services-thermo-layout {
+        grid-template-columns: 1fr;
+        max-width: 920px;
+    }
+
+    .service-pair {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .thermometer-stage {
+        min-height: 112px;
+        order: 2;
+    }
+
+    .thermometer {
+        width: min(100%, 520px);
+        min-height: 96px;
+        padding: 0.75rem 4rem;
+        border-radius: 999px;
+    }
+
+    .thermometer-track {
+        width: 100%;
+        height: 14px;
+        margin: 0;
+    }
+
+    .thermometer-fill {
+        top: 2px;
+        right: auto;
+        bottom: 2px;
+        left: 2px;
+        width: 42%;
+        height: auto;
+        animation: thermometerWide 4.8s ease-in-out infinite;
+    }
+
+    .thermometer-bulb {
+        top: 50%;
+        right: 46px;
+        bottom: auto;
+        left: auto;
+        width: 30px;
+        height: 30px;
+        transform: translateY(-50%);
+    }
+
+    .thermometer-temp-top {
+        top: 50%;
+        right: 0.9rem;
+        left: auto;
+        transform: translateY(-50%);
+    }
+
+    .thermometer-temp-bottom {
+        top: 50%;
+        bottom: auto;
+        left: 0.9rem;
+        transform: translateY(-50%);
+    }
+
+    .thermometer-marks {
+        display: none;
+    }
+
+    @keyframes thermometerWide {
+
+        0%,
+        100% {
+            width: 30%;
+            background: linear-gradient(90deg, var(--color-cold), var(--color-fresh));
+        }
+
+        50% {
+            width: 76%;
+            background: linear-gradient(90deg, var(--color-cold), var(--color-warm-soft), var(--color-warm));
+        }
+    }
 }
-@media (max-width: 900px) {
-  .trust-grid, .process-flow, .benefit-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .services-showcase { grid-template-columns: 1fr; }
-  .thermometer-card { width: min(340px, 100%); height: 130px; border-radius: 28px; }
-  .thermo-tube { rotate: -90deg; height: 180px; }
-  .thermo-bulb { top: 50%; }
-  .temp-high { top: 18px; right: 32px; left: auto; transform: none; }
-  .temp-low { bottom: 18px; left: 32px; transform: none; }
-  .about-home-grid, .cta-form-grid { grid-template-columns: 1fr; }
-  .metrics-grid { grid-template-columns: repeat(2,1fr); }
+
+@media (max-width: 1023px) {
+    .home-hero {
+        min-height: clamp(520px, 74vh, 680px);
+    }
+
+    .home-about-grid,
+    .benefit-layout,
+    .home-cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-about-copy,
+    .home-form-card {
+        max-width: none;
+    }
+
+    .home-about-copy .section-kicker,
+    .benefit-layout .section-kicker,
+    .home-form-card .section-kicker {
+        justify-content: center;
+    }
+
+    .home-about-copy,
+    .benefit-layout .section-header,
+    .home-form-card {
+        text-align: center;
+    }
+
+    .benefit-layout .section-header {
+        margin-inline: auto;
+    }
+
+    .benefit-layout .section-text {
+        margin-inline: auto;
+    }
+
+    .metrics-grid,
+    .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-visual-panel {
+        min-height: 380px;
+    }
 }
-@media (max-width: 640px) {
-  .home-hero { min-height: 560px; }
-  .hero-actions { width: 100%; }
-  .hero-actions .btn { flex: 1 1 100%; }
-  .trust-grid, .service-card-grid, .process-flow, .benefit-grid, .metrics-grid { grid-template-columns: 1fr; }
-  .trust-item { border-right: 0; border-bottom: 1px solid rgba(94,214,240,.12); }
-  .services-intro { grid-template-columns: 1fr; padding-right: 0; }
-  .service-card { min-height: 220px; }
-  .cta-visual { min-height: 360px; }
-  .cta-copy { left: 1rem; right: 1rem; bottom: 1.5rem; }
+
+@media (max-width: 767px) {
+    .home-hero {
+        min-height: 520px;
+        padding-block: calc(var(--header-height) + 2.8rem) 3.6rem;
+    }
+
+    .hero-content h1 {
+        max-width: 96%;
+    }
+
+    .hero-text {
+        font-size: 0.98rem;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: min(100%, 350px);
+        margin-inline: auto;
+    }
+
+    .hero-actions .btn {
+        min-width: 0;
+    }
+
+    .hero-note {
+        display: none;
+    }
+
+    .hero-dots {
+        bottom: -2.2rem;
+    }
+
+    .hero-dot {
+        width: 1.55rem;
+    }
+
+    .hero-dot.is-active {
+        width: 2.3rem;
+    }
+
+    .home-marquee::before,
+    .home-marquee::after,
+    .testimonial-window::before,
+    .testimonial-window::after {
+        width: 3.2rem;
+    }
+
+    .marquee-item {
+        min-height: 3.35rem;
+        padding-inline: 1rem;
+        font-size: 0.82rem;
+    }
+
+    .service-pair,
+    .benefit-cards,
+    .metrics-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-thermo-layout .service-card {
+        min-height: 245px;
+    }
+
+    .thermometer-stage {
+        min-height: 96px;
+    }
+
+    .thermometer {
+        width: 100%;
+        min-height: 88px;
+        padding-inline: 3.4rem;
+    }
+
+    .thermometer-bulb {
+        right: 39px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .thermometer-temp-top,
+    .thermometer-temp-bottom {
+        font-size: 0.9rem;
+    }
+
+    .home-about-media {
+        min-height: 330px;
+    }
+
+    .metric-card,
+    .process-step,
+    .benefit-card {
+        min-height: auto;
+    }
+
+    .testimonial-container {
+        width: min(100% - 1.2rem, var(--container));
+    }
+
+    .testimonial-track {
+        gap: 0.75rem;
+    }
+
+    .testimonial-card {
+        flex-basis: min(300px, calc(100vw - 2.2rem));
+        min-height: 200px;
+    }
+
+    .cta-visual-panel {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-hero {
+        min-height: 500px;
+    }
+
+    .home-hero::before,
+    .hero-airflow {
+        display: none;
+    }
+
+    .services-intro {
+        margin-bottom: 1.45rem;
+    }
+
+    .thermometer {
+        min-height: 82px;
+        padding-inline: 3.1rem;
+    }
+
+    .thermometer-temp-top {
+        right: 0.68rem;
+    }
+
+    .thermometer-temp-bottom {
+        left: 0.68rem;
+    }
+
+    .thermometer-bulb {
+        right: 35px;
+    }
+
+    .about-sticker {
+        font-size: 0.72rem;
+    }
+
+    .about-sticker-two {
+        right: auto;
+        left: 1rem;
+    }
+
+    .cta-floating-card {
+        padding: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .marquee-track,
+    .testimonial-track,
+    .thermometer-fill,
+    .thermometer-bulb,
+    .hero-airflow span {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .hero-slide {
+        transform: none;
+    }
+
+    .thermometer-fill {
+        height: 55%;
+    }
 }

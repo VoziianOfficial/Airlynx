@@ -1,202 +1,368 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HVAC provider matching platform.">
-  <title>HVAC Provider Matching</title>
-  <link rel="icon" type="image/svg+xml" href="./assets/icons/logo-thermometer.svg">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/config.js" defer></script>
-  <script src="./js/main.js" defer></script>
-  <script src="./js/home.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Provider Matching Platform</title>
+    <meta name="description"
+        content="Compare local HVAC provider options for cooling, heating, ductwork, ventilation, and indoor air quality categories.">
+
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+    <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body data-page="home">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <div data-site-header></div>
-  <div data-mobile-menu></div>
-  <main id="main-content">
 
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="hero-slides" data-hero-slides></div>
-      <div class="hero-content">
-        <p class="kicker" data-hero-kicker></p>
-        <h1 id="home-title" class="hero-title" data-hero-title></h1>
-        <p class="hero-text" data-hero-text></p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="services.html" data-hero-primary></a>
-          <a class="btn btn-ghost" href="about.html" data-hero-secondary></a>
-        </div>
-        <p class="hero-note" data-hero-note></p>
-      </div>
-      <div class="hero-dots" data-hero-dots aria-label="Hero slide controls"></div>
-    </section>
+<body class="home-page">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <section class="trust-strip" aria-label="Platform highlights">
-      <div class="container-wide trust-grid">
-        <div class="trust-item"><span class="trust-icon">◇</span><span><strong>Free to use</strong><span>No hidden platform fee</span></span></div>
-        <div class="trust-item"><span class="trust-icon">☑</span><span><strong>Independent providers</strong><span>Compare local options</span></span></div>
-        <div class="trust-item"><span class="trust-icon">◌</span><span><strong>Quick request flow</strong><span>Organize details fast</span></span></div>
-        <div class="trust-item"><span class="trust-icon">$</span><span><strong>Quote clarity</strong><span>Compare scope and terms</span></span></div>
-      </div>
-    </section>
+    <div data-site-header></div>
 
-    <section class="marquee-section" aria-label="HVAC matching benefits">
-      <div class="marquee-track">
-        <span class="marquee-item">⚡ Emergency availability questions</span>
-        <span class="marquee-item">❄ Cooling provider comparison</span>
-        <span class="marquee-item">🔥 Heating project clarity</span>
-        <span class="marquee-item">🌬 Indoor air quality options</span>
-        <span class="marquee-item">⌁ Ductwork and ventilation</span>
-        <span class="marquee-item">🛡 Verify license and insurance</span>
-        <span class="marquee-item">📋 Organize quote details</span>
-        <span class="marquee-item">⚡ Emergency availability questions</span>
-        <span class="marquee-item">❄ Cooling provider comparison</span>
-        <span class="marquee-item">🔥 Heating project clarity</span>
-        <span class="marquee-item">🌬 Indoor air quality options</span>
-        <span class="marquee-item">⌁ Ductwork and ventilation</span>
-        <span class="marquee-item">🛡 Verify license and insurance</span>
-        <span class="marquee-item">📋 Organize quote details</span>
-      </div>
-    </section>
+    <main id="main">
+        <!-- HERO: 6 background slideshow photos, centered content -->
+        <section class="home-hero" data-home-hero aria-label="HVAC provider matching introduction">
+            <div class="hero-slides" data-hero-slides aria-hidden="true"></div>
 
-    <section class="section services-feature" aria-labelledby="services-title">
-      <div class="container-wide services-showcase">
-        <div class="services-intro reveal">
-          <div>
-            <p class="kicker">Our services</p>
-            <h2 id="services-title">All your HVAC needs <span class="accent">covered</span></h2>
-            <p>Choose one of four clean categories, then compare independent provider options based on fit, availability, and written quote details.</p>
-          </div>
-          <a class="btn btn-ghost" href="services.html">View all services</a>
-        </div>
-        <div class="service-card-grid" data-service-cards data-slice="0:2"></div>
-        <div class="thermometer-wrap reveal" aria-label="Animated temperature visual">
-          <div class="thermometer-card">
-            <div class="temp-high">78°F</div>
-            <div class="thermo-marks"></div>
-            <div class="thermo-tube"><div class="thermo-fill"></div></div>
-            <div class="thermo-bulb"></div>
-            <div class="temp-low">28°F</div>
-          </div>
-        </div>
-        <div class="service-card-grid" data-service-cards data-slice="2:4"></div>
-      </div>
-    </section>
+            <div class="hero-airflow" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-    <section class="section about-home" aria-labelledby="about-title">
-      <div class="container-wide about-home-grid">
-        <div class="section-head reveal">
-          <p class="kicker">About <span data-company-name></span></p>
-          <h2 id="about-title">We make HVAC comparison feel <span class="accent">simple</span>.</h2>
-          <p><span data-company-name></span> is a provider matching platform. It helps homeowners organize request details and compare independent local options without positioning itself as a direct HVAC company.</p>
-          <ul class="check-list">
-            <li>We do not install, repair, or dispatch technicians.</li>
-            <li>You can compare categories, provider fit, and quote details.</li>
-            <li>You should verify licenses, insurance, and warranties before hiring.</li>
-          </ul>
-          <a class="btn btn-warm" href="about.html">Learn more</a>
-        </div>
-        <div class="about-photo reveal">
-          <span class="float-badge one">Provider matching</span>
-          <span class="float-badge two">HVAC clarity</span>
-        </div>
-        <div class="metrics-grid" data-metrics></div>
-      </div>
-    </section>
+            <div class="container">
+                <div class="hero-content" data-hero-content></div>
+                <div class="hero-dots" data-hero-dots aria-label="Hero slideshow controls"></div>
+            </div>
+        </section>
 
-    <section class="section process-section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head center reveal">
-          <p class="kicker">How it works</p>
-          <h2 id="process-title">A cleaner way to compare HVAC providers.</h2>
-          <p>Short, practical steps designed for homeowners who want organized information before contacting independent providers.</p>
-        </div>
-        <div class="process-flow">
-          <article class="process-step reveal" data-step="01"><div class="step-icon">📍</div><h3>Share location</h3><p>Start with ZIP code and category so provider availability can be framed correctly.</p></article>
-          <article class="process-step reveal" data-step="02"><div class="step-icon">📋</div><h3>Organize details</h3><p>Prepare system notes, timing, concerns, and questions before quote conversations.</p></article>
-          <article class="process-step reveal" data-step="03"><div class="step-icon">⚖</div><h3>Compare fit</h3><p>Review provider scope, communication, warranty terms, and written estimate clarity.</p></article>
-          <article class="process-step reveal" data-step="04"><div class="step-icon">🛡</div><h3>Verify before hiring</h3><p>Homeowners should confirm licensing, insurance, permits, and all final quote details.</p></article>
-        </div>
-      </div>
-    </section>
+        <!-- MARQUEE -->
+        <section class="home-marquee" aria-label="HVAC provider matching benefits">
+            <div class="marquee-track" data-marquee-items></div>
+        </section>
 
-    <section class="section benefit-strip" aria-labelledby="benefit-title">
-      <div class="container-wide benefit-grid">
-        <div class="section-head reveal"><p class="kicker">Real comparison clarity</p><h2 id="benefit-title">Built around provider fit, not pressure.</h2></div>
-        <article class="benefit-card reveal"><strong>Compare categories</strong><p>Separate cooling, heating, ductwork, and indoor air quality requests.</p></article>
-        <article class="benefit-card reveal"><strong>Ask better questions</strong><p>Prepare quote, warranty, timing, and provider verification questions.</p></article>
-        <article class="benefit-card reveal"><strong>Stay aggregator-safe</strong><p>The platform explains its role clearly and does not claim to perform HVAC work.</p></article>
-      </div>
-    </section>
-
-    <section class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="container">
-        <div class="section-head center reveal"><p class="kicker">Homeowner feedback</p><h2 id="testimonials-title">Comparison support that feels calm and useful.</h2></div>
-      </div>
-      <div class="testimonial-track" data-testimonials></div>
-    </section>
-
-    <section class="section cta-form-section" aria-labelledby="cta-title">
-      <div class="container-wide cta-form-grid">
-        <div class="cta-visual reveal">
-          <div class="cta-copy"><p class="kicker">Start here</p><h2 id="cta-title">Prepare your HVAC request in minutes.</h2><p>Keep the form compact, then compare local provider options with clearer project details.</p></div>
-        </div>
-
-          <div class="form-card">
-            <p class="kicker">Request details</p>
-            <h2>Small matching request form</h2>
-            <p class="form-note">No backend is connected in this static demo, so submit shows a clean success state.</p>
-            <form class="match-form" data-match-form novalidate>
-              <div class="form-grid">
-                <div class="form-field">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" autocomplete="name" data-required data-error="Enter your name.">
-                  <span class="field-error" aria-live="polite"></span>
+        <!-- SERVICES: exactly 2 cards + thermometer + 2 cards -->
+        <section class="home-services section-compact section-deep" aria-labelledby="home-services-title">
+            <div class="container-wide">
+                <div class="section-header services-intro">
+                    <p class="section-kicker">HVAC categories</p>
+                    <h2 class="section-title" id="home-services-title">
+                        Compare four HVAC provider categories with one clean visual flow.
+                    </h2>
+                    <p class="section-text">
+                        Cooling, heating, ductwork, and indoor air quality options are separated clearly so homeowners
+                        can compare provider fit without confusing the platform with a direct HVAC company.
+                    </p>
                 </div>
-                <div class="form-field">
-                  <label for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" data-required data-error="Enter your phone number.">
-                  <span class="field-error" aria-live="polite"></span>
-                </div>
-                <div class="form-field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" data-required data-error="Enter your email.">
-                  <span class="field-error" aria-live="polite"></span>
-                </div>
-                <div class="form-field">
-                  <label for="zip">ZIP code</label>
-                  <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" data-required data-error="Enter a ZIP code.">
-                  <span class="field-error" aria-live="polite"></span>
-                </div>
-                <div class="form-field full">
-                  <label for="category">Service category</label>
-                  <select id="category" name="category" data-service-select data-required data-error="Select a category."></select>
-                  <span class="field-error" aria-live="polite"></span>
-                </div>
-                <div class="form-field full">
-                  <label for="message">Short message</label>
-                  <textarea id="message" name="message" placeholder="Briefly describe the project, system type, or questions."></textarea>
-                  <span class="field-error" aria-live="polite"></span>
-                </div>
-              </div>
-              <label class="check-field">
-                <input type="checkbox" data-required data-error="Please accept the policy agreement.">
-                <span class="custom-check" aria-hidden="true"></span>
-                <span data-form-agreement></span>
-                <span class="field-error" aria-live="polite"></span>
-              </label>
-              <button class="btn btn-primary" type="submit">Start matching request</button>
-              <div class="form-message" data-form-message tabindex="-1" aria-live="polite"></div>
-              <p class="form-note" data-legal-notice></p>
-            </form>
-          </div>
-      </div>
-    </section>
-    <div data-faq-schema></div>
 
-  </main>
-  <div data-site-footer></div>
-  <div data-policy-banner></div>
+                <div class="services-thermo-layout">
+                    <div class="service-pair" data-service-cards="left"></div>
+
+                    <div class="thermometer-stage" aria-label="Animated temperature visual">
+                        <div class="thermometer" data-thermometer>
+                            <span class="thermometer-temp-top" data-thermometer-readout>72°F</span>
+
+                            <div class="thermometer-track" aria-hidden="true">
+                                <span class="thermometer-fill"></span>
+                            </div>
+
+                            <span class="thermometer-bulb" aria-hidden="true"></span>
+
+                            <div class="thermometer-marks" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <span class="thermometer-temp-bottom">42°F</span>
+                        </div>
+                    </div>
+
+                    <div class="service-pair" data-service-cards="right"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="home-about section section-surface" aria-labelledby="home-about-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-kicker">Independent matching model</p>
+                    <h2 class="section-title" id="home-about-title">
+                        A premium HVAC comparison platform, not a contractor website.
+                    </h2>
+                    <p class="section-text">
+                        <span data-company-name></span> helps homeowners organize project details and compare
+                        independent local provider options. The platform does not install, repair, inspect, or send
+                        technicians.
+                    </p>
+                </div>
+
+                <div class="home-about-grid">
+                    <div class="home-about-copy">
+                        <ul class="feature-list">
+                            <li>
+                                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2.9 19.2 5v5.95c0 4.58-2.95 8.42-7.2 10.15-4.25-1.73-7.2-5.57-7.2-10.15V5L12 2.9Z"
+                                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                    <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor"
+                                        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Compare provider fit, quote scope, credentials, warranties, and
+                                    availability.</span>
+                            </li>
+
+                            <li>
+                                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z"
+                                        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                    <path
+                                        d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
+                                        fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                    <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor"
+                                        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Prepare helpful request details before discussing quotes with independent
+                                    providers.</span>
+                            </li>
+
+                            <li>
+                                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M4.2 15.8a8.1 8.1 0 1 1 15.6 0" fill="none" stroke="currentColor"
+                                        stroke-width="1.85" stroke-linecap="round" />
+                                    <path d="M12 13.7l4.05-4.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                                        stroke-linecap="round" />
+                                    <path d="M7.2 15.8h9.6M6.1 12.1h1.5M16.4 12.1h1.5M12 7.3v1.5" fill="none"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                                    <path d="M12 16.4a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" fill="currentColor" />
+                                </svg>
+                                <span>Keep license, insurance, quote scope, timelines, and warranty questions
+                                    visible.</span>
+                            </li>
+                        </ul>
+
+                        <a class="btn btn-secondary" href="about.html">How The Platform Works</a>
+                    </div>
+
+                    <div class="about-media home-about-media">
+                        <img src="./assets/images/about-hvac.jpg" alt="" loading="lazy">
+
+                        <span class="about-sticker about-sticker-one">
+                            <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2.8v18.4M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4M4 12h16" fill="none"
+                                    stroke="currentColor" stroke-width="1.55" stroke-linecap="round" />
+                            </svg>
+                            Cooling & heating categories
+                        </span>
+
+                        <span class="about-sticker about-sticker-two">
+                            <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M3.2 7.4h10.7c1.4 0 2.4-.78 2.4-1.95 0-1.08-.82-1.85-1.9-1.85-.88 0-1.52.43-1.92 1.15M3.2 12h15.3c1.72 0 2.9 1.02 2.9 2.45 0 1.38-1.05 2.35-2.5 2.35-1.12 0-1.95-.55-2.42-1.45M3.2 16.6h8.1c1.27 0 2.15.75 2.15 1.82 0 1.02-.78 1.78-1.82 1.78-.82 0-1.43-.4-1.8-1.02"
+                                    fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                            </svg>
+                            Provider matching only
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METRICS -->
+        <section class="metrics-section section-compact" aria-labelledby="metrics-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-kicker">Platform signals</p>
+                    <h2 class="section-title" id="metrics-title">
+                        Structured around comparison, not fake service promises.
+                    </h2>
+                    <p class="section-text">
+                        These signals describe platform organization and category clarity, not guaranteed results or
+                        direct HVAC work.
+                    </p>
+                </div>
+
+                <div class="metrics-grid" data-metrics></div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="process-section section section-surface" aria-labelledby="process-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-kicker">How it works</p>
+                    <h2 class="section-title" id="process-title">
+                        A cleaner path from HVAC concern to provider comparison.
+                    </h2>
+                    <p class="section-text">
+                        Start with the category, prepare the details, compare provider fit, and verify the important
+                        information before hiring.
+                    </p>
+                </div>
+
+                <div class="process-grid" data-process-steps></div>
+            </div>
+        </section>
+
+        <!-- PHOTO BENEFITS -->
+        <section class="benefit-photo-strip section" aria-labelledby="benefits-title">
+            <div class="benefit-photo-bg" aria-hidden="true">
+                <img src="./assets/images/hvac-benefits-bg.jpg" alt="" loading="lazy">
+            </div>
+
+            <div class="container benefit-layout">
+                <div class="section-header">
+                    <p class="section-kicker">Comparison-first benefits</p>
+                    <h2 class="section-title" id="benefits-title">
+                        HVAC decisions feel easier when the request is structured.
+                    </h2>
+                    <p class="section-text">
+                        The platform separates categories, provider questions, quote factors, and verification reminders
+                        so homeowners can compare options with more clarity.
+                    </p>
+                    <a class="btn btn-secondary" href="services.html">View Service Categories</a>
+                </div>
+
+                <div class="benefit-cards" data-benefits></div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS: contained swiper -->
+        <section class="testimonials-section section-compact" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-kicker">Homeowner feedback</p>
+                    <h2 class="section-title" id="testimonials-title">
+                        Realistic, comparison-focused experiences.
+                    </h2>
+                    <p class="section-text">
+                        Testimonials describe platform clarity and request organization. They do not claim that direct
+                        HVAC work was performed by the platform.
+                    </p>
+                </div>
+            </div>
+
+            <div class="testimonial-container">
+                <div class="testimonial-window" aria-label="Testimonials carousel">
+                    <div class="testimonial-track" data-testimonials></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA + FORM -->
+        <section class="home-cta section section-deep" aria-labelledby="home-cta-title">
+            <div class="container home-cta-grid">
+                <div class="cta-media cta-visual-panel">
+                    <img src="./assets/images/cta-hvac.jpg" alt="" loading="lazy">
+
+                    <div class="cta-floating-card">
+                        <strong>Compare before choosing.</strong>
+                        <p>
+                            Provider availability, quote policies, licensing, insurance, warranties, and timelines
+                            should always be confirmed directly with the independent provider.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-card home-form-card">
+                    <p class="section-kicker">Quick request</p>
+                    <h2 id="home-cta-title">Start your HVAC provider matching request.</h2>
+                    <p>
+                        Share a few details and use <span data-company-name></span> to compare independent local HVAC
+                        provider options.
+                    </p>
+
+                    <form class="request-form" data-request-form>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="home-name">Name</label>
+                                <input id="home-name" name="name" type="text" autocomplete="name"
+                                    placeholder="Your name" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="home-phone">Phone</label>
+                                <input id="home-phone" name="phone" type="tel" autocomplete="tel"
+                                    placeholder="Phone number" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="home-email">Email</label>
+                                <input id="home-email" name="email" type="email" autocomplete="email"
+                                    placeholder="Email address" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="home-zip">ZIP code</label>
+                                <input id="home-zip" name="zip" type="text" inputmode="numeric"
+                                    autocomplete="postal-code" placeholder="ZIP code" minlength="5" required>
+                            </div>
+
+                            <div class="form-field full">
+                                <label for="home-category">Service category</label>
+                                <select id="home-category" name="service-category" data-service-select required>
+                                    <option value="">Choose a category</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field full">
+                                <label for="home-message">Short message</label>
+                                <textarea id="home-message" name="message"
+                                    placeholder="Briefly describe the HVAC category, timing, or comfort concern."
+                                    required></textarea>
+                            </div>
+
+                            <div class="checkbox-field">
+                                <label for="home-policy">
+                                    <input id="home-policy" name="policy" type="checkbox" required>
+                                    <span class="checkbox-custom" aria-hidden="true"></span>
+                                    <span>I agree to the Privacy Policy, Cookie Policy, and Terms of Service.</span>
+                                </label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-primary" type="submit">Request Provider Options</button>
+                            </div>
+                        </div>
+
+                        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+                        <p class="form-note" data-legal-notice></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section section-surface" aria-labelledby="home-faq-title">
+            <div class="container split-grid">
+                <div class="section-header">
+                    <p class="section-kicker">FAQ</p>
+                    <h2 class="section-title" id="home-faq-title">
+                        Common questions before comparing HVAC provider options.
+                    </h2>
+                    <p class="section-text">
+                        The model stays clear: independent provider comparison, homeowner verification, and no direct
+                        HVAC services performed by the platform.
+                    </p>
+                </div>
+
+                <div class="faq-list" data-faq-list></div>
+            </div>
+
+            <script data-faq-schema type="application/ld+json"></script>
+        </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/home.js"></script>
 </body>
+
 </html>

@@ -1,62 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HVAC provider matching platform.">
-  <title>HVAC Provider Matching</title>
-  <link rel="icon" type="image/svg+xml" href="./assets/icons/logo-thermometer.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooling Provider Matching</title>
+  <meta name="description" content="Compare independent local cooling provider options for AC-related quote requests.">
+
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/config.js" defer></script>
-  <script src="./js/main.js" defer></script>
-  <script src="./js/service-page.js" defer></script>
 </head>
-<body data-page="service" data-service-id="cooling">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<body class="service-detail-page" data-service-id="cooling">
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div data-site-header></div>
-  <div data-mobile-menu></div>
-  <main id="main-content">
 
-    <section class="page-hero" data-page-hero aria-labelledby="page-title">
-      <div class="page-hero-content">
-        <p class="kicker" data-service-kicker></p>
-        <h1 id="page-title" data-service-title></h1>
-        <p data-service-summary></p>
+  <main id="main">
+    <!-- SERVICE HERO -->
+    <section class="page-hero" aria-labelledby="service-hero-title">
+      <div class="page-hero-media" aria-hidden="true">
+        <img src="./assets/images/cooling-hero.jpg" alt="" data-service-hero-image>
       </div>
-    </section>
-    <section class="section">
-      <div class="container-wide service-page-grid">
-        <div class="service-copy reveal">
-          <p class="kicker">Category overview</p>
-          <h2>What this category helps homeowners compare.</h2>
-          <p data-service-intro></p>
-          <h2>Provider evaluation factors</h2>
-          <ul class="factor-list" data-service-factors></ul>
-          <h2>Details to prepare before requesting quotes</h2>
-          <ul class="prepare-list" data-service-prepare></ul>
+
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="section-kicker">Cooling provider matching</p>
+          <h1 id="service-hero-title" data-service-page-title>
+            Compare local cooling provider options.
+          </h1>
+          <p class="section-text" data-service-page-intro>
+            Compare independent local cooling provider options for AC-related project requests.
+          </p>
         </div>
-        <aside class="service-sidebar reveal">
-          <div class="sidebar-card"><h3>Aggregator-safe reminder</h3><p><span data-company-name></span> does not perform HVAC work directly. Independent providers determine availability, scope, price, and warranty terms.</p></div>
-          <div class="sidebar-card"><h3>Before choosing</h3><p>Verify license, insurance, quote scope, project timing, permits where relevant, and warranty details.</p></div>
-          <a class="btn btn-primary" href="contact.html">Start request</a>
-        </aside>
       </div>
     </section>
-    <section class="section service-cta">
-      <div class="container">
-        <div class="section-head center reveal"><p class="kicker">Next step</p><h2>Prepare your request, then compare provider options.</h2><p data-legal-notice></p><a class="btn btn-warm" href="contact.html">Use compact form</a></div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="section-head center reveal"><p class="kicker">FAQ</p><h2>Common questions</h2></div>
-        <div class="faq-list" data-faq-list></div>
-      </div>
-    </section>
-    <div data-faq-schema></div>
 
+    <!-- INTRO -->
+    <section class="service-intro section section-deep" aria-labelledby="service-intro-title">
+      <div class="container service-intro-grid">
+        <div class="service-intro-copy">
+          <p class="section-kicker" data-service-short-title>Cooling</p>
+          <h2 class="section-title" id="service-intro-title">
+            Organize cooling details before comparing provider quotes.
+          </h2>
+          <p class="section-text" data-service-summary>
+            Compare independent local provider options for AC replacement, cooling system requests, and quote
+            discussions.
+          </p>
+          <p>
+            <span data-company-name></span> is not an HVAC contractor and does not install or repair cooling systems.
+            The platform helps homeowners prepare useful project details and compare independent local provider options.
+          </p>
+
+          <div class="service-intro-actions">
+            <a class="btn btn-primary" href="contact.html">Start Cooling Request</a>
+            <a class="btn btn-secondary" href="services.html">View All Services</a>
+          </div>
+        </div>
+
+        <div class="service-intro-panel image-panel">
+          <img src="./assets/images/cooling-card.jpg" alt="" loading="lazy">
+
+          <div class="service-intro-badge service-intro-badge-top">
+            <strong>Cooling category</strong>
+            <span>AC requests, comfort concerns, quote prep</span>
+          </div>
+
+          <div class="service-intro-badge service-intro-badge-bottom">
+            <strong>Compare only</strong>
+            <span>No direct HVAC work performed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTORS -->
+    <section class="service-factors section section-surface" aria-labelledby="service-factors-title">
+      <div class="container service-factors-grid">
+        <div class="service-factors-copy">
+          <p class="section-kicker">Provider evaluation</p>
+          <h2 class="section-title" id="service-factors-title">
+            Compare cooling providers by scope, fit, and verification details.
+          </h2>
+          <p class="section-text">
+            Cooling project quotes may vary by system type, property size, equipment notes, access conditions, provider
+            schedule, warranty terms, and local requirements.
+          </p>
+          <p class="services-safe-note" data-safe-reminder></p>
+        </div>
+
+        <div class="service-factor-panel">
+          <h3>Cooling provider comparison factors</h3>
+          <ul class="clean-list" data-service-evaluation-points></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREPARE -->
+    <section class="service-prepare section" aria-labelledby="service-prepare-title">
+      <div class="container service-prepare-grid">
+        <div class="service-prepare-visual">
+          <div class="service-prepare-icon-large" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path
+                d="M12 2.8v18.4M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4M4 12h16M8.2 3.9 12 7.7l3.8-3.8M8.2 20.1l3.8-3.8 3.8 3.8M3.9 8.2 7.7 12l-3.8 3.8M20.1 8.2 16.3 12l3.8 3.8"
+                fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <div class="service-prepare-note">
+            <strong>Helpful before quotes</strong>
+            <span>System age, comfort issues, property size, ZIP code, and preferred timing can make provider
+              conversations clearer.</span>
+          </div>
+        </div>
+
+        <div class="service-prepare-panel">
+          <p class="section-kicker">Before requesting options</p>
+          <h2 class="section-title" id="service-prepare-title">
+            Prepare the cooling details providers often ask for.
+          </h2>
+          <ul class="clean-list" data-service-prepare-details></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED SERVICES -->
+    <section class="service-related section section-surface" aria-labelledby="service-related-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Other HVAC categories</p>
+          <h2 class="section-title" id="service-related-title">
+            Compare cooling alongside other HVAC provider categories.
+          </h2>
+          <p class="section-text">
+            HVAC projects often overlap with airflow, heating, or indoor air quality questions. Explore all four
+            categories before choosing which request fits best.
+          </p>
+        </div>
+
+        <div class="service-related-grid" data-service-cards="all"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta section section-deep" aria-labelledby="service-cta-title">
+      <div class="container service-cta-box">
+        <p class="section-kicker">Start comparison</p>
+        <h2 class="section-title" id="service-cta-title">
+          Start a cooling provider matching request.
+        </h2>
+        <p class="section-text">
+          Share your ZIP code, cooling concern, timeline, and basic system details. Then compare independent local
+          provider options with clearer questions in mind.
+        </p>
+
+        <div class="service-cta-actions">
+          <a class="btn btn-primary" href="contact.html">Start Request</a>
+          <a class="btn btn-secondary" href="services.html">View Services</a>
+        </div>
+
+        <p class="service-cta-note" data-disclaimer></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-surface" aria-labelledby="service-faq-title">
+      <div class="container split-grid">
+        <div class="section-header">
+          <p class="section-kicker">FAQ</p>
+          <h2 class="section-title" id="service-faq-title">
+            Cooling provider matching questions.
+          </h2>
+          <p class="section-text">
+            The platform helps compare independent provider options. It does not install, repair, inspect, or service
+            cooling systems directly.
+          </p>
+        </div>
+
+        <div class="faq-list" data-faq-list data-service-faq="cooling"></div>
+      </div>
+
+      <script data-faq-schema data-service-faq="cooling" type="application/ld+json"></script>
+    </section>
   </main>
+
   <div data-site-footer></div>
-  <div data-policy-banner></div>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/service-page.js"></script>
 </body>
+
 </html>

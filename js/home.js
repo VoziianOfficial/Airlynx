@@ -1,63 +1,252 @@
 "use strict";
 
+/* ==========================================================
+   AIRLYNX — HOME PAGE LOGIC
+   File: /js/home.js
+   ========================================================== */
+
 (function () {
-  const config = window.SITE_CONFIG;
-  if (!config || document.body.dataset.page !== "home") return;
+    const cfg = window.SITE_CONFIG;
 
-  const slidesMount = document.querySelector('[data-hero-slides]');
-  const dotsMount = document.querySelector('[data-hero-dots]');
-  const kicker = document.querySelector('[data-hero-kicker]');
-  const title = document.querySelector('[data-hero-title]');
-  const text = document.querySelector('[data-hero-text]');
-  const primary = document.querySelector('[data-hero-primary]');
-  const secondary = document.querySelector('[data-hero-secondary]');
-  const note = document.querySelector('[data-hero-note]');
-  if (!slidesMount || !dotsMount) return;
+    if (!cfg) {
+        return;
+    }
 
-  const escapeHTML = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
-  const slides = config.heroSlides;
-  let active = 0;
-  let timer = null;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const doc = document;
 
-  slidesMount.innerHTML = slides.map((slide, index) => `<div class="hero-slide${index === 0 ? ' is-active' : ''}" data-slide-image="${slide.image}" aria-hidden="${index === 0 ? 'false' : 'true'}"></div>`).join("");
-  slidesMount.querySelectorAll('[data-slide-image]').forEach((slide) => {
-    slide.style.backgroundImage = `url('${slide.dataset.slideImage}')`;
-  });
-  dotsMount.innerHTML = slides.map((_, index) => `<button class="hero-dot${index === 0 ? ' is-active' : ''}" type="button" aria-label="Show slide ${index + 1}" data-slide-dot="${index}"></button>`).join("");
-  if (primary) { primary.textContent = config.forms.primaryCta; primary.href = "services.html"; }
-  if (secondary) { secondary.textContent = config.forms.secondaryCta; secondary.href = "about.html"; }
-  if (note) note.textContent = config.legalNotice;
+    const qs = (selector, scope = doc) => scope.querySelector(selector);
+    const qsa = (selector, scope = doc) => Array.from(scope.querySelectorAll(selector));
 
-  function renderContent(index) {
-    const slide = slides[index];
-    if (kicker) kicker.textContent = slide.kicker;
-    if (text) text.textContent = slide.text;
-    if (title) title.innerHTML = escapeHTML(slide.title).replace(escapeHTML(slide.accent), `<span class="warm">${escapeHTML(slide.accent)}</span>`);
-  }
+    const escapeHTML = (value) => {
+        return String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    };
 
-  function setActive(index) {
-    active = index;
-    document.querySelectorAll('.hero-slide').forEach((el, idx) => {
-      el.classList.toggle('is-active', idx === active);
-      el.setAttribute('aria-hidden', String(idx !== active));
-    });
-    document.querySelectorAll('.hero-dot').forEach((el, idx) => el.classList.toggle('is-active', idx === active));
-    renderContent(active);
-  }
+    const prefersReducedMotion = () => {
+        return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    };
 
-  dotsMount.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-slide-dot]');
-    if (!button) return;
-    setActive(Number(button.dataset.slideDot));
-    if (timer) { clearInterval(timer); startTimer(); }
-  });
+    const highlightAccent = (text, accentWord) => {
+        const safeText = escapeHTML(text);
+        const safeAccent = escapeHTML(accentWord);
 
-  function startTimer() {
-    if (reducedMotion) return;
-    timer = setInterval(() => setActive((active + 1) % slides.length), 5200);
-  }
+        if (!safeAccent || !safeText.includes(safeAccent)) {
+            return safeText;
+        }
 
-  renderContent(0);
-  startTimer();
+        return safeText.replace(
+            safeAccent,
+            `<span class="text-accent">${safeAccent}</span>`
+        );
+    };
+
+    const initHeroSlideshow = () => {
+        const hero = qs("[data-home-hero]");
+        const slides = qsa("[data-hero-slide]");
+        const dots = qsa("[data-hero-dot]");
+        const slideData = cfg.heroSlides || [];
+
+        if (!hero || !slides.length || !slideData.length) {
+            return;
+        }
+
+        const kicker = qs("[data-hero-kicker]");
+        const title = qs("[data-hero-title]");
+        const text = qs("[data-hero-text]");
+        const primary = qs("[data-hero-primary]");
+        const secondary = qs("[data-hero-secondary]");
+
+        let activeIndex = 0;
+        let timer = null;
+        let isPaused = false;
+
+        const updateContent = (index) => {
+            const current = slideData[index];
+
+            if (!current) return;
+
+            if (kicker) {
+                kicker.textContent = current.kicker || "";
+            }
+
+            if (title) {
+                title.innerHTML = highlightAccent(current.title || "", current.accentWord || "");
+            }
+
+            if (text) {
+                text.textContent = current.text || "";
+            }
+
+            if (primary) {
+                primary.textContent = current.primaryCta || "Compare Services";
+                primary.setAttribute("href", current.primaryHref || "services.html");
+            }
+
+            if (secondary) {
+                secondary.textContent = current.secondaryCta || "Start Request";
+                secondary.setAttribute("href", current.secondaryHref || "contact.html");
+            }
+        };
+
+        const setSlide = (index) => {
+            if (!slideData[index]) return;
+
+            activeIndex = index;
+
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle("is-active", slideIndex === activeIndex);
+            });
+
+            dots.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === activeIndex;
+
+                dot.classList.toggle("is-active", isActive);
+                dot.setAttribute("aria-pressed", String(isActive));
+            });
+
+            updateContent(activeIndex);
+        };
+
+        const nextSlide = () => {
+            const nextIndex = (activeIndex + 1) % slideData.length;
+            setSlide(nextIndex);
+        };
+
+        const stop = () => {
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        };
+
+        const start = () => {
+            stop();
+
+            if (prefersReducedMotion() || isPaused || doc.hidden) {
+                return;
+            }
+
+            timer = window.setInterval(nextSlide, 5400);
+        };
+
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                const index = Number(dot.getAttribute("data-hero-dot"));
+
+                if (Number.isNaN(index)) return;
+
+                setSlide(index);
+                start();
+            });
+        });
+
+        hero.addEventListener("mouseenter", () => {
+            isPaused = true;
+            stop();
+        });
+
+        hero.addEventListener("mouseleave", () => {
+            isPaused = false;
+            start();
+        });
+
+        hero.addEventListener("focusin", () => {
+            isPaused = true;
+            stop();
+        });
+
+        hero.addEventListener("focusout", (event) => {
+            if (!hero.contains(event.relatedTarget)) {
+                isPaused = false;
+                start();
+            }
+        });
+
+        doc.addEventListener("visibilitychange", () => {
+            if (doc.hidden) {
+                stop();
+            } else {
+                start();
+            }
+        });
+
+        window
+            .matchMedia("(prefers-reduced-motion: reduce)")
+            .addEventListener?.("change", () => {
+                if (prefersReducedMotion()) {
+                    stop();
+                } else {
+                    start();
+                }
+            });
+
+        setSlide(0);
+        start();
+    };
+
+    const initThermometerReadout = () => {
+        const thermometer = qs("[data-thermometer]");
+        const readout = qs("[data-thermometer-readout]");
+
+        if (!thermometer || !readout) return;
+
+        const values = [42, 48, 56, 64, 72, 80, 76, 68, 58, 46];
+        let index = 0;
+        let timer = null;
+
+        const update = () => {
+            const value = values[index % values.length];
+
+            readout.textContent = `${value}°F`;
+            thermometer.style.setProperty("--thermo-value", String(value));
+
+            index += 1;
+        };
+
+        const start = () => {
+            if (prefersReducedMotion()) {
+                update();
+                return;
+            }
+
+            update();
+            timer = window.setInterval(update, 1700);
+        };
+
+        const stop = () => {
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        };
+
+        doc.addEventListener("visibilitychange", () => {
+            if (doc.hidden) {
+                stop();
+            } else {
+                start();
+            }
+        });
+
+        start();
+    };
+
+    const initHome = () => {
+        if (!doc.body.classList.contains("home-page")) {
+            return;
+        }
+
+        initHeroSlideshow();
+        initThermometerReadout();
+    };
+
+    if (doc.readyState === "loading") {
+        doc.addEventListener("DOMContentLoaded", initHome);
+    } else {
+        initHome();
+    }
 })();

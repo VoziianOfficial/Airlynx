@@ -1,57 +1,307 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HVAC provider matching platform.">
-  <title>HVAC Provider Matching</title>
-  <link rel="icon" type="image/svg+xml" href="./assets/icons/logo-thermometer.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About HVAC Provider Matching Platform</title>
+  <meta name="description"
+    content="Learn how this independent HVAC provider matching platform helps homeowners organize project details and compare local provider options.">
+
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/config.js" defer></script>
-  <script src="./js/main.js" defer></script>
-  <script src="./js/about.js" defer></script>
 </head>
-<body data-page="about">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<body class="about-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div data-site-header></div>
-  <div data-mobile-menu></div>
-  <main id="main-content">
 
-    <section class="page-hero" data-page-hero aria-labelledby="page-title">
-      <div class="page-hero-content">
-        <p class="kicker">About the platform</p>
-        <h1 id="page-title">HVAC comparison without pretending to be a contractor.</h1>
-        <p><span data-company-name></span> helps homeowners organize project details and review independent local provider options.</p>
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero" data-page-hero="about" aria-labelledby="about-hero-title">
+      <div class="page-hero-media" aria-hidden="true">
+        <img src="./assets/images/about-hero.jpg" alt="" data-page-hero-image>
       </div>
-    </section>
-    <section class="section">
-      <div class="container-wide story-grid">
-        <div class="story-panel reveal">
-          <p class="kicker">Why it exists</p>
-          <h2>Cleaner decisions start with cleaner information.</h2>
-          <p>HVAC projects can become difficult to compare when quotes, provider availability, and service categories are mixed together. This platform keeps the process focused: category, location, project details, and provider verification.</p>
-          <p><span data-company-name></span> is not a direct HVAC company. It does not install systems, repair equipment, perform ductwork, or dispatch technicians. The goal is to help homeowners compare independent providers more calmly.</p>
+
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="section-kicker" data-page-hero-kicker>About</p>
+          <h1 id="about-hero-title" data-page-hero-title>
+            A clearer way to compare HVAC provider options.
+          </h1>
+          <p class="section-text" data-page-hero-text>
+            An independent provider matching platform built for homeowners who want clarity before requesting HVAC
+            quotes.
+          </p>
         </div>
-        <div class="story-photo reveal" aria-label="HVAC visual panel"></div>
-      </div>
-    </section>
-    <section class="section section-compact">
-      <div class="container model-grid">
-        <article class="model-card reveal"><span>01</span><h3>Platform role</h3><p>Organizes request details and points homeowners toward comparison of independent provider options.</p></article>
-        <article class="model-card reveal"><span>02</span><h3>Homeowner control</h3><p>Homeowners choose who to contact, what quote to request, and what details to verify before hiring.</p></article>
-        <article class="model-card reveal"><span>03</span><h3>Verification reminder</h3><p>Licensing, insurance, warranties, quote details, and availability should be verified directly.</p></article>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container safety-note reveal">
-        <p class="kicker">Compliance-safe promise</p>
-        <h2>Independent matching, not direct HVAC work.</h2>
-        <p data-legal-notice></p>
       </div>
     </section>
 
+    <!-- STORY -->
+    <section class="about-story section section-deep" aria-labelledby="about-story-title">
+      <div class="container about-story-grid">
+        <div class="about-story-copy">
+          <p class="section-kicker">Platform story</p>
+          <h2 class="section-title" id="about-story-title">
+            HVAC projects are easier to compare when the request is organized first.
+          </h2>
+          <p class="section-text">
+            <span data-company-name></span> was built around a simple idea: homeowners should be able to understand
+            their HVAC category, prepare useful project details, and compare independent provider options without
+            confusing the platform with a direct contractor.
+          </p>
+          <p>
+            The platform focuses on four common HVAC comparison paths: cooling, heating, ductwork and ventilation, and
+            indoor air quality. Each path helps homeowners think through provider fit, quote scope, local availability,
+            licensing, insurance, and warranty questions.
+          </p>
+
+          <div class="about-story-actions">
+            <a class="btn btn-primary" href="services.html">View Categories</a>
+            <a class="btn btn-secondary" href="contact.html">Start Request</a>
+          </div>
+        </div>
+
+        <div class="about-story-panel image-panel">
+          <img src="./assets/images/about-hvac.jpg" alt="" loading="lazy">
+
+          <div class="about-story-badge about-story-badge-top">
+            <strong>Independent</strong>
+            <span>Provider matching only</span>
+          </div>
+
+          <div class="about-story-badge about-story-badge-bottom">
+            <strong>4</strong>
+            <span>HVAC categories</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODEL -->
+    <section class="about-model section section-surface" aria-labelledby="about-model-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Aggregator model</p>
+          <h2 class="section-title" id="about-model-title">
+            What the platform does — and what it does not do.
+          </h2>
+          <p class="section-text">
+            The platform helps organize comparison. It does not perform HVAC services directly.
+          </p>
+        </div>
+
+        <div class="about-model-grid">
+          <article class="about-model-card about-model-card-positive">
+            <span class="about-model-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z" fill="none"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path
+                  d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
+                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3>What it helps with</h3>
+            <ul class="clean-list">
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Organizing basic HVAC project details.</span>
+              </li>
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Comparing independent local provider options.</span>
+              </li>
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Keeping verification questions visible.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="about-model-card about-model-card-negative">
+            <span class="about-model-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" />
+              </svg>
+            </span>
+            <h3>What it does not do</h3>
+            <ul class="clean-list">
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" />
+                </svg>
+                <span>It does not install or repair HVAC systems.</span>
+              </li>
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" />
+                </svg>
+                <span>It does not send technicians or crews.</span>
+              </li>
+              <li>
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" />
+                </svg>
+                <span>It does not guarantee provider work or pricing.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY HOMEOWNERS USE IT -->
+    <section class="about-why section" aria-labelledby="about-why-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Why compare first</p>
+          <h2 class="section-title" id="about-why-title">
+            A better starting point before requesting HVAC quotes.
+          </h2>
+          <p class="section-text">
+            Many HVAC requests become confusing because the category, scope, provider questions, and verification
+            details are mixed together. A comparison platform keeps those parts easier to review.
+          </p>
+        </div>
+
+        <div class="about-why-grid">
+          <article class="about-why-card">
+            <span class="about-why-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M12 2.8v18.4M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4M4 12h16" fill="none" stroke="currentColor"
+                  stroke-width="1.55" stroke-linecap="round" />
+              </svg>
+            </span>
+            <h3>Separate the category</h3>
+            <p>
+              Cooling, heating, airflow, and indoor air quality concerns often require different provider questions.
+            </p>
+          </article>
+
+          <article class="about-why-card">
+            <span class="about-why-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M4.2 15.8a8.1 8.1 0 1 1 15.6 0" fill="none" stroke="currentColor" stroke-width="1.85"
+                  stroke-linecap="round" />
+                <path d="M12 13.7l4.05-4.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" />
+                <path d="M7.2 15.8h9.6M6.1 12.1h1.5M16.4 12.1h1.5M12 7.3v1.5" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </span>
+            <h3>Compare provider fit</h3>
+            <p>
+              Provider fit may depend on project type, location, timeline, equipment, access, and quote scope.
+            </p>
+          </article>
+
+          <article class="about-why-card">
+            <span class="about-why-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M12 2.9 19.2 5v5.95c0 4.58-2.95 8.42-7.2 10.15-4.25-1.73-7.2-5.57-7.2-10.15V5L12 2.9Z"
+                  fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3>Verify before hiring</h3>
+            <p>
+              Homeowners should verify license, insurance, quote details, warranty terms, and local requirements.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL VERIFICATION STRIP -->
+    <section class="about-verification section section-deep" aria-labelledby="about-verification-title">
+      <div class="about-verification-bg" aria-hidden="true">
+        <img src="./assets/images/hvac-benefits-bg.jpg" alt="" loading="lazy">
+      </div>
+
+      <div class="container about-verification-grid">
+        <div class="about-verification-copy">
+          <p class="section-kicker">Verification reminders</p>
+          <h2 class="section-title" id="about-verification-title">
+            The homeowner remains responsible for final provider checks.
+          </h2>
+          <p class="section-text">
+            Provider availability, quote policies, licensing, insurance, permits, warranties, timelines, and service
+            details should be confirmed directly with the independent provider before hiring.
+          </p>
+        </div>
+
+        <div class="about-verification-list">
+          <article>
+            <strong>License & insurance</strong>
+            <span>Confirm local requirements directly with the provider.</span>
+          </article>
+
+          <article>
+            <strong>Quote scope</strong>
+            <span>Review inclusions, exclusions, equipment notes, and possible fees.</span>
+          </article>
+
+          <article>
+            <strong>Warranty terms</strong>
+            <span>Ask what is covered, for how long, and under what conditions.</span>
+          </article>
+
+          <article>
+            <strong>Availability</strong>
+            <span>Service areas and timelines may vary by ZIP code and category.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta section section-surface" aria-labelledby="about-cta-title">
+      <div class="container about-cta-box">
+        <p class="section-kicker">Ready to compare</p>
+        <h2 class="section-title" id="about-cta-title">
+          Start with the HVAC category and a few project details.
+        </h2>
+        <p class="section-text">
+          Use <span data-company-name></span> to prepare your request and compare independent local HVAC provider
+          options by category, location, and project scope.
+        </p>
+
+        <div class="about-cta-actions">
+          <a class="btn btn-primary" href="contact.html">Start Request</a>
+          <a class="btn btn-secondary" href="services.html">View Services</a>
+        </div>
+
+        <p class="about-cta-note" data-disclaimer></p>
+      </div>
+    </section>
   </main>
+
   <div data-site-footer></div>
-  <div data-policy-banner></div>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/about.js"></script>
 </body>
+
 </html>
