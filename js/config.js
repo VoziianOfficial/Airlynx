@@ -78,6 +78,8 @@ window.SITE_CONFIG = {
         }
     ],
 
+    heroSlideIntervalMs: 4800,
+
     heroSlides: [
         {
             image: "./assets/images/hvac-hero-01.jpg",

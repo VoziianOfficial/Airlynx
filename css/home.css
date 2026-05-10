@@ -508,8 +508,26 @@
     justify-content: flex-start;
 }
 
+.home-about-copy > .btn.btn-secondary {
+    margin-top: 28px;
+}
+
 .home-about-media {
-    min-height: clamp(310px, 38vw, 470px);
+    min-height: auto;
+}
+
+.about-media.home-about-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-media.home-about-media img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
 }
 
 .home-about-media::after {
@@ -1192,7 +1210,7 @@
     }
 
     .home-about-media {
-        min-height: 330px;
+        min-height: auto;
     }
 
     .metric-card,

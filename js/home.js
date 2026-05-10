@@ -49,6 +49,7 @@
         const slides = qsa("[data-hero-slide]");
         const dots = qsa("[data-hero-dot]");
         const slideData = cfg.heroSlides || [];
+        const slideIntervalMs = Math.max(1200, Number(cfg.heroSlideIntervalMs) || 5400);
 
         if (!hero || !slides.length || !slideData.length) {
             return;
@@ -61,8 +62,7 @@
         const secondary = qs("[data-hero-secondary]");
 
         let activeIndex = 0;
-        let timer = null;
-        let isPaused = false;
+        let timer = null;  
 
         const updateContent = (index) => {
             const current = slideData[index];
@@ -93,9 +93,9 @@
         };
 
         const setSlide = (index) => {
-            if (!slideData[index]) return;
+            if (!slides.length || !slideData.length) return;
 
-            activeIndex = index;
+            activeIndex = index % Math.min(slides.length, slideData.length);
 
             slides.forEach((slide, slideIndex) => {
                 slide.classList.toggle("is-active", slideIndex === activeIndex);
@@ -112,8 +112,7 @@
         };
 
         const nextSlide = () => {
-            const nextIndex = (activeIndex + 1) % slideData.length;
-            setSlide(nextIndex);
+            setSlide(activeIndex + 1);
         };
 
         const stop = () => {
@@ -126,11 +125,11 @@
         const start = () => {
             stop();
 
-            if (prefersReducedMotion() || isPaused || doc.hidden) {
+            if (prefersReducedMotion() || doc.hidden) {
                 return;
             }
 
-            timer = window.setInterval(nextSlide, 5400);
+            timer = window.setInterval(nextSlide, slideIntervalMs);
         };
 
         dots.forEach((dot) => {
@@ -144,27 +143,6 @@
             });
         });
 
-        hero.addEventListener("mouseenter", () => {
-            isPaused = true;
-            stop();
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            isPaused = false;
-            start();
-        });
-
-        hero.addEventListener("focusin", () => {
-            isPaused = true;
-            stop();
-        });
-
-        hero.addEventListener("focusout", (event) => {
-            if (!hero.contains(event.relatedTarget)) {
-                isPaused = false;
-                start();
-            }
-        });
 
         doc.addEventListener("visibilitychange", () => {
             if (doc.hidden) {

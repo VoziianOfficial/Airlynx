@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Airlynx favicon">
+  <defs>
+    <linearGradient id="tubeGradient" x1="0" y1="10" x2="0" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5ED6F0"/>
+      <stop offset="48%" stop-color="#6EF3D6"/>
+      <stop offset="100%" stop-color="#E14D57"/>
+    </linearGradient>
+
+    <linearGradient id="bulbGradient" x1="22" y1="38" x2="42" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF8A92"/>
+      <stop offset="100%" stop-color="#E14D57"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="
+          0 0 0 0 0.368
+          0 0 0 0 0.839
+          0 0 0 0 0.941
+          0 0 0 0.55 0"
+        result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="64" height="64" fill="#030812"/>
+
+  <g filter="url(#softGlow)">
+    <path
+      d="M27.5 37.4V12.8C27.5 8.65 30.85 5.3 35 5.3C39.15 5.3 42.5 8.65 42.5 12.8V37.4C46.1 40 48.15 44.1 48.15 48.35C48.15 55.6 42.25 61.5 35 61.5C27.75 61.5 21.85 55.6 21.85 48.35C21.85 44.1 23.9 40 27.5 37.4Z"
+      fill="none"
+      stroke="#DDEAF2"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <path
+      d="M35 14.2V42.5"
+      fill="none"
+      stroke="url(#tubeGradient)"
+      stroke-width="5.2"
+      stroke-linecap="round"
+    />
+
+    <circle
+      cx="35"
+      cy="48.4"
+      r="8.7"
+      fill="url(#bulbGradient)"
+    />
+
+    <path
+      d="M39.7 10.6C41.2 12 41.85 13.85 41.85 16.1V27.2"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      opacity="0.58"
+    />
+
+    <path
+      d="M24.5 17H18.5M24.5 25H16.5M24.5 33H18.5"
+      fill="none"
+      stroke="#5ED6F0"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      opacity="0.85"
+    />
+
+    <path
+      d="M45.6 17H51.5M45.6 25H53.5M45.6 33H51.5"
+      fill="none"
+      stroke="#E14D57"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      opacity="0.82"
+    />
+  </g>
+</svg>
