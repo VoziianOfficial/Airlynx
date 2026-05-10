@@ -1,0 +1,125 @@
+.home-hero {
+  position: relative; min-height: clamp(560px, 76vh, 780px); overflow: clip; display: grid; place-items: center; border-bottom: 1px solid rgba(225,77,87,.28); background: #030812;
+}
+.hero-slides, .hero-slide { position: absolute; inset: 0; }
+.hero-slide { opacity: 0; background-size: cover; background-position: center; transform: scale(1.02); transition: opacity 900ms ease, transform 6200ms ease; }
+.hero-slide.is-active { opacity: 1; transform: scale(1.07); }
+.home-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(3,8,18,.82), rgba(3,8,18,.44) 45%, rgba(3,8,18,.78)), linear-gradient(180deg, rgba(3,8,18,.22), rgba(3,8,18,.82)); }
+.home-hero::after { content: ""; position: absolute; inset: 0; z-index: 2; background-image: radial-gradient(circle, rgba(94,214,240,.65) 1px, transparent 1.5px); background-size: 44px 44px; opacity: .14; animation: airflowDrift 18s linear infinite; mask-image: linear-gradient(180deg, transparent, #000 30%, transparent 90%); }
+.hero-content { position: relative; z-index: 4; width: min(840px, calc(100vw - 40px)); display: grid; justify-items: center; gap: 1.1rem; text-align: center; padding-top: var(--header-height); }
+.hero-title { max-width: 800px; }
+.hero-text { max-width: 650px; color: var(--color-text); font-size: clamp(1rem, 2vw, 1.2rem); }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: .4rem; }
+.hero-note { color: rgba(221,234,242,.78); font-size: .88rem; max-width: 680px; }
+.hero-dots { position: absolute; z-index: 5; left: 50%; bottom: 1.35rem; transform: translateX(-50%); display: flex; gap: .45rem; }
+.hero-dot { width: 36px; height: 4px; border: 0; border-radius: 999px; background: rgba(221,234,242,.34); }
+.hero-dot.is-active { background: var(--color-warm); box-shadow: 0 0 20px rgba(225,77,87,.58); }
+.trust-strip { border-bottom: 1px solid rgba(94,214,240,.16); background: rgba(3,8,18,.78); }
+.trust-grid { min-height: 78px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
+.trust-item { display: flex; gap: .8rem; align-items: center; padding: 1rem 1.2rem; border-right: 1px solid rgba(94,214,240,.14); }
+.trust-item:last-child { border-right: 0; }
+.trust-icon { color: var(--color-cold); font-size: 1.55rem; }
+.trust-item strong { display: block; color: var(--color-heading); line-height: 1.15; }
+.trust-item span { color: var(--color-muted); font-size: .85rem; }
+.marquee-section { padding-block: .75rem; border-block: 1px solid rgba(94,214,240,.16); background: linear-gradient(90deg, rgba(94,214,240,.08), rgba(225,77,87,.06)); overflow: hidden; }
+.marquee-track { display: flex; width: max-content; gap: 1rem; animation: marquee 34s linear infinite; }
+.marquee-section:hover .marquee-track { animation-play-state: paused; }
+.marquee-item { display: inline-flex; align-items: center; gap: .6rem; min-width: max-content; padding: .75rem 1.2rem; color: var(--color-heading); border-right: 1px solid rgba(94,214,240,.18); transition: color .2s ease, transform .2s ease; }
+.marquee-item:hover { color: var(--color-cold); transform: translateY(-1px); }
+.services-feature { background: linear-gradient(180deg, rgba(6,16,29,.72), rgba(3,8,18,.9)); }
+.services-showcase { display: grid; grid-template-columns: .72fr 1fr 180px 1fr; gap: 1.2rem; align-items: center; }
+.services-intro { align-self: stretch; display: grid; align-content: center; gap: 1rem; padding: 1.2rem 1rem 1.2rem 0; }
+.services-intro p { color: var(--color-muted); }
+.service-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.2rem; }
+.service-card { position: relative; min-height: 245px; overflow: hidden; border-radius: 18px; border: 1px solid rgba(94,214,240,.34); background: var(--color-card); box-shadow: 0 18px 56px rgba(0,0,0,.26); isolation: isolate; }
+.service-card::before { content: ""; position: absolute; inset: 0; background-image: var(--card-image); background-size: cover; background-position: center; transform: scale(1.02); transition: transform .55s ease; z-index: -2; }
+.service-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,18,.2), rgba(3,8,18,.86)), linear-gradient(90deg, rgba(3,8,18,.55), transparent); z-index: -1; }
+.service-card:hover { border-color: var(--color-cold); box-shadow: var(--shadow-glow-cold); }
+.service-card:hover::before { transform: scale(1.07); }
+.service-card-content { min-height: inherit; display: grid; align-content: end; gap: .45rem; padding: 1.1rem; }
+.service-card-icon { position: absolute; top: .85rem; left: .85rem; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 10px; background: rgba(3,8,18,.58); color: var(--color-cold); border: 1px solid rgba(94,214,240,.28); transition: .25s ease; }
+.service-card:hover .service-card-icon { color: var(--color-warm); border-color: rgba(225,77,87,.38); box-shadow: var(--shadow-glow-warm); }
+.service-card h3 { font-size: 1.05rem; }
+.service-card p { color: var(--color-text); font-size: .9rem; max-width: 260px; }
+.service-card span { color: var(--color-cold); font-weight: 800; margin-top: .45rem; }
+.thermometer-wrap { display: grid; place-items: center; }
+.thermometer-card { position: relative; width: 150px; height: 260px; border-radius: 72px; border: 1px solid rgba(94,214,240,.36); background: radial-gradient(circle at 50% 35%, rgba(225,77,87,.18), transparent 5rem), rgba(8,22,39,.78); box-shadow: inset 0 0 30px rgba(94,214,240,.16), var(--shadow-glow-cold); display: grid; place-items: center; }
+.temp-high, .temp-low { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--font-heading); font-weight: 800; }
+.temp-high { top: 18px; color: var(--color-warm); font-size: 1.55rem; }
+.temp-low { bottom: 14px; color: var(--color-cold); font-size: 1.45rem; }
+.thermo-tube { position: relative; width: 19px; height: 150px; border-radius: 999px; border: 2px solid rgba(255,255,255,.48); background: rgba(3,8,18,.72); overflow: hidden; box-shadow: 0 0 18px rgba(94,214,240,.4); }
+.thermo-fill { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; border-radius: inherit; background: linear-gradient(0deg, var(--color-cold), var(--color-fresh), var(--color-warm)); animation: tempRise 5s ease-in-out infinite; }
+.thermo-bulb { position: absolute; top: 50%; left: 50%; width: 28px; height: 28px; border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 35%, #fff, var(--color-warm-soft)); box-shadow: 0 0 28px rgba(225,77,87,.54); animation: bulbMove 5s ease-in-out infinite; }
+.thermo-marks { position: absolute; inset: 56px 28px; background: repeating-linear-gradient(0deg, transparent 0 17px, rgba(94,214,240,.36) 17px 18px); opacity: .65; }
+.about-home { background: radial-gradient(circle at 20% 30%, rgba(94,214,240,.1), transparent 24rem), rgba(3,8,18,.62); }
+.about-home-grid { display: grid; grid-template-columns: .8fr 1.1fr .7fr; gap: 2rem; align-items: center; }
+.check-list { display: grid; gap: .5rem; margin-top: 1rem; color: var(--color-text); }
+.check-list li { list-style: none; position: relative; padding-left: 1.55rem; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--color-fresh); font-weight: 900; }
+.about-photo { position: relative; min-height: 350px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(94,214,240,.24); background: url("../assets/images/about-hvac.jpg") center/cover; box-shadow: 0 28px 80px rgba(0,0,0,.38); }
+.about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(3,8,18,.46)); }
+.float-badge { position: absolute; z-index: 2; padding: .7rem .85rem; border-radius: 14px; color: var(--color-heading); background: rgba(3,8,18,.72); border: 1px solid rgba(94,214,240,.22); box-shadow: var(--shadow-glow-cold); font-size: .84rem; font-weight: 800; }
+.float-badge.one { left: 1rem; top: 1rem; }
+.float-badge.two { right: 1rem; bottom: 1rem; color: var(--color-fresh); }
+.metrics-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+.metric-card { min-height: 110px; padding: 1rem; border-radius: 16px; border: 1px solid rgba(94,214,240,.16); background: linear-gradient(145deg, rgba(16,43,66,.72), rgba(3,8,18,.46)); display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: center; }
+.metric-card .metric-icon { color: var(--color-cold); font-size: 1.8rem; }
+.metric-card strong { display: block; color: var(--color-heading); font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1; }
+.metric-card span { color: var(--color-muted); font-size: .82rem; }
+.process-section { background: linear-gradient(135deg, rgba(94,214,240,.08), rgba(225,77,87,.06) 55%, transparent); }
+.process-flow { margin-top: 2rem; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
+.process-step { position: relative; min-height: 220px; padding: 1.2rem; border-radius: 22px; border: 1px solid rgba(94,214,240,.16); background: rgba(3,8,18,.52); overflow: hidden; }
+.process-step::before { content: attr(data-step); position: absolute; right: .8rem; top: .25rem; color: rgba(94,214,240,.16); font-family: var(--font-heading); font-size: 4rem; font-weight: 800; line-height: 1; }
+.process-step .step-icon { color: var(--color-cold); font-size: 2.1rem; margin-bottom: 1rem; transition: .25s ease; }
+.process-step:hover .step-icon { color: var(--color-warm); transform: rotate(-8deg) scale(1.05); }
+.process-step p { color: var(--color-muted); font-size: .92rem; margin-top: .6rem; }
+.benefit-strip { background: linear-gradient(90deg, rgba(3,8,18,.84), rgba(3,8,18,.78)), url("../assets/images/hvac-benefits-bg.jpg") center/cover; border-block: 1px solid rgba(94,214,240,.18); }
+.benefit-grid { display: grid; grid-template-columns: .9fr repeat(3, 1fr); gap: 1rem; align-items: stretch; }
+.benefit-card { padding: 1.1rem; border-radius: 18px; border: 1px solid rgba(94,214,240,.22); background: rgba(3,8,18,.58); }
+.benefit-card strong { color: var(--color-heading); display: block; margin-bottom: .35rem; }
+.benefit-card p { color: var(--color-muted); font-size: .92rem; }
+.testimonials { overflow: hidden; }
+.testimonial-track { display: flex; gap: 1rem; width: max-content; animation: marquee 38s linear infinite; margin-top: 2rem; }
+.testimonial-track:hover { animation-play-state: paused; }
+.testimonial-card { width: min(380px, 82vw); padding: 1.1rem; border-radius: 20px; border: 1px solid rgba(94,214,240,.16); background: linear-gradient(180deg, rgba(16,43,66,.78), rgba(3,8,18,.64)); }
+.testimonial-card p { color: var(--color-text); }
+.testimonial-card strong { display: block; color: var(--color-heading); margin-top: 1rem; }
+.testimonial-card span { color: var(--color-muted); font-size: .85rem; }
+.cta-form-section { background: radial-gradient(circle at 15% 20%, rgba(225,77,87,.12), transparent 22rem), rgba(5,14,26,.86); }
+.cta-form-grid { display: grid; grid-template-columns: 1fr minmax(330px, 470px); gap: 2rem; align-items: center; }
+.cta-visual { min-height: 470px; border-radius: 30px; border: 1px solid rgba(94,214,240,.2); background: linear-gradient(180deg, rgba(3,8,18,.16), rgba(3,8,18,.82)), url("../assets/images/cta-hvac.jpg") center/cover; position: relative; overflow: hidden; box-shadow: 0 28px 80px rgba(0,0,0,.38); }
+.cta-visual::after { content: ""; position: absolute; inset: auto 1rem 1rem 1rem; height: 120px; border-radius: 22px; border: 1px solid rgba(94,214,240,.22); background: rgba(3,8,18,.62); backdrop-filter: blur(12px); }
+.cta-copy { position: absolute; z-index: 2; left: 2rem; bottom: 2.2rem; max-width: 460px; }
+.cta-copy p { color: var(--color-muted); margin-top: .5rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes airflowDrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(88px,-44px,0); } }
+@keyframes tempRise { 0%,100% { height: 30%; filter: hue-rotate(0deg); } 50% { height: 84%; filter: hue-rotate(-55deg); } }
+@keyframes bulbMove { 0%,100% { top: 68%; background: radial-gradient(circle at 35% 35%, #fff, var(--color-cold)); } 50% { top: 42%; background: radial-gradient(circle at 35% 35%, #fff, var(--color-warm-soft)); } }
+@media (max-width: 1180px) {
+  .services-showcase { grid-template-columns: 1fr 160px 1fr; }
+  .services-intro { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: end; }
+  .about-home-grid { grid-template-columns: 1fr 1fr; }
+  .metrics-grid { grid-column: 1 / -1; grid-template-columns: repeat(4,1fr); }
+}
+@media (max-width: 900px) {
+  .trust-grid, .process-flow, .benefit-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .services-showcase { grid-template-columns: 1fr; }
+  .thermometer-card { width: min(340px, 100%); height: 130px; border-radius: 28px; }
+  .thermo-tube { rotate: -90deg; height: 180px; }
+  .thermo-bulb { top: 50%; }
+  .temp-high { top: 18px; right: 32px; left: auto; transform: none; }
+  .temp-low { bottom: 18px; left: 32px; transform: none; }
+  .about-home-grid, .cta-form-grid { grid-template-columns: 1fr; }
+  .metrics-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 640px) {
+  .home-hero { min-height: 560px; }
+  .hero-actions { width: 100%; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .trust-grid, .service-card-grid, .process-flow, .benefit-grid, .metrics-grid { grid-template-columns: 1fr; }
+  .trust-item { border-right: 0; border-bottom: 1px solid rgba(94,214,240,.12); }
+  .services-intro { grid-template-columns: 1fr; padding-right: 0; }
+  .service-card { min-height: 220px; }
+  .cta-visual { min-height: 360px; }
+  .cta-copy { left: 1rem; right: 1rem; bottom: 1.5rem; }
+}

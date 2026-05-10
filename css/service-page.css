@@ -1,0 +1,10 @@
+.service-page-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(320px, .55fr); gap: 2rem; align-items: start; }
+.service-copy { display: grid; gap: 1.2rem; }
+.service-copy p { color: var(--color-muted); }
+.factor-list, .prepare-list { display: grid; gap: .85rem; padding: 0; margin: 0; }
+.factor-list li, .prepare-list li { list-style: none; padding: 1rem; border-radius: 18px; border: 1px solid rgba(94,214,240,.16); background: rgba(16,43,66,.48); color: var(--color-text); }
+.service-sidebar { position: sticky; top: calc(var(--header-height) + 1rem); display: grid; gap: 1rem; }
+.sidebar-card { padding: 1.2rem; border-radius: 22px; border: 1px solid rgba(94,214,240,.18); background: linear-gradient(180deg, rgba(16,43,66,.72), rgba(3,8,18,.62)); }
+.sidebar-card p { color: var(--color-muted); margin-top: .45rem; }
+.service-cta { background: linear-gradient(90deg, rgba(94,214,240,.08), rgba(225,77,87,.08)); border-block: 1px solid rgba(94,214,240,.16); }
+@media (max-width: 900px) { .service-page-grid { grid-template-columns: 1fr; } .service-sidebar { position: relative; top: auto; } }

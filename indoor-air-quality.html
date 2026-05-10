@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HVAC provider matching platform.">
+  <title>HVAC Provider Matching</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/logo-thermometer.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/config.js" defer></script>
+  <script src="./js/main.js" defer></script>
+  <script src="./js/service-page.js" defer></script>
+</head>
+<body data-page="service" data-service-id="indoor-air">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div data-site-header></div>
+  <div data-mobile-menu></div>
+  <main id="main-content">
+
+    <section class="page-hero" data-page-hero aria-labelledby="page-title">
+      <div class="page-hero-content">
+        <p class="kicker" data-service-kicker></p>
+        <h1 id="page-title" data-service-title></h1>
+        <p data-service-summary></p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container-wide service-page-grid">
+        <div class="service-copy reveal">
+          <p class="kicker">Category overview</p>
+          <h2>What this category helps homeowners compare.</h2>
+          <p data-service-intro></p>
+          <h2>Provider evaluation factors</h2>
+          <ul class="factor-list" data-service-factors></ul>
+          <h2>Details to prepare before requesting quotes</h2>
+          <ul class="prepare-list" data-service-prepare></ul>
+        </div>
+        <aside class="service-sidebar reveal">
+          <div class="sidebar-card"><h3>Aggregator-safe reminder</h3><p><span data-company-name></span> does not perform HVAC work directly. Independent providers determine availability, scope, price, and warranty terms.</p></div>
+          <div class="sidebar-card"><h3>Before choosing</h3><p>Verify license, insurance, quote scope, project timing, permits where relevant, and warranty details.</p></div>
+          <a class="btn btn-primary" href="contact.html">Start request</a>
+        </aside>
+      </div>
+    </section>
+    <section class="section service-cta">
+      <div class="container">
+        <div class="section-head center reveal"><p class="kicker">Next step</p><h2>Prepare your request, then compare provider options.</h2><p data-legal-notice></p><a class="btn btn-warm" href="contact.html">Use compact form</a></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal"><p class="kicker">FAQ</p><h2>Common questions</h2></div>
+        <div class="faq-list" data-faq-list></div>
+      </div>
+    </section>
+    <div data-faq-schema></div>
+
+  </main>
+  <div data-site-footer></div>
+  <div data-policy-banner></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.story-grid { display: grid; grid-template-columns: 1fr .85fr; gap: 2rem; align-items: center; }
+.story-panel { display: grid; gap: 1rem; }
+.story-panel p { color: var(--color-muted); }
+.story-photo { min-height: 460px; border-radius: 30px; background: linear-gradient(180deg, rgba(3,8,18,.12), rgba(3,8,18,.72)), url("../assets/images/about-hvac.jpg") center/cover; border: 1px solid rgba(94,214,240,.22); box-shadow: 0 28px 84px rgba(0,0,0,.36); }
+.model-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.model-card { padding: 1.2rem; min-height: 220px; border-radius: 22px; border: 1px solid rgba(94,214,240,.18); background: linear-gradient(180deg, rgba(16,43,66,.76), rgba(3,8,18,.58)); }
+.model-card span { color: var(--color-cold); font-size: 2rem; }
+.model-card p { color: var(--color-muted); margin-top: .6rem; }
+.safety-note { padding: clamp(1.4rem,3vw,2.2rem); border-radius: 28px; border: 1px solid rgba(225,77,87,.22); background: radial-gradient(circle at 10% 20%, rgba(225,77,87,.14), transparent 19rem), rgba(3,8,18,.58); }
+.safety-note p { color: var(--color-muted); margin-top: .75rem; }
+@media (max-width: 900px) { .story-grid, .model-grid { grid-template-columns: 1fr; } .story-photo { min-height: 340px; } }
