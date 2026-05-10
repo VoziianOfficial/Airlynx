@@ -1833,3 +1833,18 @@
         min-height: 3.8rem;
     }
 }
+
+/* ==========================================================
+   FIX — ABOUT MODEL THERMOMETER MOBILE LOWER
+   ========================================================== */
+
+@media (max-width: 767px) {
+    .about-model-real-thermo {
+        transform: translateY(1.4rem) !important;
+    }
+
+    .about-model-center {
+        padding-top: 1.2rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+}
