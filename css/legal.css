@@ -1,7 +1,4 @@
-/* ==========================================================
-   AIRLYNX — LEGAL PAGES
-   File: /css/legal.css
-   ========================================================== */
+
 
 .legal-page .page-hero {
     min-height: clamp(380px, 52vh, 560px);
@@ -10,8 +7,6 @@
 .legal-hero .page-hero-content {
     max-width: 820px;
 }
-
-/* LEGAL LAYOUT */
 
 .legal-content-section {
     overflow: hidden;
@@ -92,8 +87,6 @@
     overflow-wrap: anywhere;
 }
 
-/* DOCUMENT */
-
 .legal-document {
     position: relative;
     overflow: hidden;
@@ -147,8 +140,6 @@
     color: var(--color-fresh);
 }
 
-/* CONTACT BOX */
-
 .legal-contact-box {
     display: grid;
     gap: 0.35rem;
@@ -169,8 +160,6 @@
     color: var(--color-heading);
 }
 
-/* DISCLAIMER */
-
 .legal-disclaimer-box {
     padding: 1rem;
     border: 1px solid rgba(225, 77, 87, 0.22) !important;
@@ -189,8 +178,6 @@
     font-size: 0.82rem;
     line-height: 1.6;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1023px) {
     .legal-layout {

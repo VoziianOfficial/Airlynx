@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — ABOUT PAGE LOGIC
-   File: /js/about.js
-   ========================================================== */
-
 (function () {
     const doc = document;
 
@@ -13,8 +8,6 @@
             return;
         }
 
-        // Page-specific logic can be added here later.
-        // Shared rendering is handled by /js/main.js.
     };
 
     if (doc.readyState === "loading") {

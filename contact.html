@@ -20,7 +20,7 @@
   <div data-site-header></div>
 
   <main id="main">
-    <!-- PAGE HERO -->
+
     <section class="page-hero" data-page-hero="contact" aria-labelledby="contact-hero-title">
       <div class="page-hero-media" aria-hidden="true">
         <img src="./assets/images/contact-hero.jpg" alt="" data-page-hero-image>
@@ -39,31 +39,29 @@
       </div>
     </section>
 
-    <!-- MARQUEE -->
     <section class="contact-marquee home-marquee" aria-label="HVAC provider matching benefits">
       <div class="marquee-track" data-marquee-items></div>
     </section>
 
-  <!-- CONTACT FORM + INFO -->
   <section class="contact-main contact-command section section-deep" aria-labelledby="contact-main-title">
     <div class="container contact-command-shell">
       <div class="contact-command-copy">
         <p class="section-kicker">Quick request</p>
-  
+
         <h2 class="section-title" id="contact-main-title">
           Share the category, ZIP code, and basic comfort concern.
         </h2>
-  
+
         <p class="section-text">
           <span data-company-name></span> helps homeowners organize HVAC request details and compare independent local
           provider options. The platform does not perform HVAC work directly.
         </p>
-  
+
         <div class="contact-command-status" aria-hidden="true">
           <span></span>
           <strong>Provider matching request path</strong>
         </div>
-  
+
         <div class="contact-info-stack contact-command-info">
           <a class="contact-info-card" href="#" data-phone-link>
             <span class="contact-info-icon" aria-hidden="true">
@@ -73,13 +71,13 @@
                   fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </span>
-  
+
             <span>
               <strong>Phone</strong>
               <small data-phone-text></small>
             </span>
           </a>
-  
+
           <a class="contact-info-card" href="#" data-email-link>
             <span class="contact-info-icon" aria-hidden="true">
               <svg class="ui-icon" viewBox="0 0 24 24">
@@ -90,13 +88,13 @@
                   stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </span>
-  
+
             <span>
               <strong>Email</strong>
               <small data-email-text></small>
             </span>
           </a>
-  
+
           <div class="contact-info-card">
             <span class="contact-info-icon" aria-hidden="true">
               <svg class="ui-icon" viewBox="0 0 24 24">
@@ -106,7 +104,7 @@
                   stroke-width="1.7" />
               </svg>
             </span>
-  
+
             <span>
               <strong>Address</strong>
               <small data-address-text></small>
@@ -114,7 +112,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="contact-command-form-wrap">
         <div class="contact-command-meter" aria-hidden="true">
           <span class="contact-command-meter-line"></span>
@@ -122,74 +120,73 @@
           <span class="contact-command-meter-dot"></span>
           <span class="contact-command-meter-dot"></span>
         </div>
-  
+
         <div class="form-card contact-form-card contact-command-form">
-          <p class="section-kicker">Request form</p>
-          <h2>Compare provider options.</h2>
-          <p>
+          <p class="section-kicker" data-form-eyebrow>Request form</p>
+          <h2 data-form-title>Compare provider options.</h2>
+          <p data-form-text>
             Use this compact form to organize the basic details providers often ask for.
           </p>
-  
+
           <form class="request-form" data-request-form>
             <div class="form-grid">
               <div class="form-field">
                 <label for="contact-name">Name</label>
                 <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
               </div>
-  
+
               <div class="form-field">
                 <label for="contact-phone">Phone</label>
                 <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required>
               </div>
-  
+
               <div class="form-field">
                 <label for="contact-email">Email</label>
                 <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="Email address"
                   required>
               </div>
-  
+
               <div class="form-field">
                 <label for="contact-zip">ZIP code</label>
                 <input id="contact-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code"
                   placeholder="ZIP code" minlength="5" required>
               </div>
-  
+
               <div class="form-field full">
                 <label for="contact-category">Service category</label>
                 <select id="contact-category" name="service-category" data-service-select required>
                   <option value="">Choose a category</option>
                 </select>
               </div>
-  
+
               <div class="form-field full">
                 <label for="contact-message">Short message</label>
                 <textarea id="contact-message" name="message"
                   placeholder="Briefly describe the category, timing, or HVAC concern." required></textarea>
               </div>
-  
+
               <div class="checkbox-field">
                 <label for="contact-policy">
                   <input id="contact-policy" name="policy" type="checkbox" required>
                   <span class="checkbox-custom" aria-hidden="true"></span>
-                  <span>I agree to the Privacy Policy, Cookie Policy, and Terms of Service.</span>
+                  <span data-form-policy-label>I agree to the Privacy Policy, Cookie Policy, and Terms of Service.</span>
                 </label>
               </div>
-  
+
               <div class="form-actions">
-                <button class="btn btn-primary" type="submit">Request Provider Options</button>
+                <button class="btn btn-primary" type="submit" data-form-submit>Request Provider Options</button>
               </div>
             </div>
-  
+
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-            
+            <p class="form-note" data-form-note></p>
+
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  
-<!-- MAP -->
 <section class="contact-map-section contact-map-real section section-surface" aria-labelledby="contact-map-title">
   <div class="container contact-map-real-grid">
     <div class="contact-map-real-shell" aria-label="Business location map">
@@ -277,12 +274,11 @@
   </div>
 </section>
 
-  <!-- CONTACT REMINDERS -->
   <section class="contact-reminders contact-reminders-photo section-compact" aria-labelledby="contact-reminders-title">
     <div class="contact-reminders-bg" aria-hidden="true">
       <img src="./assets/images/about-model-bg.jpg" alt="" loading="lazy">
     </div>
-  
+
     <div class="container contact-reminders-layout">
       <div class="contact-reminders-copy">
         <p class="section-kicker">Before hiring</p>
@@ -293,16 +289,16 @@
           <span data-company-name></span> helps with matching and comparison. Homeowners should always verify
           independent provider details before hiring.
         </p>
-  
+
         <div class="contact-reminders-pulse" aria-hidden="true">
           <span></span>
           <strong>Homeowner verification layer</strong>
         </div>
       </div>
-  
+
       <div class="contact-reminders-flow">
         <div class="contact-reminders-line" aria-hidden="true"></div>
-  
+
         <div class="contact-reminder-row">
           <span class="contact-reminder-number">01</span>
           <span class="contact-reminder-dot" aria-hidden="true"></span>
@@ -311,7 +307,7 @@
             <span>Confirm credentials and requirements directly with the provider.</span>
           </div>
         </div>
-  
+
         <div class="contact-reminder-row">
           <span class="contact-reminder-number">02</span>
           <span class="contact-reminder-dot contact-reminder-dot-warm" aria-hidden="true"></span>
@@ -320,7 +316,7 @@
             <span>Review equipment, labor, exclusions, fees, and project timeline.</span>
           </div>
         </div>
-  
+
         <div class="contact-reminder-row">
           <span class="contact-reminder-number">03</span>
           <span class="contact-reminder-dot" aria-hidden="true"></span>
@@ -329,7 +325,7 @@
             <span>Ask what is covered, for how long, and under what conditions.</span>
           </div>
         </div>
-  
+
         <div class="contact-reminder-row">
           <span class="contact-reminder-number">04</span>
           <span class="contact-reminder-dot contact-reminder-dot-warm" aria-hidden="true"></span>
@@ -342,7 +338,6 @@
     </div>
   </section>
 
-    <!-- FAQ -->
     <section class="section section-surface" aria-labelledby="contact-faq-title">
       <div class="container split-grid">
         <div class="section-header">

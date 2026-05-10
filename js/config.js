@@ -1,25 +1,20 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — GLOBAL CONFIG
-   File: /js/config.js
-   ========================================================== */
-
 window.SITE_CONFIG = {
     companyName: "Airlynx",
     companyId: "Airlynx Provider Matching LLC",
 
     brand: {
-        shortName: "Airlynx",
+        shortName: "{companyName}",
         tagline: "Compare local HVAC provider options with clarity.",
-        logoLabel: "Airlynx home",
-        logoText: "Airlynx"
+        logoLabel: "{brandName} home",
+        logoText: "{brandName}"
     },
 
     phone: "(305) 555-0198",
-    phoneHref: "tel:+13055550198",
-    phoneLabel: "Call Airlynx at (305) 555-0198",
-    phoneButtonText: "(305) 555-0198",
+    phoneHref: "tel:{phoneTel}",
+    phoneLabel: "Call {companyName} at {phone}",
+    phoneButtonText: "{phone}",
 
     email: "hello@airlynxmatch.com",
 
@@ -35,13 +30,19 @@ window.SITE_CONFIG = {
     serviceArea: "USA HVAC provider matching platform",
 
     footerText:
-        "Airlynx helps homeowners organize HVAC project details and compare independent local provider options across cooling, heating, ductwork, ventilation, and indoor air quality categories.",
+        "{companyName} helps homeowners organize HVAC project details and compare independent local provider options across cooling, heating, ductwork, ventilation, and indoor air quality categories.",
 
     disclaimer:
         "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
 
     legalNotice:
-        "Airlynx is an independent provider matching platform. Airlynx does not install, repair, inspect, maintain, or perform HVAC, heating, cooling, ductwork, ventilation, or indoor air quality services directly. Provider availability, quotes, licensing, insurance, warranties, and service details should be verified by the homeowner before hiring any independent provider.",
+        "{companyName} is an independent provider matching platform. {companyName} does not install, repair, inspect, maintain, or perform HVAC, heating, cooling, ductwork, ventilation, or indoor air quality services directly. Provider availability, quotes, licensing, insurance, warranties, and service details should be verified by the homeowner before hiring any independent provider.",
+
+    labels: {
+        headerCta: "Start Request",
+        serviceCardCta: "Compare option",
+        formCategoryPlaceholder: "Choose a category"
+    },
 
     navigation: [
         {
@@ -111,7 +112,7 @@ window.SITE_CONFIG = {
             title: "Prepare your HVAC request before comparing quotes.",
             accentWord: "request",
             text:
-                "Airlynx helps homeowners collect the details providers commonly need before discussing scope, availability, and pricing.",
+                "{companyName} helps homeowners collect the details providers commonly need before discussing scope, availability, and pricing.",
             primaryCta: "Start Matching",
             primaryHref: "contact.html",
             secondaryCta: "Learn More",
@@ -123,8 +124,8 @@ window.SITE_CONFIG = {
             title: "A matching platform, not an HVAC contractor.",
             accentWord: "platform",
             text:
-                "Airlynx does not install, repair, or send technicians. The platform helps compare independent provider options.",
-            primaryCta: "About Airlynx",
+                "{companyName} does not install, repair, or send technicians. The platform helps compare independent provider options.",
+            primaryCta: "About {companyName}",
             primaryHref: "about.html",
             secondaryCta: "Contact",
             secondaryHref: "contact.html"
@@ -172,7 +173,7 @@ window.SITE_CONFIG = {
             pageKicker: "Cooling provider matching",
             pageTitle: "Compare local cooling provider options.",
             pageIntro:
-                "Airlynx helps homeowners organize cooling project details and compare independent local provider options. Homeowners should verify licensing, insurance, quote scope, warranties, timelines, and availability before hiring.",
+                "{companyName} helps homeowners organize cooling project details and compare independent local provider options. Homeowners should verify licensing, insurance, quote scope, warranties, timelines, and availability before hiring.",
             evaluationPoints: [
                 "Cooling system type and property size",
                 "Provider licensing and insurance",
@@ -187,9 +188,9 @@ window.SITE_CONFIG = {
             ],
             faq: [
                 {
-                    question: "Does Airlynx install AC systems?",
+                    question: "Does {companyName} install AC systems?",
                     answer:
-                        "No. Airlynx does not install, repair, or service AC systems directly. The platform helps homeowners compare independent local cooling provider options."
+                        "No. {companyName} does not install, repair, or service AC systems directly. The platform helps homeowners compare independent local cooling provider options."
                 },
                 {
                     question: "What should I compare before choosing a cooling provider?",
@@ -219,7 +220,7 @@ window.SITE_CONFIG = {
             pageKicker: "Heating provider matching",
             pageTitle: "Compare local heating provider options.",
             pageIntro:
-                "Airlynx helps homeowners prepare heating project information and compare independent local provider options. Airlynx does not perform heating work directly.",
+                "{companyName} helps homeowners prepare heating project information and compare independent local provider options. {companyName} does not perform heating work directly.",
             evaluationPoints: [
                 "Heating system type and project goal",
                 "Provider experience with similar systems",
@@ -234,9 +235,9 @@ window.SITE_CONFIG = {
             ],
             faq: [
                 {
-                    question: "Is Airlynx a heating contractor?",
+                    question: "Is {companyName} a heating contractor?",
                     answer:
-                        "No. Airlynx is not a heating contractor and does not send technicians. It helps homeowners compare independent provider options."
+                        "No. {companyName} is not a heating contractor and does not send technicians. It helps homeowners compare independent provider options."
                 },
                 {
                     question: "What affects heating project pricing?",
@@ -266,7 +267,7 @@ window.SITE_CONFIG = {
             pageKicker: "Ductwork & ventilation matching",
             pageTitle: "Compare ductwork and ventilation provider options.",
             pageIntro:
-                "Airlynx helps homeowners outline airflow concerns, ductwork needs, and ventilation goals before comparing independent local provider options.",
+                "{companyName} helps homeowners outline airflow concerns, ductwork needs, and ventilation goals before comparing independent local provider options.",
             evaluationPoints: [
                 "Airflow concerns and affected rooms",
                 "Duct access, layout, and property age",
@@ -281,9 +282,9 @@ window.SITE_CONFIG = {
             ],
             faq: [
                 {
-                    question: "Does Airlynx perform ductwork?",
+                    question: "Does {companyName} perform ductwork?",
                     answer:
-                        "No. Airlynx does not perform ductwork or ventilation services. It helps homeowners compare independent provider options."
+                        "No. {companyName} does not perform ductwork or ventilation services. It helps homeowners compare independent provider options."
                 },
                 {
                     question: "What details help with ductwork quote requests?",
@@ -313,7 +314,7 @@ window.SITE_CONFIG = {
             pageKicker: "Indoor air quality matching",
             pageTitle: "Compare indoor air quality provider options.",
             pageIntro:
-                "Airlynx helps homeowners organize indoor air quality concerns and compare independent local provider options for filtration, humidity, purification, and ventilation-related categories.",
+                "{companyName} helps homeowners organize indoor air quality concerns and compare independent local provider options for filtration, humidity, purification, and ventilation-related categories.",
             evaluationPoints: [
                 "Air quality concerns and comfort goals",
                 "Existing HVAC system compatibility",
@@ -328,9 +329,9 @@ window.SITE_CONFIG = {
             ],
             faq: [
                 {
-                    question: "Does Airlynx install air quality products?",
+                    question: "Does {companyName} install air quality products?",
                     answer:
-                        "No. Airlynx does not install or service indoor air quality products. It helps homeowners compare independent provider options."
+                        "No. {companyName} does not install or service indoor air quality products. It helps homeowners compare independent provider options."
                 },
                 {
                     question: "What indoor air quality options can providers discuss?",
@@ -467,7 +468,7 @@ window.SITE_CONFIG = {
             name: "Megan R.",
             location: "Austin, TX",
             text:
-                "Airlynx helped me organize my cooling project details before comparing provider options."
+                "{companyName} helped me organize my cooling project details before comparing provider options."
         },
         {
             name: "Daniel K.",
@@ -485,20 +486,20 @@ window.SITE_CONFIG = {
             name: "Marcus T.",
             location: "Charlotte, NC",
             text:
-                "Airlynx helped me think through quote scope, warranty details, and provider availability."
+                "{companyName} helped me think through quote scope, warranty details, and provider availability."
         }
     ],
 
     faq: [
         {
-            question: "How does Airlynx help compare local HVAC providers?",
+            question: "How does {companyName} help compare local HVAC providers?",
             answer:
-                "Airlynx helps homeowners organize project details, review HVAC service categories, and compare independent local provider options. Airlynx does not perform HVAC work directly."
+                "{companyName} helps homeowners organize project details, review HVAC service categories, and compare independent local provider options. {companyName} does not perform HVAC work directly."
         },
         {
-            question: "Is Airlynx an HVAC contractor?",
+            question: "Is {companyName} an HVAC contractor?",
             answer:
-                "No. Airlynx is not an HVAC contractor, does not install HVAC systems, does not repair systems, and does not send technicians."
+                "No. {companyName} is not an HVAC contractor, does not install HVAC systems, does not repair systems, and does not send technicians."
         },
         {
             question: "What should I ask before choosing an HVAC provider?",
@@ -526,7 +527,7 @@ window.SITE_CONFIG = {
             policyLabel:
                 "I agree to the Privacy Policy, Cookie Policy, and Terms of Service.",
             note:
-                "Airlynx is a provider matching platform. It does not perform HVAC work directly, and all providers are independent."
+                "{companyName} is a provider matching platform. It does not perform HVAC work directly, and all providers are independent."
         },
         serviceCategories: [
             {
@@ -556,7 +557,7 @@ window.SITE_CONFIG = {
         storageKey: "airlynx_policy_choice_v2",
         title: "Privacy preferences",
         text:
-            "Airlynx uses basic local storage for this policy banner and standard website technologies to improve the browsing experience.",
+            "{companyName} uses basic local storage for this policy banner and standard website technologies to improve the browsing experience.",
         accept: "Accept",
         decline: "Decline",
         links: [
@@ -569,7 +570,7 @@ window.SITE_CONFIG = {
                 href: "cookie-policy.html"
             },
             {
-                label: "Terms",
+                label: "Terms of Service",
                 href: "terms-of-service.html"
             }
         ]
@@ -584,14 +585,14 @@ window.SITE_CONFIG = {
             image: "./assets/images/services-hero.jpg"
         },
         about: {
-            kicker: "About Airlynx",
+            kicker: "About {companyName}",
             title: "A clearer way to compare HVAC provider options.",
             text:
-                "Airlynx is an independent provider matching platform built for homeowners who want clarity before requesting HVAC quotes.",
+                "{companyName} is an independent provider matching platform built for homeowners who want clarity before requesting HVAC quotes.",
             image: "./assets/images/about-hero.jpg"
         },
         contact: {
-            kicker: "Contact Airlynx",
+            kicker: "Contact {companyName}",
             title: "Start with a few HVAC project details.",
             text:
                 "Use the form to organize your request and compare independent provider options by category and location.",
@@ -622,59 +623,59 @@ window.SITE_CONFIG = {
 
     pageMeta: {
         "index.html": {
-            title: "Airlynx | Compare Local HVAC Provider Options",
+            title: "{companyName} | Compare Local HVAC Provider Options",
             description:
-                "Airlynx helps homeowners compare independent local HVAC provider options for cooling, heating, ductwork, ventilation, and indoor air quality."
+                "{companyName} helps homeowners compare independent local HVAC provider options for cooling, heating, ductwork, ventilation, and indoor air quality."
         },
         "services.html": {
-            title: "HVAC Provider Matching Services | Airlynx",
+            title: "HVAC Provider Matching Services | {companyName}",
             description:
-                "Explore Airlynx HVAC provider matching categories including cooling, heating, ductwork, ventilation, and indoor air quality."
+                "Explore {companyName} HVAC provider matching categories including cooling, heating, ductwork, ventilation, and indoor air quality."
         },
         "about.html": {
-            title: "About Airlynx | Independent HVAC Provider Matching",
+            title: "About {companyName} | Independent HVAC Provider Matching",
             description:
-                "Learn how Airlynx helps homeowners organize HVAC project details and compare independent local provider options."
+                "Learn how {companyName} helps homeowners organize HVAC project details and compare independent local provider options."
         },
         "contact.html": {
-            title: "Contact Airlynx | Start an HVAC Provider Matching Request",
+            title: "Contact {companyName} | Start an HVAC Provider Matching Request",
             description:
-                "Contact Airlynx to organize HVAC project details and compare independent local provider options."
+                "Contact {companyName} to organize HVAC project details and compare independent local provider options."
         },
         "cooling-provider-matching.html": {
-            title: "Cooling Provider Matching | Airlynx",
+            title: "Cooling Provider Matching | {companyName}",
             description:
                 "Compare independent local cooling provider options for AC-related quote requests."
         },
         "heating-provider-matching.html": {
-            title: "Heating Provider Matching | Airlynx",
+            title: "Heating Provider Matching | {companyName}",
             description:
                 "Compare independent local heating provider options for furnace, heat pump, and heating system categories."
         },
         "ductwork-ventilation.html": {
-            title: "Ductwork & Ventilation Provider Matching | Airlynx",
+            title: "Ductwork & Ventilation Provider Matching | {companyName}",
             description:
                 "Compare independent local provider options for ductwork, ventilation, and airflow categories."
         },
         "indoor-air-quality.html": {
-            title: "Indoor Air Quality Provider Matching | Airlynx",
+            title: "Indoor Air Quality Provider Matching | {companyName}",
             description:
                 "Compare independent local provider options for indoor air quality, filtration, humidity, and ventilation-related categories."
         },
         "privacy-policy.html": {
-            title: "Privacy Policy | Airlynx",
+            title: "Privacy Policy | {companyName}",
             description:
-                "Read the Airlynx Privacy Policy for this independent HVAC provider matching platform."
+                "Read the {companyName} Privacy Policy for this independent HVAC provider matching platform."
         },
         "cookie-policy.html": {
-            title: "Cookie Policy | Airlynx",
+            title: "Cookie Policy | {companyName}",
             description:
-                "Read the Airlynx Cookie Policy for this independent HVAC provider matching platform."
+                "Read the {companyName} Cookie Policy for this independent HVAC provider matching platform."
         },
         "terms-of-service.html": {
-            title: "Terms of Service | Airlynx",
+            title: "Terms of Service | {companyName}",
             description:
-                "Read the Airlynx Terms of Service for this independent HVAC provider matching platform."
+                "Read the {companyName} Terms of Service for this independent HVAC provider matching platform."
         }
     }
 };

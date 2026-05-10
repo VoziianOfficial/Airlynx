@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — GLOBAL SITE LOGIC
-   File: /js/main.js
-   ========================================================== */
-
 (function () {
     const cfg = window.SITE_CONFIG;
 
@@ -187,8 +182,10 @@
 
         if (!meta) return;
 
+        const vars = buildTemplateVars();
+
         if (meta.title) {
-            doc.title = meta.title;
+            doc.title = formatTemplate(meta.title, vars);
         }
 
         if (meta.description) {
@@ -200,7 +197,7 @@
                 doc.head.appendChild(description);
             }
 
-            description.setAttribute("content", meta.description);
+            description.setAttribute("content", formatTemplate(meta.description, vars));
         }
     };
 
@@ -210,28 +207,98 @@
         });
     };
 
+    const formatTemplate = (value, vars) => {
+        if (typeof value !== "string") return value;
+
+        return value.replace(/\{(\w+)\}/g, (match, key) => {
+            const replacement = vars?.[key];
+            return replacement === null || replacement === undefined ? "" : String(replacement);
+        });
+    };
+
+    const computePhoneTel = (phone) => {
+        const raw = String(phone || "");
+        const digits = raw.replace(/\D/g, "");
+
+        if (!digits) return "";
+
+        const trimmed = raw.trim();
+
+        if (trimmed.startsWith("+")) {
+            return `+${digits}`;
+        }
+
+        if (digits.length === 10) {
+            return `+1${digits}`;
+        }
+
+        if (digits.length === 11 && digits.startsWith("1")) {
+            return `+${digits}`;
+        }
+
+        return digits;
+    };
+
+    const buildTemplateVars = () => {
+        const brandName = formatTemplate(cfg.brand?.shortName || "{companyName}", {
+            companyName: cfg.companyName || ""
+        }) || cfg.companyName || "";
+
+        return {
+            companyName: cfg.companyName || "",
+            companyId: cfg.companyId || "",
+            brandName,
+            phone: cfg.phone || "",
+            phoneTel: computePhoneTel(cfg.phone),
+            email: cfg.email || "",
+            address: cfg.address?.full || ""
+        };
+    };
+
     const injectBusinessData = () => {
-        setText("[data-company-name]", cfg.companyName);
-        setText("[data-company-id]", cfg.companyId);
-        setText("[data-brand-name]", cfg.brand?.shortName || cfg.companyName);
-        setText("[data-brand-text]", cfg.brand?.logoText || cfg.companyName);
+        const vars = buildTemplateVars();
+        const brandName = vars.brandName;
+        const phoneTel = vars.phoneTel;
+
+        const brandText = formatTemplate(cfg.brand?.logoText || "{brandName}", vars) || brandName || vars.companyName;
+        const phoneButtonText = formatTemplate(cfg.phoneButtonText || "{phone}", vars) || vars.phone;
+        const phoneHrefCandidate = formatTemplate(cfg.phoneHref || "tel:{phoneTel}", vars);
+        const phoneHref = phoneHrefCandidate && phoneHrefCandidate !== "tel:"
+            ? phoneHrefCandidate
+            : (phoneTel ? `tel:${phoneTel}` : "#");
+        const serviceArea = formatTemplate(cfg.serviceArea, vars) || cfg.serviceArea;
+        const footerText = formatTemplate(cfg.footerText, vars) || cfg.footerText;
+        const disclaimer = formatTemplate(cfg.disclaimer, vars) || cfg.disclaimer;
+        const legalNotice = formatTemplate(cfg.legalNotice, vars) || cfg.legalNotice;
+
+        setText("[data-company-name]", vars.companyName);
+        setText("[data-company-id]", vars.companyId);
+        setText("[data-brand-name]", brandName);
+        setText("[data-brand-text]", brandText);
         setText("[data-phone-text]", cfg.phone);
-        setText("[data-phone-button-text]", cfg.phoneButtonText || cfg.phone);
+        setText("[data-phone-button-text]", phoneButtonText);
         setText("[data-email-text]", cfg.email);
         setText("[data-address-text]", cfg.address?.full);
-        setText("[data-service-area]", cfg.serviceArea);
-        setText("[data-footer-text]", cfg.footerText);
-        setText("[data-disclaimer]", cfg.disclaimer);
-        setText("[data-legal-notice]", cfg.legalNotice);
+        setText("[data-service-area]", serviceArea);
+        setText("[data-footer-text]", footerText);
+        setText("[data-disclaimer]", disclaimer);
+        setText("[data-legal-notice]", legalNotice);
 
         qsa("[data-phone-link]").forEach((link) => {
-            link.setAttribute("href", cfg.phoneHref || "#");
-            link.setAttribute("aria-label", cfg.phoneLabel || cfg.phone || "Call");
+            const label = formatTemplate(cfg.phoneLabel || "Call {companyName} at {phone}", vars) || vars.phone || "Call";
+
+            link.setAttribute("href", phoneHref);
+            link.setAttribute("aria-label", label);
         });
 
         qsa("[data-email-link]").forEach((link) => {
-            link.setAttribute("href", `mailto:${cfg.email}`);
-            link.setAttribute("aria-label", `Email ${cfg.email}`);
+            if (cfg.email) {
+                link.setAttribute("href", `mailto:${cfg.email}`);
+                link.setAttribute("aria-label", `Email ${cfg.email}`);
+            } else {
+                link.setAttribute("href", "#");
+                link.setAttribute("aria-label", "Email");
+            }
         });
 
         qsa("[data-map-link]").forEach((link) => {
@@ -252,6 +319,39 @@
 
     const renderHeader = () => {
         qsa("[data-site-header]").forEach((mount) => {
+            const vars = buildTemplateVars();
+            const brandName = vars.brandName;
+            const phoneTel = vars.phoneTel;
+            const phoneHrefCandidate = formatTemplate(cfg.phoneHref || "tel:{phoneTel}", {
+                    phone: vars.phone,
+                    phoneTel
+                });
+            const phoneHref = escapeHTML(
+                phoneHrefCandidate && phoneHrefCandidate !== "tel:"
+                    ? phoneHrefCandidate
+                    : (phoneTel ? `tel:${phoneTel}` : "#")
+            );
+            const phoneButtonText = escapeHTML(
+                formatTemplate(cfg.phoneButtonText || "{phone}", {
+                    phone: vars.phone,
+                    phoneTel
+                }) || vars.phone || ""
+            );
+
+            const logoLabel = escapeHTML(
+                formatTemplate(cfg.brand?.logoLabel || "{brandName} home", {
+                    brandName,
+                    companyName: vars.companyName
+                }) || ""
+            );
+
+            const brandText = escapeHTML(
+                formatTemplate(cfg.brand?.logoText || "{brandName}", {
+                    brandName,
+                    companyName: vars.companyName
+                }) || brandName
+            );
+
             const nav = cfg.navigation.map((item) => {
                 if (item.hasDropdown) {
                     const services = cfg.services.map((service) => {
@@ -316,9 +416,9 @@
             mount.innerHTML = `
                 <header class="site-header" data-header>
                     <div class="container site-header-inner">
-                        <a class="site-brand" href="index.html" aria-label="${escapeHTML(cfg.brand.logoLabel)}">
+                        <a class="site-brand" href="index.html" aria-label="${logoLabel}">
                             ${logoMark()}
-                            <span class="site-brand-text" data-brand-text>${escapeHTML(cfg.brand.logoText)}</span>
+                            <span class="site-brand-text" data-brand-text>${brandText}</span>
                         </a>
 
                         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -326,12 +426,12 @@
                         </nav>
 
                         <div class="header-actions">
-                            <a class="header-phone" href="${escapeHTML(cfg.phoneHref)}" data-phone-link>
+                            <a class="header-phone" href="${phoneHref}" data-phone-link>
                                 ${icon("phone")}
-                                <span data-phone-button-text>${escapeHTML(cfg.phoneButtonText || cfg.phone)}</span>
+                                <span data-phone-button-text>${phoneButtonText}</span>
                             </a>
 
-                            <a class="btn btn-primary header-cta" href="contact.html">Start Request</a>
+                            <a class="btn btn-primary header-cta" href="contact.html">${escapeHTML(cfg.labels?.headerCta || "Start Request")}</a>
 
                             <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" data-mobile-menu-open>
                                 ${icon("menu")}
@@ -345,9 +445,9 @@
 
                         <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
                             <div class="mobile-menu-head">
-                                <a class="site-brand mobile-menu-brand" href="index.html" data-mobile-close aria-label="${escapeHTML(cfg.brand.logoLabel)}">
+                                <a class="site-brand mobile-menu-brand" href="index.html" data-mobile-close aria-label="${logoLabel}">
                                     ${logoMark()}
-                                    <span class="site-brand-text" data-brand-text>${escapeHTML(cfg.brand.logoText)}</span>
+                                    <span class="site-brand-text" data-brand-text>${brandText}</span>
                                 </a>
 
                                 <button class="mobile-menu-close" type="button" aria-label="Close menu" data-mobile-close>
@@ -371,18 +471,18 @@
                                 </div>
 
                                 <div class="mobile-contact-card">
-                                    <a href="${escapeHTML(cfg.phoneHref)}" data-phone-link>
+                                    <a href="${phoneHref}" data-phone-link>
                                         ${icon("phone")}
-                                        <span data-phone-text>${escapeHTML(cfg.phone)}</span>
+                                        <span data-phone-text>${escapeHTML(vars.phone)}</span>
                                     </a>
 
-                                    <a href="mailto:${escapeHTML(cfg.email)}" data-email-link>
+                                    <a href="mailto:${escapeHTML(vars.email)}" data-email-link>
                                         ${icon("mail")}
-                                        <span data-email-text>${escapeHTML(cfg.email)}</span>
+                                        <span data-email-text>${escapeHTML(vars.email)}</span>
                                     </a>
                                 </div>
 
-                                <p class="mobile-menu-note" data-legal-notice>${escapeHTML(cfg.legalNotice)}</p>
+                                <p class="mobile-menu-note" data-legal-notice>${escapeHTML(formatTemplate(cfg.legalNotice, vars) || cfg.legalNotice)}</p>
                             </div>
                         </div>
                     </div>
@@ -392,6 +492,33 @@
 
     const renderFooter = () => {
         qsa("[data-site-footer]").forEach((mount) => {
+            const vars = buildTemplateVars();
+            const brandName = vars.brandName;
+            const phoneTel = vars.phoneTel;
+            const phoneHrefCandidate = formatTemplate(cfg.phoneHref || "tel:{phoneTel}", {
+                    phone: vars.phone,
+                    phoneTel
+                });
+            const phoneHref = escapeHTML(
+                phoneHrefCandidate && phoneHrefCandidate !== "tel:"
+                    ? phoneHrefCandidate
+                    : (phoneTel ? `tel:${phoneTel}` : "#")
+            );
+
+            const logoLabel = escapeHTML(
+                formatTemplate(cfg.brand?.logoLabel || "{brandName} home", {
+                    brandName,
+                    companyName: cfg.companyName || ""
+                }) || ""
+            );
+
+            const brandText = escapeHTML(
+                formatTemplate(cfg.brand?.logoText || "{brandName}", {
+                    brandName,
+                    companyName: vars.companyName
+                }) || brandName
+            );
+
             const navLinks = cfg.navigation.map((item) => {
                 return `<a href="${escapeHTML(item.href)}">${escapeHTML(item.label)}</a>`;
             }).join("");
@@ -408,27 +535,27 @@
                 <footer class="site-footer">
                     <div class="container footer-main">
                         <div class="footer-brand-column">
-                            <a class="site-brand footer-brand" href="index.html" aria-label="${escapeHTML(cfg.brand.logoLabel)}">
+                            <a class="site-brand footer-brand" href="index.html" aria-label="${logoLabel}">
                                 ${logoMark()}
-                                <span class="site-brand-text" data-brand-text>${escapeHTML(cfg.brand.logoText)}</span>
+                                <span class="site-brand-text" data-brand-text>${brandText}</span>
                             </a>
 
-                            <p class="footer-text" data-footer-text>${escapeHTML(cfg.footerText)}</p>
+                            <p class="footer-text" data-footer-text>${escapeHTML(formatTemplate(cfg.footerText, vars) || cfg.footerText)}</p>
 
                             <div class="footer-contact">
-                                <a href="${escapeHTML(cfg.phoneHref)}" data-phone-link>
+                                <a href="${phoneHref}" data-phone-link>
                                     ${icon("phone")}
-                                    <span data-phone-text>${escapeHTML(cfg.phone)}</span>
+                                    <span data-phone-text>${escapeHTML(vars.phone)}</span>
                                 </a>
 
-                                <a href="mailto:${escapeHTML(cfg.email)}" data-email-link>
+                                <a href="mailto:${escapeHTML(vars.email)}" data-email-link>
                                     ${icon("mail")}
-                                    <span data-email-text>${escapeHTML(cfg.email)}</span>
+                                    <span data-email-text>${escapeHTML(vars.email)}</span>
                                 </a>
 
                                 <span>
                                     ${icon("map-pin")}
-                                    <span data-address-text>${escapeHTML(cfg.address.full)}</span>
+                                    <span data-address-text>${escapeHTML(vars.address)}</span>
                                 </span>
                             </div>
                         </div>
@@ -451,14 +578,14 @@
 
                     <div class="container footer-bottom">
                         <div class="footer-company-line">
-                            <span data-company-name>${escapeHTML(cfg.companyName)}</span>
+                            <span data-company-name>${escapeHTML(vars.companyName)}</span>
                             <span aria-hidden="true">•</span>
-                            <span data-company-id>${escapeHTML(cfg.companyId)}</span>
+                            <span data-company-id>${escapeHTML(vars.companyId)}</span>
                             <span aria-hidden="true">•</span>
-                            <span data-service-area>${escapeHTML(cfg.serviceArea)}</span>
+                            <span data-service-area>${escapeHTML(formatTemplate(cfg.serviceArea, vars) || cfg.serviceArea)}</span>
                         </div>
 
-                        <p class="footer-disclaimer" data-disclaimer>${escapeHTML(cfg.disclaimer)}</p>
+                        <p class="footer-disclaimer" data-disclaimer>${escapeHTML(formatTemplate(cfg.disclaimer, vars) || cfg.disclaimer)}</p>
                     </div>
                 </footer>
             `;
@@ -627,7 +754,7 @@
                                 <span class="service-card-number">${number}</span>
                                 <span class="service-card-title">${escapeHTML(service.title)}</span>
                                 <span class="service-card-text">${escapeHTML(service.cardText || service.summary)}</span>
-                                <span class="service-card-cta">Compare option <span aria-hidden="true">→</span></span>
+                                <span class="service-card-cta">${escapeHTML(cfg.labels?.serviceCardCta || "Compare option")} <span aria-hidden="true">→</span></span>
                             </span>
                         </a>
                     </article>
@@ -649,21 +776,28 @@
         });
 
         qsa("[data-hero-content]").forEach((container) => {
+            const vars = buildTemplateVars();
             const slide = cfg.heroSlides[0];
 
             if (!slide) return;
 
+            const kicker = formatTemplate(slide.kicker, vars) || slide.kicker;
+            const title = formatTemplate(slide.title, vars) || slide.title;
+            const text = formatTemplate(slide.text, vars) || slide.text;
+            const primaryCta = formatTemplate(slide.primaryCta, vars) || slide.primaryCta;
+            const secondaryCta = formatTemplate(slide.secondaryCta, vars) || slide.secondaryCta;
+
             container.innerHTML = `
-                <p class="section-kicker hero-kicker" data-hero-kicker>${escapeHTML(slide.kicker)}</p>
-                <h1 data-hero-title>${highlightAccent(slide.title, slide.accentWord)}</h1>
-                <p class="hero-text" data-hero-text>${escapeHTML(slide.text)}</p>
+                <p class="section-kicker hero-kicker" data-hero-kicker>${escapeHTML(kicker)}</p>
+                <h1 data-hero-title>${highlightAccent(title, slide.accentWord)}</h1>
+                <p class="hero-text" data-hero-text>${escapeHTML(text)}</p>
 
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="${escapeHTML(slide.primaryHref)}" data-hero-primary>${escapeHTML(slide.primaryCta)}</a>
-                    <a class="btn btn-secondary" href="${escapeHTML(slide.secondaryHref)}" data-hero-secondary>${escapeHTML(slide.secondaryCta)}</a>
+                    <a class="btn btn-primary" href="${escapeHTML(slide.primaryHref)}" data-hero-primary>${escapeHTML(primaryCta)}</a>
+                    <a class="btn btn-secondary" href="${escapeHTML(slide.secondaryHref)}" data-hero-secondary>${escapeHTML(secondaryCta)}</a>
                 </div>
 
-                <p class="hero-note" data-legal-notice>${escapeHTML(cfg.legalNotice)}</p>
+                <p class="hero-note" data-legal-notice>${escapeHTML(formatTemplate(cfg.legalNotice, vars) || cfg.legalNotice)}</p>
             `;
         });
 
@@ -792,12 +926,14 @@
 
     const renderTestimonials = () => {
         qsa("[data-testimonials]").forEach((container) => {
+            const vars = buildTemplateVars();
             const items = [...cfg.testimonials, ...cfg.testimonials];
 
             container.innerHTML = items.map((item) => {
+                const text = formatTemplate(item.text, vars) || item.text;
                 return `
                     <article class="testimonial-card">
-                        <p>${escapeHTML(item.text)}</p>
+                        <p>${escapeHTML(text)}</p>
                         <footer>
                             <strong>${escapeHTML(item.name)}</strong>
                             <span>${escapeHTML(item.location)}</span>
@@ -825,20 +961,23 @@
 
     const renderFaq = () => {
         qsa("[data-faq-list]").forEach((container) => {
+            const vars = buildTemplateVars();
             const faqItems = getFaqItems(container);
 
             container.innerHTML = faqItems.map((item, index) => {
                 const id = `faq-${currentPage.replace(".html", "")}-${index}`;
+                const question = formatTemplate(item.question, vars) || item.question;
+                const answer = formatTemplate(item.answer, vars) || item.answer;
 
                 return `
                     <div class="faq-item">
                         <button class="faq-question" type="button" aria-expanded="false" aria-controls="${escapeHTML(id)}">
-                            <span>${escapeHTML(item.question)}</span>
+                            <span>${escapeHTML(question)}</span>
                             ${icon("chevron", "faq-chevron")}
                         </button>
 
                         <div class="faq-answer" id="${escapeHTML(id)}" hidden>
-                            <p>${escapeHTML(item.answer)}</p>
+                            <p>${escapeHTML(answer)}</p>
                         </div>
                     </div>
                 `;
@@ -846,16 +985,17 @@
         });
 
         qsa("[data-faq-schema]").forEach((node) => {
+            const vars = buildTemplateVars();
             const faqItems = getFaqItems(node);
             const schema = {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
                 mainEntity: faqItems.map((item) => ({
                     "@type": "Question",
-                    name: item.question,
+                    name: formatTemplate(item.question, vars) || item.question,
                     acceptedAnswer: {
                         "@type": "Answer",
-                        text: item.answer
+                        text: formatTemplate(item.answer, vars) || item.answer
                     }
                 }))
             };
@@ -881,11 +1021,14 @@
 
     const populateFormSelects = () => {
         qsa("[data-service-select]").forEach((select) => {
+            const categories = cfg.forms?.serviceCategories;
+            if (!Array.isArray(categories)) return;
+
             const selected = select.value;
 
             select.innerHTML = `
-                <option value="">Choose a category</option>
-                ${cfg.forms.serviceCategories.map((item) => {
+                <option value="">${escapeHTML(cfg.labels?.formCategoryPlaceholder || "Choose a category")}</option>
+                ${categories.map((item) => {
                 return `<option value="${escapeHTML(item.value)}">${escapeHTML(item.label)}</option>`;
             }).join("")}
             `;
@@ -899,6 +1042,9 @@
     const initForms = () => {
         qsa("[data-request-form]").forEach((form) => {
             const status = qs("[data-form-status]", form);
+            const requestCfg = cfg.forms?.request || {};
+            const successMessage = requestCfg.successMessage || "Thanks! Your request was captured.";
+            const errorMessage = requestCfg.errorMessage || "Please complete the required fields before continuing.";
 
             const setStatus = (message, type) => {
                 if (!status) return;
@@ -934,12 +1080,12 @@
                 });
 
                 if (!valid) {
-                    setStatus(cfg.forms.request.errorMessage, "error");
+                    setStatus(errorMessage, "error");
                     qs(":invalid", form)?.focus({ preventScroll: false });
                     return;
                 }
 
-                setStatus(cfg.forms.request.successMessage, "success");
+                setStatus(successMessage, "success");
                 form.reset();
             });
         });
@@ -947,14 +1093,15 @@
 
     const renderPageHero = () => {
         qsa("[data-page-hero]").forEach((hero) => {
+            const vars = buildTemplateVars();
             const key = hero.getAttribute("data-page-hero");
             const data = cfg.pageHeroes?.[key];
 
             if (!data) return;
 
-            qs("[data-page-hero-kicker]", hero) && (qs("[data-page-hero-kicker]", hero).textContent = data.kicker);
-            qs("[data-page-hero-title]", hero) && (qs("[data-page-hero-title]", hero).textContent = data.title);
-            qs("[data-page-hero-text]", hero) && (qs("[data-page-hero-text]", hero).textContent = data.text);
+            qs("[data-page-hero-kicker]", hero) && (qs("[data-page-hero-kicker]", hero).textContent = formatTemplate(data.kicker, vars) || data.kicker || "");
+            qs("[data-page-hero-title]", hero) && (qs("[data-page-hero-title]", hero).textContent = formatTemplate(data.title, vars) || data.title || "");
+            qs("[data-page-hero-text]", hero) && (qs("[data-page-hero-text]", hero).textContent = formatTemplate(data.text, vars) || data.text || "");
 
             const image = qs("[data-page-hero-image]", hero);
             if (image) {
@@ -965,17 +1112,19 @@
     };
 
     const renderServicePageData = () => {
+        const vars = buildTemplateVars();
         const serviceId = body.getAttribute("data-service-id");
         if (!serviceId) return;
 
         const service = getServiceById(serviceId);
         if (!service) return;
 
-        setText("[data-service-title]", service.title);
-        setText("[data-service-short-title]", service.shortTitle);
-        setText("[data-service-page-title]", service.pageTitle);
-        setText("[data-service-page-intro]", service.pageIntro);
-        setText("[data-service-summary]", service.summary);
+        setText("[data-service-page-kicker]", formatTemplate(service.pageKicker, vars) || service.pageKicker);
+        setText("[data-service-title]", formatTemplate(service.title, vars) || service.title);
+        setText("[data-service-short-title]", formatTemplate(service.shortTitle, vars) || service.shortTitle);
+        setText("[data-service-page-title]", formatTemplate(service.pageTitle, vars) || service.pageTitle);
+        setText("[data-service-page-intro]", formatTemplate(service.pageIntro, vars) || service.pageIntro);
+        setText("[data-service-summary]", formatTemplate(service.summary, vars) || service.summary);
 
         qsa("[data-service-hero-image]").forEach((image) => {
             image.setAttribute("src", service.heroImage || service.image);
@@ -1007,7 +1156,10 @@
 
     const renderComparisonLists = () => {
         qsa("[data-comparison-factors]").forEach((container) => {
-            container.innerHTML = cfg.serviceDetails.comparisonFactors.map((item) => {
+            const comparisonFactors = cfg.serviceDetails?.comparisonFactors;
+            if (!Array.isArray(comparisonFactors)) return;
+
+            container.innerHTML = comparisonFactors.map((item) => {
                 return `
                     <li>
                         ${icon("gauge")}
@@ -1018,7 +1170,10 @@
         });
 
         qsa("[data-homeowner-checklist]").forEach((container) => {
-            container.innerHTML = cfg.serviceDetails.homeownerChecklist.map((item) => {
+            const homeownerChecklist = cfg.serviceDetails?.homeownerChecklist;
+            if (!Array.isArray(homeownerChecklist)) return;
+
+            container.innerHTML = homeownerChecklist.map((item) => {
                 return `
                     <li>
                         ${icon("clipboard-check")}
@@ -1028,7 +1183,25 @@
             }).join("");
         });
 
-        setText("[data-safe-reminder]", cfg.serviceDetails.safeReminder);
+        setText("[data-safe-reminder]", cfg.serviceDetails?.safeReminder);
+    };
+
+    const injectFormCopy = () => {
+        const request = cfg.forms?.request;
+        if (!request) return;
+
+        const vars = buildTemplateVars();
+        const resolve = (value) => formatTemplate(value, vars) || value || "";
+
+        setText("[data-form-eyebrow]", resolve(request.eyebrow));
+        setText("[data-form-title]", resolve(request.title));
+        setText("[data-form-text]", resolve(request.text));
+        setText("[data-form-policy-label]", resolve(request.policyLabel));
+        setText("[data-form-note]", resolve(request.note));
+
+        qsa("[data-form-submit]").forEach((button) => {
+            button.textContent = resolve(request.submitLabel) || button.textContent;
+        });
     };
 
     const initImageFallbacks = () => {
@@ -1065,6 +1238,7 @@
         banner.className = "policy-banner";
         banner.setAttribute("data-policy-banner", "");
 
+        const vars = buildTemplateVars();
         const links = data.links.map((link) => {
             return `<a href="${escapeHTML(link.href)}">${escapeHTML(link.label)}</a>`;
         }).join("");
@@ -1072,8 +1246,8 @@
         banner.innerHTML = `
             <div class="policy-banner-inner">
                 <div class="policy-banner-copy">
-                    <strong>${escapeHTML(data.title)}</strong>
-                    <p>${escapeHTML(data.text)}</p>
+                    <strong>${escapeHTML(formatTemplate(data.title, vars) || data.title)}</strong>
+                    <p>${escapeHTML(formatTemplate(data.text, vars) || data.text)}</p>
                     <div class="policy-banner-links">${links}</div>
                 </div>
 
@@ -1136,6 +1310,7 @@
         renderFaq();
 
         populateFormSelects();
+        injectFormCopy();
 
         setActiveNavigation();
         initHeaderState();

@@ -1,13 +1,8 @@
-/* ==========================================================
-   AIRLYNX — ABOUT PAGE
-   File: /css/about.css
-   ========================================================== */
+
 
 .about-page .page-hero {
     min-height: clamp(410px, 56vh, 600px);
 }
-
-/* STORY */
 
 .about-story {
     overflow: hidden;
@@ -103,8 +98,6 @@
     color: var(--color-warm);
     font-size: 1.75rem;
 }
-
-/* MODEL */
 
 .about-model {
     overflow: hidden;
@@ -224,8 +217,6 @@
     color: var(--color-warm);
 }
 
-/* WHY */
-
 .about-why {
     overflow: hidden;
 }
@@ -322,8 +313,6 @@
     font-size: 0.9rem;
     line-height: 1.5;
 }
-
-/* VERIFICATION PHOTO STRIP */
 
 .about-verification {
     position: relative;
@@ -422,8 +411,6 @@
     line-height: 1.46;
 }
 
-/* CTA */
-
 .about-cta {
     overflow: hidden;
 }
@@ -472,8 +459,6 @@
     font-size: 0.76rem;
     line-height: 1.5;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1023px) {
 
@@ -566,10 +551,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — ABOUT STORY IMAGE CENTERED + FULL COVER
-   ========================================================== */
-
 .about-story-panel {
     position: relative;
     min-height: clamp(360px, 42vw, 520px);
@@ -586,12 +567,10 @@
     display: block;
 }
 
-/* если нужно показать больше центра фото */
 .about-story-panel img {
     object-position: 50% 50%;
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .about-story-panel {
         min-height: 320px;
@@ -601,10 +580,6 @@
         object-position: center;
     }
 }
-
-/* ==========================================================
-   REDESIGN — ABOUT MODEL PHOTO SPLIT / NO CARDS
-   ========================================================== */
 
 .about-model-photo {
     position: relative;
@@ -800,7 +775,6 @@
         drop-shadow(0 0 22px rgba(225, 77, 87, 0.38)) drop-shadow(0 0 22px rgba(94, 214, 240, 0.24));
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .about-model-split {
         grid-template-columns: 1fr;
@@ -841,7 +815,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .about-model-split {
         padding-block: 0.5rem;
@@ -866,10 +839,6 @@
         font-size: 0.62rem;
     }
 }
-
-/* ==========================================================
-   UPGRADE — REALISTIC MOVING THERMOMETER IN ABOUT MODEL
-   ========================================================== */
 
 .about-model-big-thermo {
     display: none;
@@ -1122,10 +1091,6 @@
         animation: none !important;
     }
 }
-
-/* ==========================================================
-   REDESIGN — ABOUT VERIFICATION SCANNER
-   ========================================================== */
 
 .about-verification-scanner {
     position: relative;
@@ -1439,10 +1404,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — BRIGHTER BACKGROUND PHOTO IN ABOUT MODEL
-   ========================================================== */
-
 .about-model-photo .about-model-bg img {
     filter: brightness(1.18) saturate(1.18) contrast(1.04);
 }
@@ -1454,11 +1415,6 @@
         linear-gradient(90deg, rgba(3, 8, 18, 0.78), rgba(3, 8, 18, 0.42), rgba(3, 8, 18, 0.78)),
         linear-gradient(180deg, rgba(3, 8, 18, 0.18), rgba(3, 8, 18, 0.72));
 }
-
-/* ==========================================================
-   FINAL REDESIGN — ABOUT WHY: COMPACT ANGLED HVAC PANELS
-   smaller height / alternating backgrounds / icon top-right
-   ========================================================== */
 
 .about-page .about-why {
     padding-block: clamp(3rem, 5vw, 4.8rem) !important;
@@ -1476,7 +1432,6 @@
     align-items: stretch !important;
 }
 
-/* base panel */
 .about-page .about-why-grid>.about-why-card {
     position: relative !important;
     isolation: isolate !important;
@@ -1495,21 +1450,18 @@
         box-shadow 0.25s ease !important;
 }
 
-/* cold cards */
 .about-page .about-why-grid>.about-why-card:nth-child(odd) {
     border: 1px solid rgba(94, 214, 240, 0.34) !important;
     background:
         linear-gradient(135deg, rgba(94, 214, 240, 0.20), rgba(16, 43, 66, 0.92) 42%, rgba(3, 8, 18, 0.96)) !important;
 }
 
-/* warm card */
 .about-page .about-why-grid>.about-why-card:nth-child(even) {
     border: 1px solid rgba(225, 77, 87, 0.38) !important;
     background:
         linear-gradient(135deg, rgba(225, 77, 87, 0.22), rgba(36, 31, 44, 0.94) 42%, rgba(3, 8, 18, 0.96)) !important;
 }
 
-/* big technical number */
 .about-page .about-why-grid>.about-why-card::before {
     content: "01" !important;
     position: absolute !important;
@@ -1536,7 +1488,6 @@
     content: "03" !important;
 }
 
-/* animated thin line */
 .about-page .about-why-grid>.about-why-card::after {
     content: "" !important;
     position: absolute !important;
@@ -1558,7 +1509,6 @@
     box-shadow: 0 0 18px rgba(225, 77, 87, 0.34) !important;
 }
 
-/* icon top-right */
 .about-page .about-why-grid>.about-why-card .about-why-icon {
     position: absolute !important;
     top: 0.72rem !important;
@@ -1588,7 +1538,6 @@
     box-shadow: 0 0 20px rgba(225, 77, 87, 0.26) !important;
 }
 
-/* text */
 .about-page .about-why-grid>.about-why-card h3 {
     max-width: 230px !important;
     margin: 0 0 0.38rem !important;
@@ -1618,7 +1567,6 @@
     color: rgba(255, 221, 224, 0.78) !important;
 }
 
-/* hover */
 .about-page .about-why-grid>.about-why-card:hover {
     transform: translateY(-5px) !important;
     filter: saturate(1.08) !important;
@@ -1678,7 +1626,6 @@
     color: var(--color-heading) !important;
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .about-page .about-why-grid {
         grid-template-columns: 1fr !important;
@@ -1700,7 +1647,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .about-page .about-why-grid>.about-why-card {
         min-height: 104px !important;
@@ -1731,10 +1677,6 @@
     }
 }
 
-/* ==========================================================
-   REDESIGN — ABOUT CTA WITH PHOTO INSIDE BOX ONLY
-   ========================================================== */
-
 .about-cta {
     background:
         radial-gradient(circle at 18% 0%, rgba(94, 214, 240, 0.08), transparent 26rem),
@@ -1757,7 +1699,6 @@
     text-align: center;
 }
 
-/* background photo ONLY inside the box */
 .about-cta-box::before {
     content: "";
     position: absolute;
@@ -1786,7 +1727,6 @@
     pointer-events: none;
 }
 
-/* subtle technical grid inside box */
 .about-cta-box .section-kicker,
 .about-cta-box .section-title,
 .about-cta-box .section-text,
@@ -1839,7 +1779,6 @@
     line-height: 1.55;
 }
 
-/* small glowing corner lines */
 .about-cta-box>.section-kicker::after {
     content: "";
     position: absolute;
@@ -1853,7 +1792,6 @@
     transform: translateX(-50%);
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .about-cta-box {
         padding: 1.35rem 1rem;
@@ -1869,10 +1807,6 @@
         font-size: 0.7rem;
     }
 }
-
-/* ==========================================================
-   ABOUT PAGE — MARQUEE STRIP AFTER HERO
-   ========================================================== */
 
 .about-marquee {
     position: relative;

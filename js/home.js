@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — HOME PAGE LOGIC
-   File: /js/home.js
-   ========================================================== */
-
 (function () {
     const cfg = window.SITE_CONFIG;
 
@@ -28,6 +23,30 @@
 
     const prefersReducedMotion = () => {
         return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    };
+
+    const formatTemplate = (value, vars) => {
+        if (typeof value !== "string") return value;
+
+        return value.replace(/\{(\w+)\}/g, (match, key) => {
+            const replacement = vars?.[key];
+            return replacement === null || replacement === undefined ? "" : String(replacement);
+        });
+    };
+
+    const buildTemplateVars = () => {
+        const brandName = formatTemplate(cfg.brand?.shortName || "{companyName}", {
+            companyName: cfg.companyName || ""
+        }) || cfg.companyName || "";
+
+        return {
+            companyName: cfg.companyName || "",
+            companyId: cfg.companyId || "",
+            brandName,
+            phone: cfg.phone || "",
+            email: cfg.email || "",
+            address: cfg.address?.full || ""
+        };
     };
 
     const highlightAccent = (text, accentWord) => {
@@ -69,25 +88,30 @@
 
             if (!current) return;
 
+            const vars = buildTemplateVars();
+
             if (kicker) {
-                kicker.textContent = current.kicker || "";
+                kicker.textContent = formatTemplate(current.kicker || "", vars);
             }
 
             if (title) {
-                title.innerHTML = highlightAccent(current.title || "", current.accentWord || "");
+                title.innerHTML = highlightAccent(
+                    formatTemplate(current.title || "", vars),
+                    current.accentWord || ""
+                );
             }
 
             if (text) {
-                text.textContent = current.text || "";
+                text.textContent = formatTemplate(current.text || "", vars);
             }
 
             if (primary) {
-                primary.textContent = current.primaryCta || "Compare Services";
+                primary.textContent = formatTemplate(current.primaryCta || "Compare Services", vars);
                 primary.setAttribute("href", current.primaryHref || "services.html");
             }
 
             if (secondary) {
-                secondary.textContent = current.secondaryCta || "Start Request";
+                secondary.textContent = formatTemplate(current.secondaryCta || "Start Request", vars);
                 secondary.setAttribute("href", current.secondaryHref || "contact.html");
             }
         };
@@ -142,7 +166,6 @@
                 start();
             });
         });
-
 
         doc.addEventListener("visibilitychange", () => {
             if (doc.hidden) {

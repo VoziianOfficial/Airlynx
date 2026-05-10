@@ -1,13 +1,8 @@
-/* ==========================================================
-   AIRLYNX — INDIVIDUAL SERVICE PAGES
-   File: /css/service-page.css
-   ========================================================== */
+
 
 .service-detail-page .page-hero {
     min-height: clamp(430px, 58vh, 620px);
 }
-
-/* SERVICE INTRO */
 
 .service-intro {
     overflow: hidden;
@@ -104,8 +99,6 @@
     color: var(--color-warm);
 }
 
-/* COMPARISON FACTORS */
-
 .service-factors {
     overflow: hidden;
 }
@@ -191,8 +184,6 @@
     border-color: rgba(94, 214, 240, 0.36);
     background: rgba(94, 214, 240, 0.07);
 }
-
-/* PREPARE SECTION */
 
 .service-prepare {
     overflow: hidden;
@@ -294,8 +285,6 @@
     line-height: 1.45;
 }
 
-/* OTHER CATEGORIES */
-
 .service-related {
     overflow: hidden;
 }
@@ -309,8 +298,6 @@
 .service-related-grid .service-card {
     min-height: 250px;
 }
-
-/* CTA */
 
 .service-cta {
     overflow: hidden;
@@ -361,8 +348,6 @@
     line-height: 1.5;
 }
 
-/* FAQ ADJUSTMENT */
-
 .service-detail-page .split-grid .section-header {
     margin: 0;
     text-align: left;
@@ -375,8 +360,6 @@
 .service-detail-page .split-grid .section-text {
     margin-inline: 0;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1180px) {
     .service-related-grid {
@@ -491,17 +474,12 @@
     }
 }
 
-/* ==========================================================
-   FIX — SERVICE INTRO IMAGE FULL COVER + CENTERED
-   ========================================================== */
-
 .service-intro-panel.image-panel {
     position: relative;
     min-height: clamp(360px, 42vw, 540px);
     overflow: hidden;
 }
 
-/* photo stretches inside the card and stays centered */
 .service-intro-panel.image-panel>img {
     position: absolute;
     inset: 0;
@@ -514,7 +492,6 @@
     display: block;
 }
 
-/* dark overlay for readability */
 .service-intro-panel.image-panel::after {
     content: "";
     position: absolute;
@@ -526,7 +503,6 @@
         linear-gradient(180deg, rgba(3, 8, 18, 0.08), rgba(3, 8, 18, 0.62));
 }
 
-/* overlay cards / badges stay above the photo */
 .service-intro-panel.image-panel :is(.service-intro-badge,
     .service-intro-card,
     .service-panel-badge,
@@ -537,7 +513,6 @@
     margin: 0;
 }
 
-/* first card — top left */
 .service-intro-panel.image-panel :is(.service-intro-badge,
     .service-intro-card,
     .service-panel-badge,
@@ -549,7 +524,6 @@
     bottom: auto;
 }
 
-/* second card — bottom right */
 .service-intro-panel.image-panel :is(.service-intro-badge,
     .service-intro-card,
     .service-panel-badge,
@@ -561,7 +535,6 @@
     left: auto;
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .service-intro-panel.image-panel {
         min-height: 340px;
@@ -586,12 +559,6 @@
     }
 }
 
-
-/* ==========================================================
-   REDESIGN — SERVICE PREPARE BOARD
-   applies to every individual service page
-   ========================================================== */
-
 .service-prepare-board {
     position: relative;
     overflow: hidden;
@@ -608,7 +575,6 @@
     align-items: center;
 }
 
-/* left photo visual */
 .service-prepare-media {
     position: relative;
     min-height: clamp(360px, 42vw, 520px);
@@ -653,7 +619,6 @@
     filter: brightness(1.16) saturate(1.2) contrast(1.08);
 }
 
-/* animated thermometer visual */
 .service-prepare-thermo {
     position: absolute;
     top: 50%;
@@ -739,7 +704,6 @@
     top: 6.15rem;
 }
 
-/* floating labels on photo */
 .service-prepare-float {
     position: absolute;
     z-index: 4;
@@ -788,7 +752,6 @@
     color: var(--color-warm-soft);
 }
 
-/* right content */
 .service-prepare-content {
     max-width: 620px;
 }
@@ -806,7 +769,6 @@
     margin-inline: 0;
 }
 
-/* list generated from config */
 .service-prepare-checklist {
     position: relative;
     margin-top: 1.25rem;
@@ -953,7 +915,6 @@
     }
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .service-prepare-board-grid {
         grid-template-columns: 1fr;
@@ -980,7 +941,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .service-prepare-media {
         min-height: 350px;
@@ -1040,10 +1000,6 @@
         animation: none !important;
     }
 }
-
-/* ==========================================================
-   FIX — SERVICE PREPARE BOARD TABLET LIKE DESKTOP
-   ========================================================== */
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .service-prepare-board-grid {
@@ -1171,10 +1127,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — SERVICE PREPARE CHECKLIST MOBILE SHIFT RIGHT
-   ========================================================== */
-
 @media (max-width: 767px) {
 
     .service-prepare-checklist.clean-list,
@@ -1233,10 +1185,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — SERVICE PREPARE THERMOMETER LEFT POSITION
-   ========================================================== */
-
 .service-prepare-thermo {
     top: 50% !important;
     left: clamp(2.2rem, 5vw, 4rem) !important;
@@ -1244,19 +1192,16 @@
     transform: translateY(-50%) !important;
 }
 
-/* чтобы верхняя плашка не налезала на градусник */
 .service-prepare-float-top {
     left: clamp(5.8rem, 11vw, 8rem) !important;
 }
 
-/* нижняя плашка оставляем справа снизу как была */
 .service-prepare-float-bottom {
     right: 1rem !important;
     bottom: 1rem !important;
     left: auto !important;
 }
 
-/* tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
     .service-prepare-thermo {
         left: 2rem !important;
@@ -1268,7 +1213,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .service-prepare-thermo {
         left: 1.45rem !important;
@@ -1288,11 +1232,6 @@
         width: min(72%, 230px) !important;
     }
 }
-
-/* ==========================================================
-   FINAL REDESIGN — SERVICE FACTORS PHOTO RADAR SECTION
-   background photo / top full-width heading / big radar left
-   ========================================================== */
 
 .service-factors-photo {
     position: relative;
@@ -1331,7 +1270,6 @@
     pointer-events: none;
 }
 
-/* top header full width */
 .service-factors-photo .service-factors-top {
     width: min(100%, 1040px);
     max-width: 1040px;
@@ -1350,7 +1288,6 @@
     margin-inline: auto;
 }
 
-/* main layout */
 .service-factors-photo .service-factors-radar-grid {
     position: relative;
     display: grid;
@@ -1359,7 +1296,6 @@
     align-items: center;
 }
 
-/* big radar left */
 .service-factors-photo .service-factor-radar {
     position: relative;
     display: grid;
@@ -1511,7 +1447,6 @@
     transition: color 0.28s ease, text-shadow 0.28s ease;
 }
 
-/* radar hover */
 .service-factors-photo .service-factor-radar:hover {
     transform: translateY(-4px) scale(1.015);
     border-color: rgba(110, 243, 214, 0.48);
@@ -1548,7 +1483,6 @@
     text-shadow: 0 0 22px rgba(110, 243, 214, 0.34);
 }
 
-/* right scan panel */
 .service-factors-photo .service-factor-scan {
     position: relative;
     overflow: hidden;
@@ -1617,7 +1551,6 @@
     font-size: clamp(1.08rem, 1.8vw, 1.42rem);
 }
 
-/* generated list */
 .service-factors-photo .service-factor-scan-list {
     position: relative;
     z-index: 2;
@@ -1700,7 +1633,6 @@
     }
 }
 
-/* tablet — same idea, more compact */
 @media (min-width: 768px) and (max-width: 1023px) {
     .service-factors-photo .service-factors-top {
         max-width: 860px;
@@ -1743,7 +1675,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .service-factors-photo .service-factors-top {
         margin-bottom: 1.6rem;
@@ -1788,31 +1719,20 @@
     }
 }
 
-/* ==========================================================
-   FIX — SERVICE FACTOR SCAN NATURAL HEIGHT + CENTERED
-   ========================================================== */
-
 .service-factors-photo .service-factor-scan {
     min-height: 0 !important;
     height: auto !important;
     align-self: center !important;
 }
 
-/* чтобы правая панель не тянулась на всю высоту радара */
 .service-factors-photo .service-factors-radar-grid {
     align-items: center !important;
 }
 
-/* если внутри список слишком длинный — пусть панель остается естественной */
 .service-factors-photo .service-factor-scan-list {
     height: auto !important;
     max-height: none !important;
 }
-
-/* ==========================================================
-   REDESIGN — SERVICE CTA COMPACT PHOTO CARD
-   applies to every service page
-   ========================================================== */
 
 .service-cta {
     padding-block: clamp(2.8rem, 5vw, 4.4rem) !important;
@@ -1834,7 +1754,6 @@
     text-align: center;
 }
 
-/* background photo only inside CTA card */
 .service-cta-box::before {
     content: "";
     position: absolute;
@@ -1876,7 +1795,6 @@
         0 0 34px rgba(225, 77, 87, 0.12);
 }
 
-/* content */
 .service-cta-box .section-kicker,
 .service-cta-box .section-title,
 .service-cta-box .section-text,
@@ -1920,7 +1838,6 @@
     line-height: 1.5;
 }
 
-/* small glowing top line */
 .service-cta-box .section-kicker::after {
     content: "";
     position: absolute;
@@ -1934,7 +1851,6 @@
     transform: translateX(-50%);
 }
 
-/* tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
     .service-cta {
         padding-block: 3rem !important;
@@ -1960,7 +1876,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .service-cta {
         padding-block: 2.6rem !important;
@@ -1983,10 +1898,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — SERVICE CTA PHOTO BRIGHTER
-   ========================================================== */
-
 .service-cta-box::before {
     filter: brightness(1.38) saturate(1.22) contrast(1.04) !important;
 }
@@ -2002,10 +1913,6 @@
 .service-cta-box:hover::before {
     filter: brightness(1.48) saturate(1.28) contrast(1.05) !important;
 }
-
-/* ==========================================================
-   SERVICE PAGES — MARQUEE STRIP AFTER HERO
-   ========================================================== */
 
 .service-marquee {
     position: relative;

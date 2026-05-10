@@ -1,13 +1,8 @@
-/* ==========================================================
-   AIRLYNX — CONTACT PAGE
-   File: /css/contact.css
-   ========================================================== */
+
 
 .contact-page .page-hero {
     min-height: clamp(410px, 56vh, 600px);
 }
-
-/* CONTACT MAIN */
 
 .contact-main {
     overflow: hidden;
@@ -130,8 +125,6 @@ a.contact-info-card:hover {
     margin-bottom: 1.05rem;
     color: var(--color-muted);
 }
-
-/* MAP SECTION */
 
 .contact-map-section {
     overflow: hidden;
@@ -332,8 +325,6 @@ a.contact-info-card:hover {
     background: rgba(94, 214, 240, 0.07);
 }
 
-/* REMINDERS */
-
 .contact-reminders {
     overflow: hidden;
 }
@@ -408,8 +399,6 @@ a.contact-info-card:hover {
     line-height: 1.46;
 }
 
-/* FAQ ADJUSTMENT */
-
 .contact-page .split-grid .section-header {
     margin: 0;
     text-align: left;
@@ -422,8 +411,6 @@ a.contact-info-card:hover {
 .contact-page .split-grid .section-text {
     margin-inline: 0;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1100px) {
     .contact-main-grid {
@@ -565,10 +552,6 @@ a.contact-info-card:hover {
         animation: none !important;
     }
 }
-
-/* ==========================================================
-   REDESIGN — CONTACT COMMAND SECTION
-   ========================================================== */
 
 .contact-command {
     position: relative;
@@ -754,8 +737,6 @@ a.contact-info-card:hover {
     overflow-wrap: anywhere;
 }
 
-/* right form area */
-
 .contact-command-form-wrap {
     position: relative;
     display: grid;
@@ -907,8 +888,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* responsive */
-
 @media (max-width: 1100px) {
     .contact-command-shell {
         grid-template-columns: 1fr;
@@ -986,11 +965,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* ==========================================================
-   FIX — CONTACT COMMAND TABLET LAYOUT + FORM LABEL ALIGNMENT
-   ========================================================== */
-
-/* labels always start at the left edge of inputs */
 .form-grid .form-field label,
 .contact-command-form .form-field label,
 .contact-command-form .checkbox-field label {
@@ -1004,7 +978,6 @@ a.contact-info-card:hover {
     text-align: left !important;
 }
 
-/* tablet: keep desktop-style split layout, just smaller */
 @media (min-width: 768px) and (max-width: 1100px) {
     .contact-command-shell {
         grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr) !important;
@@ -1151,7 +1124,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* mobile stays stacked */
 @media (max-width: 767px) {
 
     .contact-command-form .form-field label,
@@ -1173,10 +1145,6 @@ a.contact-info-card:hover {
         text-align: left !important;
     }
 }
-
-/* ==========================================================
-   FIX — CONTACT FORM SELECT ARROW + TEXTAREA LOCK
-   ========================================================== */
 
 .contact-command-form .form-field select,
 .contact-form-card .form-field select {
@@ -1223,10 +1191,6 @@ a.contact-info-card:hover {
     overflow-y: auto;
 }
 
-/* ==========================================================
-   FINAL FIX — CONTACT CATEGORY SELECT: NO HOVER / NO ARROW
-   ========================================================== */
-
 #contact-category,
 #contact-category:hover,
 #contact-category:focus,
@@ -1246,20 +1210,14 @@ a.contact-info-card:hover {
     cursor: pointer !important;
 }
 
-/* old IE/Edge arrow fallback */
 #contact-category::-ms-expand {
     display: none !important;
 }
 
-/* options inside dropdown */
 #contact-category option {
     color: var(--color-heading) !important;
     background: #06101D !important;
 }
-
-/* ==========================================================
-   REAL MAP REDESIGN
-   ========================================================== */
 
 .contact-map-real {
     overflow: hidden;
@@ -1516,11 +1474,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* ==========================================================
-   REDESIGN — CONTACT REMINDERS PHOTO VERIFICATION FLOW
-   no cards / background photo / compact verification line
-   ========================================================== */
-
 .contact-reminders-photo {
     position: relative;
     isolation: isolate;
@@ -1621,7 +1574,6 @@ a.contact-info-card:hover {
     text-transform: uppercase;
 }
 
-/* flow — not cards */
 .contact-reminders-flow {
     position: relative;
     display: grid;
@@ -1742,7 +1694,6 @@ a.contact-info-card:hover {
     transition: color 0.25s ease;
 }
 
-/* hover */
 .contact-reminder-row:hover {
     transform: translateX(6px);
     border-color: rgba(110, 243, 214, 0.34);
@@ -1809,7 +1760,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .contact-reminders-layout {
         grid-template-columns: 1fr;
@@ -1844,7 +1794,6 @@ a.contact-info-card:hover {
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .contact-reminders-bg img {
         object-position: center;
@@ -1897,10 +1846,6 @@ a.contact-info-card:hover {
         animation: none !important;
     }
 }
-
-/* ==========================================================
-   CONTACT PAGE — MARQUEE STRIP AFTER HERO
-   ========================================================== */
 
 .contact-marquee {
     position: relative;

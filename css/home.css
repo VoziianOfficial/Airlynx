@@ -1,9 +1,4 @@
-/* ==========================================================
-   AIRLYNX — HOME PAGE
-   File: /css/home.css
-   ========================================================== */
 
-/* HERO BACKGROUND SLIDESHOW */
 
 .home-hero {
     position: relative;
@@ -201,8 +196,6 @@
     box-shadow: 0 0 18px rgba(225, 77, 87, 0.58);
 }
 
-/* COMPACT MARQUEE */
-
 .home-marquee {
     position: relative;
     max-width: 100%;
@@ -283,8 +276,6 @@
         transform: translateX(-50%);
     }
 }
-
-/* SERVICES WITH THERMOMETER */
 
 .home-services {
     overflow: hidden;
@@ -491,8 +482,6 @@
     }
 }
 
-/* ABOUT */
-
 .home-about-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -571,8 +560,6 @@
     bottom: 1rem;
 }
 
-/* METRICS */
-
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -633,8 +620,6 @@
     font-size: 0.86rem;
     line-height: 1.35;
 }
-
-/* PROCESS */
 
 .process-grid {
     display: grid;
@@ -708,8 +693,6 @@
     font-size: 0.88rem;
     line-height: 1.48;
 }
-
-/* BENEFIT PHOTO STRIP */
 
 .benefit-photo-strip {
     position: relative;
@@ -823,8 +806,6 @@
     line-height: 1.46;
 }
 
-/* TESTIMONIALS — INSIDE CONTAINER */
-
 .testimonials-section {
     overflow: hidden;
 }
@@ -924,8 +905,6 @@
     }
 }
 
-/* CTA FORM */
-
 .home-cta-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
@@ -993,8 +972,6 @@
     margin-bottom: 1.05rem;
     color: var(--color-muted);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1180px) {
     .services-thermo-layout {
@@ -1303,10 +1280,6 @@
     }
 }
 
-/* ==========================================================
-   FIX — COMPACT METRICS CARDS + ICON TOP RIGHT
-   ========================================================== */
-
 .metrics-grid {
     align-items: stretch;
 }
@@ -1379,7 +1352,6 @@
     line-height: 1.35;
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .metric-card {
         min-height: 112px;
@@ -1387,7 +1359,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .metric-card {
         min-height: 104px;
@@ -1405,10 +1376,6 @@
         max-width: 230px;
     }
 }
-
-/* ==========================================================
-   FIX — ALTERNATING METRIC CARD COLORS
-   ========================================================== */
 
 .metric-card:nth-child(odd) {
     border-color: rgba(94, 214, 240, 0.22);
@@ -1471,10 +1438,6 @@
     background: rgba(255, 138, 146, 0.1);
     box-shadow: 0 0 24px rgba(225, 77, 87, 0.24);
 }
-
-/* ==========================================================
-   REDESIGN — PROCESS GRID AS AIRFLOW LINE, NOT CARDS
-   ========================================================== */
 
 .process-grid {
     position: relative;
@@ -1667,7 +1630,6 @@
     line-height: 1.45;
 }
 
-/* subtle vertical separator dots */
 .process-step:not(:last-child)::after {
     content: "";
     position: absolute;
@@ -1681,7 +1643,6 @@
     box-shadow: 0 0 16px rgba(94, 214, 240, 0.42);
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1705,7 +1666,6 @@
     }
 }
 
-/* mobile — vertical airflow line */
 @media (max-width: 767px) {
     .process-grid {
         grid-template-columns: 1fr;
@@ -1777,10 +1737,6 @@
         margin-top: 1.05rem;
     }
 }
-
-/* ==========================================================
-   REDESIGN — METRICS AS HVAC CONTROL STRIP, NOT CARDS
-   ========================================================== */
 
 .metrics-grid {
     position: relative;
@@ -1952,7 +1908,6 @@
     width: 76%;
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .metrics-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1967,7 +1922,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .metrics-grid {
         grid-template-columns: 1fr;

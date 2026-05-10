@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — LEGAL PAGE LOGIC
-   File: /js/legal.js
-   ========================================================== */
-
 (function () {
     const doc = document;
 
@@ -13,8 +8,6 @@
             return;
         }
 
-        // Legal pages currently use shared header, footer,
-        // config injection, and cookie banner from /js/main.js.
     };
 
     if (doc.readyState === "loading") {

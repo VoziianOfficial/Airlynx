@@ -1,13 +1,8 @@
-/* ==========================================================
-   AIRLYNX — SERVICES PAGE
-   File: /css/services.css
-   ========================================================== */
+
 
 .services-page .page-hero {
     min-height: clamp(410px, 56vh, 600px);
 }
-
-/* SERVICES OVERVIEW */
 
 .services-feature-layout {
     display: grid;
@@ -117,8 +112,6 @@
     line-height: 1.5;
 }
 
-/* SERVICE CATALOG */
-
 .services-catalog {
     overflow: hidden;
 }
@@ -146,8 +139,6 @@
 .services-catalog-grid .service-card:nth-child(4):hover {
     transform: translateY(0.9rem);
 }
-
-/* COMPARE SECTION */
 
 .services-compare {
     overflow: hidden;
@@ -240,8 +231,6 @@
     background: rgba(94, 214, 240, 0.07);
 }
 
-/* PROCESS */
-
 .services-process {
     overflow: hidden;
 }
@@ -251,8 +240,6 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(0.85rem, 1.8vw, 1.1rem);
 }
-
-/* PHOTO CTA */
 
 .services-photo-cta {
     overflow: hidden;
@@ -334,8 +321,6 @@
     margin-top: 1.2rem;
 }
 
-/* FAQ ADJUSTMENT */
-
 .services-page .split-grid .section-header {
     margin: 0;
     text-align: left;
@@ -348,8 +333,6 @@
 .services-page .split-grid .section-text {
     margin-inline: 0;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1180px) {
     .services-catalog-grid {
@@ -459,11 +442,6 @@
     }
 }
 
-/* ==========================================================
-   REDESIGN — SERVICES OVERVIEW PREMIUM EDITORIAL SYSTEM
-   no cards / wide heading / color hover interactions
-   ========================================================== */
-
 .services-overview .container {
     width: min(100% - 2rem, 1320px);
 }
@@ -484,7 +462,6 @@
     max-width: 860px;
 }
 
-/* MAIN LAYOUT — not cards */
 .services-feature-layout {
     position: relative;
     display: grid;
@@ -534,7 +511,6 @@
             transparent);
 }
 
-/* each item becomes a row / line, not a card */
 .services-feature-card {
     position: relative;
     isolation: isolate;
@@ -595,7 +571,6 @@
     box-shadow: 0 0 18px rgba(225, 77, 87, 0.14);
 }
 
-/* numbers */
 .services-feature-card h3::before {
     display: block;
     margin-bottom: 0.35rem;
@@ -625,7 +600,6 @@
     color: var(--color-fresh);
 }
 
-/* icon = technical node, not card icon */
 .services-feature-icon {
     position: relative;
     z-index: 2;
@@ -683,7 +657,6 @@
         0 16px 34px rgba(0, 0, 0, 0.26);
 }
 
-/* title and text */
 .services-feature-card h3 {
     max-width: none;
     margin: 0;
@@ -714,7 +687,6 @@
     color: var(--color-text);
 }
 
-/* moving glow line on hover */
 .services-feature-card>span.services-feature-icon::after {
     content: "";
     position: absolute;
@@ -735,7 +707,6 @@
     opacity: 0.75;
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .services-overview .container {
         width: min(100% - 1.4rem, 920px);
@@ -791,7 +762,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .services-overview .section-header {
         width: min(100%, 620px);
@@ -841,10 +811,6 @@
         left: 3.75rem;
     }
 }
-
-/* ==========================================================
-   REDESIGN — SERVICES OVERVIEW: LIST LEFT / PHOTO RIGHT
-   ========================================================== */
 
 .services-overview .container {
     width: min(100% - 2rem, 1320px);
@@ -913,7 +879,6 @@
     pointer-events: none;
 }
 
-/* left list rows */
 .services-feature-card {
     position: relative;
     z-index: 2;
@@ -1094,7 +1059,6 @@
     color: var(--color-text);
 }
 
-/* right photo full height */
 .services-feature-photo {
     position: relative;
     z-index: 2;
@@ -1171,7 +1135,6 @@
     font-weight: 800;
 }
 
-/* tablet */
 @media (max-width: 1023px) {
     .services-overview .container {
         width: min(100% - 1.4rem, 920px);
@@ -1211,7 +1174,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .services-overview .section-header {
         width: min(100%, 620px);
@@ -1259,10 +1221,6 @@
     }
 }
 
-/* ==========================================================
-   SERVICES PAGE — MARQUEE STRIP
-   ========================================================== */
-
 .services-marquee {
     position: relative;
     z-index: 2;
@@ -1283,10 +1241,6 @@
         min-height: 3.8rem;
     }
 }
-
-/* ==========================================================
-   HOVER — SERVICES COMPARE PANEL COLOR SHIFT
-   ========================================================== */
 
 .services-compare-panel {
     transition:

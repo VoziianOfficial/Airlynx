@@ -291,8 +291,6 @@ main {
   flex: 0 0 auto;
 }
 
-/* Buttons */
-
 .btn {
   --btn-bg: rgba(255, 255, 255, 0.04);
   --btn-border: rgba(255, 255, 255, 0.12);
@@ -378,8 +376,6 @@ main {
   font-size: 0.84rem;
   border-radius: 0.72rem;
 }
-
-/* Header */
 
 .site-header {
   position: sticky;
@@ -655,8 +651,6 @@ main {
   background: rgba(94, 214, 240, 0.08);
 }
 
-/* Mobile menu */
-
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -811,8 +805,6 @@ main {
   line-height: 1.5;
 }
 
-/* Page hero */
-
 .page-hero {
   position: relative;
   isolation: isolate;
@@ -862,8 +854,6 @@ main {
 .page-hero p {
   margin-inline: auto;
 }
-
-/* Service cards */
 
 .service-card {
   position: relative;
@@ -1006,8 +996,6 @@ main {
 .service-card:hover .service-card-cta {
   color: var(--color-fresh);
 }
-
-/* Forms */
 
 .form-card {
   position: relative;
@@ -1171,8 +1159,6 @@ main {
   line-height: 1.48;
 }
 
-/* FAQ */
-
 .faq-list {
   display: grid;
   gap: 0.75rem;
@@ -1223,8 +1209,6 @@ main {
   margin: 0;
 }
 
-/* Images and panels */
-
 .image-panel,
 .cta-media,
 .about-media {
@@ -1256,8 +1240,6 @@ main {
 .is-image-missing {
   display: none;
 }
-
-/* Footer */
 
 .site-footer {
   position: relative;
@@ -1357,8 +1339,6 @@ main {
   line-height: 1.55;
 }
 
-/* Cookie banner */
-
 .policy-banner {
   position: fixed;
   right: 1rem;
@@ -1427,8 +1407,6 @@ main {
   gap: 0.55rem;
 }
 
-/* Lists and layout helpers */
-
 .split-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -1459,8 +1437,6 @@ main {
   margin-top: 0.13rem;
   color: var(--color-cold);
 }
-
-/* Responsive */
 
 @media (max-width: 1180px) {
   .desktop-nav {
@@ -1675,14 +1651,6 @@ main {
   }
 }
 
-/* ==========================================================
-   FIX — MOBILE MENU ABOVE HERO
-   ========================================================== */
-
-/* ==========================================================
-   FIX — STICKY HEADER + MOBILE MENU ABOVE HERO
-   ========================================================== */
-
 [data-site-header] {
   position: sticky;
   top: 0;
@@ -1737,10 +1705,6 @@ main {
 .section-compact {
   z-index: 1;
 }
-
-/* ==========================================================
-   FIX — WIDER SECTION HEADINGS ON DESKTOP
-   ========================================================== */
 
 @media (min-width: 1024px) {
   .section-header {

@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — SERVICE DETAIL PAGE LOGIC
-   File: /js/service-page.js
-   ========================================================== */
-
 (function () {
     const doc = document;
 
@@ -13,8 +8,6 @@
             return;
         }
 
-        // Individual service page data is injected by /js/main.js
-        // using body[data-service-id].
     };
 
     if (doc.readyState === "loading") {

@@ -1,10 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   AIRLYNX — CONTACT PAGE LOGIC
-   File: /js/contact.js
-   ========================================================== */
-
 (function () {
     const doc = document;
 
@@ -13,8 +8,6 @@
             return;
         }
 
-        // Contact form behavior is handled globally by /js/main.js.
-        // Page-specific contact enhancements can be added here later.
     };
 
     if (doc.readyState === "loading") {
