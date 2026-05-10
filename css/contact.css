@@ -565,3 +565,1366 @@ a.contact-info-card:hover {
         animation: none !important;
     }
 }
+
+/* ==========================================================
+   REDESIGN — CONTACT COMMAND SECTION
+   ========================================================== */
+
+.contact-command {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-command::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(94, 214, 240, 0.16), transparent 26rem),
+        radial-gradient(circle at 86% 72%, rgba(225, 77, 87, 0.13), transparent 24rem);
+}
+
+.contact-command-shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(390px, 1.1fr);
+    gap: clamp(1.2rem, 4vw, 3rem);
+    align-items: stretch;
+}
+
+.contact-command-copy {
+    position: relative;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.contact-command-copy .section-kicker {
+    justify-content: flex-start;
+}
+
+.contact-command-copy .section-title,
+.contact-command-copy .section-text {
+    text-align: left;
+}
+
+.contact-command-copy .section-text {
+    margin-inline: 0;
+}
+
+.contact-command-status {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.25rem;
+    padding: 0.7rem 0.95rem;
+    overflow: hidden;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 999px;
+    background: rgba(3, 8, 18, 0.48);
+    backdrop-filter: blur(14px);
+}
+
+.contact-command-status::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(94, 214, 240, 0.24), transparent);
+    transform: translateX(-120%);
+    animation: contactCommandSignal 4.2s ease-in-out infinite;
+}
+
+.contact-command-status span {
+    position: relative;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-fresh);
+    box-shadow: 0 0 16px rgba(110, 243, 214, 0.6);
+}
+
+.contact-command-status strong {
+    position: relative;
+    color: var(--color-fresh);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.contact-command-info {
+    position: relative;
+    margin-top: 1.2rem;
+    padding-left: 1rem;
+}
+
+.contact-command-info::before {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    bottom: 0.45rem;
+    left: 0;
+    width: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg,
+            var(--color-cold),
+            var(--color-fresh),
+            var(--color-warm));
+    box-shadow:
+        0 0 18px rgba(94, 214, 240, 0.28),
+        0 0 18px rgba(225, 77, 87, 0.16);
+}
+
+.contact-command-info .contact-info-card {
+    position: relative;
+    min-height: 3.75rem;
+    padding: 0.65rem 0.75rem;
+    border-color: rgba(94, 214, 240, 0.16);
+    border-radius: 0.9rem;
+    background:
+        linear-gradient(90deg, rgba(94, 214, 240, 0.08), rgba(255, 255, 255, 0.025));
+    box-shadow: none;
+}
+
+.contact-command-info .contact-info-card:nth-child(even) {
+    border-color: rgba(225, 77, 87, 0.18);
+    background:
+        linear-gradient(90deg, rgba(225, 77, 87, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.contact-command-info .contact-info-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -1.25rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-cold);
+    box-shadow: 0 0 14px rgba(94, 214, 240, 0.5);
+    transform: translateY(-50%);
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-command-info .contact-info-card:nth-child(even)::before {
+    background: var(--color-warm);
+    box-shadow: 0 0 14px rgba(225, 77, 87, 0.5);
+}
+
+.contact-command-info .contact-info-card:hover {
+    transform: translateX(5px);
+    border-color: rgba(110, 243, 214, 0.42);
+    background:
+        linear-gradient(90deg, rgba(110, 243, 214, 0.12), rgba(94, 214, 240, 0.04));
+}
+
+.contact-command-info .contact-info-card:nth-child(even):hover {
+    border-color: rgba(255, 138, 146, 0.46);
+    background:
+        linear-gradient(90deg, rgba(225, 77, 87, 0.13), rgba(94, 214, 240, 0.04));
+}
+
+.contact-command-info .contact-info-card:hover::before {
+    background: var(--color-fresh);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 0 18px rgba(110, 243, 214, 0.6);
+}
+
+.contact-command-info .contact-info-card:nth-child(even):hover::before {
+    background: var(--color-warm-soft);
+    box-shadow: 0 0 18px rgba(225, 77, 87, 0.6);
+}
+
+.contact-command-info .contact-info-icon {
+    width: 2.45rem;
+    height: 2.45rem;
+    border-radius: 0.75rem;
+}
+
+.contact-command-info .contact-info-card small {
+    overflow-wrap: anywhere;
+}
+
+/* right form area */
+
+.contact-command-form-wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: stretch;
+}
+
+.contact-command-meter {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-content: space-between;
+    padding-block: 1rem;
+}
+
+.contact-command-meter-line {
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 50%;
+    width: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg,
+            var(--color-cold),
+            var(--color-fresh),
+            var(--color-warm));
+    box-shadow:
+        0 0 18px rgba(94, 214, 240, 0.28),
+        0 0 20px rgba(225, 77, 87, 0.18);
+    transform: translateX(-50%);
+}
+
+.contact-command-meter-dot {
+    position: relative;
+    z-index: 2;
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 1px solid rgba(221, 234, 242, 0.55);
+    border-radius: 999px;
+    background: var(--color-cold);
+    box-shadow: 0 0 18px rgba(94, 214, 240, 0.42);
+    animation: contactMeterPulse 3.8s ease-in-out infinite;
+}
+
+.contact-command-meter-dot:nth-child(3) {
+    background: var(--color-fresh);
+    animation-delay: -1.2s;
+}
+
+.contact-command-meter-dot:nth-child(4) {
+    background: var(--color-warm);
+    box-shadow: 0 0 18px rgba(225, 77, 87, 0.42);
+    animation-delay: -2.4s;
+}
+
+.contact-command-form {
+    position: relative;
+    max-width: none;
+    margin-left: 0;
+    overflow: hidden;
+    padding: clamp(1rem, 2vw, 1.35rem);
+    border-color: rgba(94, 214, 240, 0.22);
+    border-radius: 1.35rem;
+}
+
+.contact-command-form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(94, 214, 240, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 214, 240, 0.04) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(circle at 50% 30%, black, transparent 78%);
+}
+
+.contact-command-form::after {
+    content: "HVAC REQUEST";
+    position: absolute;
+    right: 1rem;
+    bottom: 0.2rem;
+    z-index: 0;
+    color: rgba(94, 214, 240, 0.06);
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 6vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    pointer-events: none;
+}
+
+.contact-command-form>*,
+.contact-command-form form {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-command-form:hover {
+    border-color: rgba(110, 243, 214, 0.38);
+    box-shadow:
+        var(--shadow-card),
+        0 0 34px rgba(94, 214, 240, 0.14),
+        0 0 30px rgba(225, 77, 87, 0.08);
+}
+
+.contact-command-form .form-grid {
+    gap: 0.68rem;
+}
+
+.contact-command-form .form-field input,
+.contact-command-form .form-field select {
+    min-height: 2.65rem;
+}
+
+.contact-command-form .form-field textarea {
+    min-height: 5.1rem;
+}
+
+.contact-command-form .form-actions {
+    margin-top: 0;
+}
+
+@keyframes contactCommandSignal {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    55%,
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes contactMeterPulse {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+}
+
+/* responsive */
+
+@media (max-width: 1100px) {
+    .contact-command-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-command-copy {
+        max-width: none;
+        text-align: center;
+    }
+
+    .contact-command-copy .section-kicker {
+        justify-content: center;
+    }
+
+    .contact-command-copy .section-title,
+    .contact-command-copy .section-text {
+        text-align: center;
+    }
+
+    .contact-command-copy .section-text {
+        margin-inline: auto;
+    }
+
+    .contact-command-status {
+        margin-inline: auto;
+    }
+
+    .contact-command-info {
+        max-width: 720px;
+        margin-inline: auto;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-command-form-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-command-meter {
+        display: none;
+    }
+
+    .contact-command-info {
+        padding-left: 0;
+    }
+
+    .contact-command-info::before,
+    .contact-command-info .contact-info-card::before {
+        display: none;
+    }
+
+    .contact-command-info .contact-info-card {
+        transform: none !important;
+    }
+
+    .contact-command-form {
+        border-radius: 1.05rem;
+    }
+
+    .contact-command-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-command-status strong {
+        font-size: 0.66rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-command-status::before,
+    .contact-command-meter-dot {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================
+   FIX — CONTACT COMMAND TABLET LAYOUT + FORM LABEL ALIGNMENT
+   ========================================================== */
+
+/* labels always start at the left edge of inputs */
+.form-grid .form-field label,
+.contact-command-form .form-field label,
+.contact-command-form .checkbox-field label {
+    text-align: left !important;
+    justify-self: start !important;
+    align-self: start !important;
+}
+
+.contact-command-form .form-field,
+.contact-command-form .checkbox-field {
+    text-align: left !important;
+}
+
+/* tablet: keep desktop-style split layout, just smaller */
+@media (min-width: 768px) and (max-width: 1100px) {
+    .contact-command-shell {
+        grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr) !important;
+        gap: clamp(1rem, 2.4vw, 1.7rem) !important;
+        align-items: center !important;
+    }
+
+    .contact-command-copy {
+        max-width: none !important;
+        text-align: left !important;
+    }
+
+    .contact-command-copy .section-kicker {
+        justify-content: flex-start !important;
+    }
+
+    .contact-command-copy .section-title,
+    .contact-command-copy .section-text {
+        text-align: left !important;
+    }
+
+    .contact-command-copy .section-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.55rem) !important;
+        line-height: 1.08 !important;
+    }
+
+    .contact-command-copy .section-text {
+        max-width: 520px !important;
+        margin-inline: 0 !important;
+        font-size: 0.95rem !important;
+    }
+
+    .contact-command-status {
+        margin-inline: 0 !important;
+        margin-top: 1rem !important;
+        padding: 0.62rem 0.82rem !important;
+    }
+
+    .contact-command-status strong {
+        font-size: 0.64rem !important;
+    }
+
+    .contact-command-info {
+        max-width: none !important;
+        margin-inline: 0 !important;
+        margin-top: 1rem !important;
+        padding-left: 0.9rem !important;
+        text-align: left !important;
+    }
+
+    .contact-command-info .contact-info-card {
+        grid-template-columns: 2.25rem minmax(0, 1fr) !important;
+        min-height: 3.25rem !important;
+        padding: 0.55rem 0.65rem !important;
+    }
+
+    .contact-command-info .contact-info-icon {
+        width: 2.2rem !important;
+        height: 2.2rem !important;
+    }
+
+    .contact-info-card strong {
+        font-size: 0.9rem !important;
+    }
+
+    .contact-info-card small {
+        font-size: 0.76rem !important;
+    }
+
+    .contact-command-form-wrap {
+        grid-template-columns: 2.55rem minmax(0, 1fr) !important;
+        gap: 0.65rem !important;
+    }
+
+    .contact-command-meter {
+        padding-block: 0.8rem !important;
+    }
+
+    .contact-command-form {
+        padding: 1rem !important;
+        border-radius: 1.1rem !important;
+        text-align: left !important;
+    }
+
+    .contact-command-form .section-kicker {
+        justify-content: flex-start !important;
+    }
+
+    .contact-command-form h2 {
+        margin-bottom: 0.45rem !important;
+        font-size: clamp(1.45rem, 3vw, 2rem) !important;
+        text-align: left !important;
+    }
+
+    .contact-command-form>p {
+        margin-bottom: 0.8rem !important;
+        font-size: 0.86rem !important;
+        text-align: left !important;
+    }
+
+    .contact-command-form .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.58rem !important;
+    }
+
+    .contact-command-form .form-field input,
+    .contact-command-form .form-field select {
+        min-height: 2.42rem !important;
+        padding: 0.58rem 0.7rem !important;
+        font-size: 0.84rem !important;
+    }
+
+    .contact-command-form .form-field textarea {
+        min-height: 4.35rem !important;
+        padding: 0.62rem 0.7rem !important;
+        font-size: 0.84rem !important;
+    }
+
+    .contact-command-form .form-field label,
+    .contact-command-form .checkbox-field label {
+        font-size: 0.74rem !important;
+    }
+
+    .contact-command-form .checkbox-field label {
+        grid-template-columns: 1.05rem 1fr !important;
+        gap: 0.55rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .contact-command-form .checkbox-custom {
+        width: 1.05rem !important;
+        height: 1.05rem !important;
+    }
+
+    .contact-command-form .form-actions .btn {
+        min-height: 2.55rem !important;
+        padding: 0.7rem 1rem !important;
+        font-size: 0.84rem !important;
+    }
+
+    .contact-command-form .form-note {
+        font-size: 0.68rem !important;
+        line-height: 1.42 !important;
+    }
+}
+
+/* mobile stays stacked */
+@media (max-width: 767px) {
+
+    .contact-command-form .form-field label,
+    .contact-command-form .checkbox-field label {
+        text-align: left !important;
+        justify-self: start !important;
+    }
+
+    .contact-command-form {
+        text-align: left !important;
+    }
+
+    .contact-command-form .section-kicker {
+        justify-content: flex-start !important;
+    }
+
+    .contact-command-form h2,
+    .contact-command-form>p {
+        text-align: left !important;
+    }
+}
+
+/* ==========================================================
+   FIX — CONTACT FORM SELECT ARROW + TEXTAREA LOCK
+   ========================================================== */
+
+.contact-command-form .form-field select,
+.contact-form-card .form-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.65rem;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--color-cold) 50%),
+        linear-gradient(135deg, var(--color-cold) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(94, 214, 240, 0.1), rgba(3, 8, 18, 0.55));
+    background-position:
+        calc(100% - 1.15rem) 50%,
+        calc(100% - 0.82rem) 50%,
+        0 0;
+    background-size:
+        0.35rem 0.35rem,
+        0.35rem 0.35rem,
+        100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.contact-command-form .form-field select:hover,
+.contact-form-card .form-field select:hover {
+    border-color: rgba(94, 214, 240, 0.46);
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--color-fresh) 50%),
+        linear-gradient(135deg, var(--color-fresh) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(110, 243, 214, 0.1), rgba(3, 8, 18, 0.62));
+}
+
+.contact-command-form .form-field select:focus,
+.contact-form-card .form-field select:focus {
+    border-color: rgba(110, 243, 214, 0.62);
+    box-shadow: 0 0 0 4px rgba(110, 243, 214, 0.12);
+}
+
+.contact-command-form .form-field textarea,
+.contact-form-card .form-field textarea {
+    resize: none;
+    min-height: 5.1rem;
+    max-height: 5.1rem;
+    overflow-y: auto;
+}
+
+/* ==========================================================
+   FINAL FIX — CONTACT CATEGORY SELECT: NO HOVER / NO ARROW
+   ========================================================== */
+
+#contact-category,
+#contact-category:hover,
+#contact-category:focus,
+#contact-category:focus-visible,
+#contact-category:active {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+
+    color: var(--color-heading) !important;
+    border-color: rgba(94, 214, 240, 0.18) !important;
+    background: rgba(3, 8, 18, 0.55) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+
+    padding-right: 0.85rem !important;
+    cursor: pointer !important;
+}
+
+/* old IE/Edge arrow fallback */
+#contact-category::-ms-expand {
+    display: none !important;
+}
+
+/* options inside dropdown */
+#contact-category option {
+    color: var(--color-heading) !important;
+    background: #06101D !important;
+}
+
+/* ==========================================================
+   REAL MAP REDESIGN
+   ========================================================== */
+
+.contact-map-real {
+    overflow: hidden;
+}
+
+.contact-map-real-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: center;
+}
+
+.contact-map-real-shell {
+    position: relative;
+}
+
+.contact-map-real-frame {
+    position: relative;
+    min-height: clamp(360px, 42vw, 500px);
+    overflow: hidden;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: var(--radius-lg);
+    background: #07111d;
+    box-shadow: var(--shadow-card);
+    isolation: isolate;
+}
+
+.contact-map-real-embed {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter:
+        grayscale(1) contrast(1.05) brightness(0.72) saturate(0.6) invert(0.92) hue-rotate(180deg);
+    transform: scale(1.02);
+}
+
+.contact-map-real-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(94, 214, 240, 0.18), transparent 18rem),
+        radial-gradient(circle at 82% 82%, rgba(225, 77, 87, 0.12), transparent 16rem),
+        linear-gradient(180deg, rgba(4, 10, 18, 0.16), rgba(4, 10, 18, 0.48));
+}
+
+.contact-map-real-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 999px;
+    background: rgba(3, 8, 18, 0.62);
+    backdrop-filter: blur(14px);
+    color: var(--color-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.contact-map-real-badge-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 999px;
+    background: var(--color-warm);
+    box-shadow: 0 0 14px rgba(225, 77, 87, 0.6);
+    animation: mapLivePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes mapLivePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.86;
+    }
+
+    50% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+}
+
+.contact-map-real-card {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.9rem;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid rgba(94, 214, 240, 0.18);
+    border-radius: 1rem;
+    background: rgba(3, 8, 18, 0.72);
+    backdrop-filter: blur(18px);
+}
+
+.contact-map-real-pin {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    color: #03101a;
+    border-radius: 0.95rem;
+    background: linear-gradient(135deg, var(--color-cold), var(--color-fresh));
+    box-shadow:
+        0 0 24px rgba(94, 214, 240, 0.32),
+        0 14px 32px rgba(0, 0, 0, 0.24);
+    flex-shrink: 0;
+}
+
+.contact-map-real-card-copy {
+    min-width: 0;
+}
+
+.contact-map-real-label {
+    margin: 0 0 0.3rem;
+    color: var(--color-cold);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-map-real-card-copy strong,
+.contact-map-real-card-copy span,
+.contact-map-real-card-copy small {
+    display: block;
+}
+
+.contact-map-real-card-copy strong {
+    margin-bottom: 0.2rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.contact-map-real-card-copy span {
+    color: var(--color-text);
+    font-size: 0.86rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.contact-map-real-card-copy small {
+    margin-top: 0.2rem;
+    color: var(--color-cold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.contact-map-real-link {
+    white-space: nowrap;
+}
+
+.contact-map-real-frame:hover {
+    border-color: rgba(94, 214, 240, 0.42);
+    box-shadow:
+        var(--shadow-card),
+        0 0 28px rgba(94, 214, 240, 0.12);
+}
+
+.contact-map-real-frame:hover .contact-map-real-pin {
+    background: linear-gradient(135deg, var(--color-warm), var(--color-warm-soft));
+    box-shadow:
+        0 0 24px rgba(225, 77, 87, 0.32),
+        0 14px 32px rgba(0, 0, 0, 0.24);
+}
+
+.contact-map-real-frame:hover .contact-map-real-card {
+    border-color: rgba(225, 77, 87, 0.22);
+}
+
+@media (max-width: 1023px) {
+    .contact-map-real-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map-real-shell {
+        order: 1;
+    }
+
+    .contact-map-copy {
+        order: 2;
+        max-width: 760px;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .contact-map-copy .section-kicker {
+        justify-content: center;
+    }
+
+    .contact-map-copy .section-title,
+    .contact-map-copy .section-text {
+        text-align: center;
+    }
+
+    .contact-map-copy .section-text {
+        margin-inline: auto;
+    }
+
+    .contact-map-copy .clean-list {
+        max-width: 720px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-map-real-frame {
+        min-height: 360px;
+    }
+
+    .contact-map-real-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+        text-align: left;
+    }
+
+    .contact-map-real-link {
+        width: 100%;
+    }
+
+    .contact-map-real-pin {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .contact-map-real-badge {
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .contact-map-real-card {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        left: 0.75rem;
+        padding: 0.85rem;
+    }
+}
+
+/* ==========================================================
+   REDESIGN — CONTACT REMINDERS PHOTO VERIFICATION FLOW
+   no cards / background photo / compact verification line
+   ========================================================== */
+
+.contact-reminders-photo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-block: 1px solid rgba(94, 214, 240, 0.14);
+}
+
+.contact-reminders-bg,
+.contact-reminders-bg img {
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-reminders-bg img {
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1.1) saturate(1.12) contrast(1.06);
+}
+
+.contact-reminders-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 26%, rgba(94, 214, 240, 0.22), transparent 24rem),
+        radial-gradient(circle at 86% 56%, rgba(225, 77, 87, 0.18), transparent 24rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.94), rgba(3, 8, 18, 0.64), rgba(3, 8, 18, 0.9)),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.28), rgba(3, 8, 18, 0.92));
+    pointer-events: none;
+}
+
+.contact-reminders-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 3.4rem);
+    align-items: center;
+}
+
+.contact-reminders-copy {
+    max-width: 580px;
+}
+
+.contact-reminders-copy .section-kicker {
+    justify-content: flex-start;
+}
+
+.contact-reminders-copy .section-title,
+.contact-reminders-copy .section-text {
+    text-align: left;
+}
+
+.contact-reminders-copy .section-text {
+    margin-inline: 0;
+}
+
+.contact-reminders-pulse {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.15rem;
+    padding: 0.7rem 0.95rem;
+    overflow: hidden;
+    border: 1px solid rgba(94, 214, 240, 0.24);
+    border-radius: 999px;
+    background: rgba(3, 8, 18, 0.58);
+    backdrop-filter: blur(14px);
+}
+
+.contact-reminders-pulse::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(94, 214, 240, 0.26), transparent);
+    transform: translateX(-120%);
+    animation: contactReminderSignal 4.2s ease-in-out infinite;
+}
+
+.contact-reminders-pulse span {
+    position: relative;
+    width: 0.58rem;
+    height: 0.58rem;
+    border-radius: 999px;
+    background: var(--color-fresh);
+    box-shadow: 0 0 16px rgba(110, 243, 214, 0.6);
+}
+
+.contact-reminders-pulse strong {
+    position: relative;
+    color: var(--color-fresh);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+/* flow — not cards */
+.contact-reminders-flow {
+    position: relative;
+    display: grid;
+    gap: 0;
+    padding: clamp(0.4rem, 1vw, 0.7rem) 0;
+}
+
+.contact-reminders-line {
+    position: absolute;
+    top: 0.8rem;
+    bottom: 0.8rem;
+    left: 4.4rem;
+    width: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg,
+            var(--color-cold),
+            var(--color-fresh),
+            var(--color-warm),
+            var(--color-cold));
+    box-shadow:
+        0 0 18px rgba(94, 214, 240, 0.28),
+        0 0 22px rgba(225, 77, 87, 0.16);
+    pointer-events: none;
+}
+
+.contact-reminder-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.2rem 2.4rem minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: center;
+    min-height: 4.45rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(94, 214, 240, 0.14);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.contact-reminder-row:last-child {
+    border-bottom: 0;
+}
+
+.contact-reminder-number {
+    color: rgba(94, 214, 240, 0.6);
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-reminder-dot {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 1rem;
+    height: 1rem;
+    place-items: center;
+    border: 1px solid rgba(94, 214, 240, 0.58);
+    border-radius: 999px;
+    background: rgba(3, 8, 18, 0.9);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.7),
+        0 0 18px rgba(94, 214, 240, 0.28);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.contact-reminder-dot::before {
+    content: "";
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 999px;
+    background: var(--color-cold);
+    box-shadow: 0 0 12px rgba(94, 214, 240, 0.58);
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-reminder-dot-warm {
+    border-color: rgba(225, 77, 87, 0.6);
+}
+
+.contact-reminder-dot-warm::before {
+    background: var(--color-warm);
+    box-shadow: 0 0 12px rgba(225, 77, 87, 0.58);
+}
+
+.contact-reminder-row strong {
+    display: block;
+    margin-bottom: 0.14rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+.contact-reminder-row div>span {
+    display: block;
+    max-width: 520px;
+    color: var(--color-muted);
+    font-size: 0.84rem;
+    line-height: 1.42;
+    transition: color 0.25s ease;
+}
+
+/* hover */
+.contact-reminder-row:hover {
+    transform: translateX(6px);
+    border-color: rgba(110, 243, 214, 0.34);
+}
+
+.contact-reminder-row:hover .contact-reminder-number {
+    color: var(--color-fresh);
+    text-shadow: 0 0 16px rgba(110, 243, 214, 0.3);
+    transform: translateX(3px);
+}
+
+.contact-reminder-row:hover .contact-reminder-dot {
+    border-color: rgba(110, 243, 214, 0.78);
+    background: var(--color-fresh);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.7),
+        0 0 24px rgba(110, 243, 214, 0.44);
+    transform: scale(1.16);
+}
+
+.contact-reminder-row:hover .contact-reminder-dot::before {
+    background: #03101a;
+    box-shadow: none;
+    transform: scale(0.9);
+}
+
+.contact-reminder-row:nth-child(odd):hover {
+    border-color: rgba(255, 138, 146, 0.36);
+}
+
+.contact-reminder-row:nth-child(odd):hover .contact-reminder-number {
+    color: var(--color-warm-soft);
+    text-shadow: 0 0 16px rgba(225, 77, 87, 0.3);
+}
+
+.contact-reminder-row:nth-child(odd):hover .contact-reminder-dot {
+    border-color: rgba(255, 138, 146, 0.78);
+    background: var(--color-warm-soft);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.7),
+        0 0 24px rgba(225, 77, 87, 0.44);
+}
+
+.contact-reminder-row:hover strong {
+    color: var(--color-fresh);
+}
+
+.contact-reminder-row:nth-child(odd):hover strong {
+    color: var(--color-warm-soft);
+}
+
+.contact-reminder-row:hover div>span {
+    color: var(--color-text);
+}
+
+@keyframes contactReminderSignal {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    55%,
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .contact-reminders-layout {
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin-inline: auto;
+    }
+
+    .contact-reminders-copy {
+        max-width: none;
+        text-align: center;
+    }
+
+    .contact-reminders-copy .section-kicker {
+        justify-content: center;
+    }
+
+    .contact-reminders-copy .section-title,
+    .contact-reminders-copy .section-text {
+        text-align: center;
+    }
+
+    .contact-reminders-copy .section-text {
+        margin-inline: auto;
+    }
+
+    .contact-reminders-pulse {
+        margin-inline: auto;
+    }
+
+    .contact-reminders-line {
+        left: 4.2rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .contact-reminders-bg img {
+        object-position: center;
+    }
+
+    .contact-reminder-row {
+        grid-template-columns: 2.4rem 1.8rem minmax(0, 1fr);
+        gap: 0.65rem;
+        min-height: auto;
+        padding: 0.72rem 0;
+    }
+
+    .contact-reminders-line {
+        left: 3.3rem;
+    }
+
+    .contact-reminder-number {
+        font-size: 0.68rem;
+    }
+
+    .contact-reminder-dot {
+        width: 0.85rem;
+        height: 0.85rem;
+    }
+
+    .contact-reminder-dot::before {
+        width: 0.32rem;
+        height: 0.32rem;
+    }
+
+    .contact-reminder-row strong {
+        font-size: 0.96rem;
+    }
+
+    .contact-reminder-row div>span {
+        font-size: 0.78rem;
+    }
+
+    .contact-reminders-pulse strong {
+        font-size: 0.64rem;
+    }
+
+    .contact-reminder-row:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-reminders-pulse::before {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================
+   CONTACT PAGE — MARQUEE STRIP AFTER HERO
+   ========================================================== */
+
+.contact-marquee {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-top: 1px solid rgba(94, 214, 240, 0.12);
+    border-bottom: 1px solid rgba(94, 214, 240, 0.12);
+    background:
+        radial-gradient(circle at 14% 50%, rgba(94, 214, 240, 0.13), transparent 18rem),
+        radial-gradient(circle at 84% 50%, rgba(225, 77, 87, 0.1), transparent 18rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.96), rgba(10, 33, 54, 0.74), rgba(3, 8, 18, 0.96));
+}
+
+.contact-marquee .marquee-track {
+    min-height: 4.4rem;
+}
+
+.contact-marquee .marquee-item:hover {
+    color: var(--color-warm-soft);
+}
+
+@media (max-width: 767px) {
+    .contact-marquee .marquee-track {
+        min-height: 3.8rem;
+    }
+}
+

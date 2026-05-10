@@ -233,6 +233,21 @@
             link.setAttribute("href", `mailto:${cfg.email}`);
             link.setAttribute("aria-label", `Email ${cfg.email}`);
         });
+
+        qsa("[data-map-link]").forEach((link) => {
+            const address = cfg.address?.full || "";
+            const query = encodeURIComponent(address);
+
+            link.setAttribute("href", `https://www.google.com/maps/search/?api=1&query=${query}`);
+            link.setAttribute("aria-label", `Open map for ${address}`);
+        });
+
+        qsa("[data-map-embed]").forEach((frame) => {
+            const address = cfg.address?.full || "";
+            const query = encodeURIComponent(address);
+
+            frame.setAttribute("src", `https://www.google.com/maps?q=${query}&z=14&output=embed`);
+        });
     };
 
     const renderHeader = () => {
