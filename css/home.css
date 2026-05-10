@@ -1284,3 +1284,709 @@
         height: 55%;
     }
 }
+
+/* ==========================================================
+   FIX — COMPACT METRICS CARDS + ICON TOP RIGHT
+   ========================================================== */
+
+.metrics-grid {
+    align-items: stretch;
+}
+
+.metric-card {
+    position: relative;
+    min-height: 118px;
+    padding: 1rem 4.2rem 1rem 1rem;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: "";
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 999px;
+    background: rgba(94, 214, 240, 0.08);
+    opacity: 0.9;
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        opacity 0.28s ease;
+}
+
+.metric-card:hover::before {
+    transform: scale(1.16);
+    background: rgba(225, 77, 87, 0.12);
+    opacity: 1;
+}
+
+.metric-icon {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 2.65rem;
+    height: 2.65rem;
+    margin-bottom: 0;
+    color: var(--color-cold);
+    border-color: rgba(94, 214, 240, 0.28);
+    background: rgba(3, 8, 18, 0.58);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.metric-card:hover .metric-icon {
+    color: var(--color-warm);
+    border-color: rgba(225, 77, 87, 0.5);
+    background: rgba(225, 77, 87, 0.1);
+    box-shadow: 0 0 24px rgba(225, 77, 87, 0.22);
+    transform: translateY(-2px) rotate(-6deg) scale(1.06);
+}
+
+.metric-card strong {
+    margin-top: 0;
+    margin-bottom: 0.22rem;
+    font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+}
+
+.metric-card p {
+    max-width: 190px;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .metric-card {
+        min-height: 112px;
+        padding: 0.95rem 4rem 0.95rem 0.95rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .metric-card {
+        min-height: 104px;
+        padding: 0.9rem 3.8rem 0.9rem 0.9rem;
+    }
+
+    .metric-icon {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 2.45rem;
+        height: 2.45rem;
+    }
+
+    .metric-card p {
+        max-width: 230px;
+    }
+}
+
+/* ==========================================================
+   FIX — ALTERNATING METRIC CARD COLORS
+   ========================================================== */
+
+.metric-card:nth-child(odd) {
+    border-color: rgba(94, 214, 240, 0.22);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(94, 214, 240, 0.15), transparent 12rem),
+        linear-gradient(180deg, rgba(16, 43, 66, 0.78), rgba(6, 16, 29, 0.92));
+}
+
+.metric-card:nth-child(odd)::before {
+    background: rgba(94, 214, 240, 0.1);
+}
+
+.metric-card:nth-child(odd) .metric-icon {
+    color: var(--color-cold);
+    border-color: rgba(94, 214, 240, 0.34);
+    background: rgba(94, 214, 240, 0.08);
+}
+
+.metric-card:nth-child(even) {
+    border-color: rgba(225, 77, 87, 0.24);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(225, 77, 87, 0.15), transparent 12rem),
+        linear-gradient(180deg, rgba(24, 32, 48, 0.82), rgba(6, 16, 29, 0.94));
+}
+
+.metric-card:nth-child(even)::before {
+    background: rgba(225, 77, 87, 0.1);
+}
+
+.metric-card:nth-child(even) .metric-icon {
+    color: var(--color-warm);
+    border-color: rgba(225, 77, 87, 0.34);
+    background: rgba(225, 77, 87, 0.08);
+}
+
+.metric-card:nth-child(odd):hover {
+    border-color: rgba(94, 214, 240, 0.55);
+    box-shadow:
+        var(--shadow-card),
+        0 0 30px rgba(94, 214, 240, 0.18);
+}
+
+.metric-card:nth-child(even):hover {
+    border-color: rgba(225, 77, 87, 0.55);
+    box-shadow:
+        var(--shadow-card),
+        0 0 30px rgba(225, 77, 87, 0.18);
+}
+
+.metric-card:nth-child(odd):hover .metric-icon {
+    color: var(--color-fresh);
+    border-color: rgba(110, 243, 214, 0.52);
+    background: rgba(110, 243, 214, 0.1);
+    box-shadow: 0 0 24px rgba(110, 243, 214, 0.2);
+}
+
+.metric-card:nth-child(even):hover .metric-icon {
+    color: var(--color-warm-soft);
+    border-color: rgba(255, 138, 146, 0.52);
+    background: rgba(255, 138, 146, 0.1);
+    box-shadow: 0 0 24px rgba(225, 77, 87, 0.24);
+}
+
+/* ==========================================================
+   REDESIGN — PROCESS GRID AS AIRFLOW LINE, NOT CARDS
+   ========================================================== */
+
+.process-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.4rem);
+    align-items: start;
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-top: 1.2rem;
+}
+
+.process-grid::before {
+    content: "";
+    position: absolute;
+    top: 3.15rem;
+    left: 7%;
+    right: 7%;
+    height: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(94, 214, 240, 0.2),
+            rgba(94, 214, 240, 0.72),
+            rgba(225, 77, 87, 0.65),
+            rgba(110, 243, 214, 0.58),
+            transparent);
+    box-shadow:
+        0 0 18px rgba(94, 214, 240, 0.22),
+        0 0 26px rgba(225, 77, 87, 0.12);
+}
+
+.process-grid::after {
+    content: "";
+    position: absolute;
+    top: 2.98rem;
+    left: 7%;
+    width: 16%;
+    height: 0.35rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--color-cold), transparent);
+    filter: blur(1px);
+    opacity: 0.75;
+    animation: processAirflow 5.8s ease-in-out infinite;
+}
+
+@keyframes processAirflow {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    16% {
+        opacity: 0.85;
+    }
+
+    84% {
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateX(470%);
+        opacity: 0;
+    }
+}
+
+.process-step {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+}
+
+.process-step::before {
+    content: "";
+    position: absolute;
+    top: 1.72rem;
+    left: 50%;
+    z-index: 0;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle, rgba(94, 214, 240, 0.18), transparent 64%);
+    transform: translateX(-50%);
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.process-step:hover {
+    transform: none;
+    border-color: transparent;
+    background: transparent;
+}
+
+.process-step:hover::before {
+    background:
+        radial-gradient(circle, rgba(225, 77, 87, 0.2), transparent 66%);
+    transform: translateX(-50%) scale(1.12);
+}
+
+.process-step-number {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    margin-bottom: 0.55rem;
+    color: var(--color-cold);
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.14em;
+}
+
+.process-step-icon {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0 0 1rem;
+    place-items: center;
+    color: #03101a;
+    border: 1px solid rgba(94, 214, 240, 0.48);
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, var(--color-cold), var(--color-fresh));
+    box-shadow:
+        0 0 26px rgba(94, 214, 240, 0.24),
+        0 14px 30px rgba(0, 0, 0, 0.22);
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.process-step:nth-child(even) .process-step-icon {
+    background:
+        linear-gradient(135deg, var(--color-warm), var(--color-warm-soft));
+    border-color: rgba(225, 77, 87, 0.5);
+    box-shadow:
+        0 0 24px rgba(225, 77, 87, 0.22),
+        0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.process-step:hover .process-step-icon {
+    color: #03101a;
+    transform: translateY(-4px) rotate(-6deg) scale(1.06);
+    box-shadow:
+        0 0 34px rgba(94, 214, 240, 0.34),
+        0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.process-step:nth-child(even):hover .process-step-icon {
+    box-shadow:
+        0 0 34px rgba(225, 77, 87, 0.34),
+        0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.process-step h3 {
+    position: relative;
+    z-index: 2;
+    max-width: 220px;
+    margin: 0 auto 0.45rem;
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    line-height: 1.15;
+}
+
+.process-step p {
+    position: relative;
+    z-index: 2;
+    max-width: 220px;
+    margin: 0 auto;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+/* subtle vertical separator dots */
+.process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 3.02rem;
+    right: -0.72rem;
+    z-index: 3;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: rgba(94, 214, 240, 0.78);
+    box-shadow: 0 0 16px rgba(94, 214, 240, 0.42);
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 2rem;
+    }
+
+    .process-grid::before,
+    .process-grid::after {
+        display: none;
+    }
+
+    .process-step {
+        padding: 1rem;
+        border-radius: 1.2rem;
+        background:
+            linear-gradient(180deg, rgba(16, 43, 66, 0.32), rgba(6, 16, 29, 0.18));
+    }
+
+    .process-step:not(:last-child)::after {
+        display: none;
+    }
+}
+
+/* mobile — vertical airflow line */
+@media (max-width: 767px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 430px;
+        padding-top: 0;
+    }
+
+    .process-grid::before {
+        display: block;
+        top: 1.2rem;
+        bottom: 1.2rem;
+        left: 1.62rem;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background:
+            linear-gradient(180deg,
+                transparent,
+                rgba(94, 214, 240, 0.65),
+                rgba(225, 77, 87, 0.55),
+                rgba(110, 243, 214, 0.56),
+                transparent);
+    }
+
+    .process-grid::after {
+        display: none;
+    }
+
+    .process-step {
+        grid-template-columns: 3.25rem 1fr;
+        justify-items: start;
+        align-items: start;
+        gap: 0.85rem;
+        padding: 0.85rem 0.85rem 0.85rem 0;
+        text-align: left;
+        background: transparent;
+    }
+
+    .process-step::before {
+        top: 0.7rem;
+        left: 1.62rem;
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+
+    .process-step-number {
+        position: absolute;
+        top: 0.25rem;
+        left: 4.15rem;
+        margin: 0;
+    }
+
+    .process-step-icon {
+        grid-row: 1 / span 2;
+        width: 3.25rem;
+        height: 3.25rem;
+        margin: 0;
+    }
+
+    .process-step h3,
+    .process-step p {
+        max-width: none;
+        margin-inline: 0;
+        padding-left: 0.15rem;
+    }
+
+    .process-step h3 {
+        margin-top: 1.05rem;
+    }
+}
+
+/* ==========================================================
+   REDESIGN — METRICS AS HVAC CONTROL STRIP, NOT CARDS
+   ========================================================== */
+
+.metrics-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    overflow: hidden;
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: 0.85rem;
+    border: 1px solid rgba(94, 214, 240, 0.18);
+    border-radius: 1.4rem;
+    background:
+        radial-gradient(circle at 8% 0%, rgba(94, 214, 240, 0.16), transparent 18rem),
+        radial-gradient(circle at 88% 100%, rgba(225, 77, 87, 0.13), transparent 16rem),
+        linear-gradient(180deg, rgba(10, 33, 54, 0.72), rgba(3, 8, 18, 0.82));
+    box-shadow: var(--shadow-card);
+}
+
+.metrics-grid::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.2rem;
+    left: 1.2rem;
+    height: 1px;
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(94, 214, 240, 0.28),
+            rgba(225, 77, 87, 0.24),
+            rgba(110, 243, 214, 0.26),
+            transparent);
+    pointer-events: none;
+}
+
+.metric-card {
+    position: relative;
+    min-height: 108px;
+    padding: 1rem 1rem 0.95rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.metric-card::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    bottom: 1rem;
+    width: 1px;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(94, 214, 240, 0.18),
+            transparent);
+}
+
+.metric-card:last-child::before {
+    display: none;
+}
+
+.metric-card::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    bottom: 0.78rem;
+    left: 1rem;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(94, 214, 240, 0.12);
+    overflow: hidden;
+}
+
+.metric-card:nth-child(even)::after {
+    background: rgba(225, 77, 87, 0.13);
+}
+
+.metric-icon {
+    position: absolute;
+    top: 0.95rem;
+    right: 1rem;
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    place-items: center;
+    color: var(--color-cold);
+    border: 1px solid rgba(94, 214, 240, 0.24);
+    border-radius: 999px;
+    background: rgba(3, 8, 18, 0.54);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.metric-card:nth-child(even) .metric-icon {
+    color: var(--color-warm);
+    border-color: rgba(225, 77, 87, 0.3);
+}
+
+.metric-card strong {
+    display: block;
+    width: calc(100% - 2.7rem);
+    margin: 0 0 0.28rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.metric-card p {
+    max-width: 190px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    line-height: 1.34;
+}
+
+.metric-card:hover {
+    transform: none;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+.metric-card:hover .metric-icon {
+    color: #03101a;
+    border-color: rgba(110, 243, 214, 0.7);
+    background: linear-gradient(135deg, var(--color-cold), var(--color-fresh));
+    box-shadow: 0 0 24px rgba(94, 214, 240, 0.28);
+    transform: translateY(-3px) rotate(-7deg) scale(1.08);
+}
+
+.metric-card:nth-child(even):hover .metric-icon {
+    border-color: rgba(255, 138, 146, 0.72);
+    background: linear-gradient(135deg, var(--color-warm), var(--color-warm-soft));
+    box-shadow: 0 0 24px rgba(225, 77, 87, 0.28);
+}
+
+.metric-card strong::after {
+    content: "";
+    display: block;
+    width: 52%;
+    height: 3px;
+    margin-top: 0.7rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-cold), transparent);
+    box-shadow: 0 0 16px rgba(94, 214, 240, 0.22);
+    transition:
+        width 0.28s ease,
+        background 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.metric-card:nth-child(even) strong::after {
+    background: linear-gradient(90deg, var(--color-warm), transparent);
+    box-shadow: 0 0 16px rgba(225, 77, 87, 0.2);
+}
+
+.metric-card:hover strong::after {
+    width: 76%;
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric-card:nth-child(2)::before {
+        display: none;
+    }
+
+    .metric-card {
+        min-height: 104px;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        padding: 0.65rem;
+    }
+
+    .metrics-grid::before {
+        display: none;
+    }
+
+    .metric-card {
+        min-height: 96px;
+        padding: 0.9rem 3.7rem 0.9rem 0.85rem;
+        border-bottom: 1px solid rgba(94, 214, 240, 0.13);
+    }
+
+    .metric-card:last-child {
+        border-bottom: 0;
+    }
+
+    .metric-card::before {
+        display: none;
+    }
+
+    .metric-card::after {
+        right: auto;
+        bottom: 0.7rem;
+        left: 0.85rem;
+        width: 46%;
+    }
+
+    .metric-icon {
+        top: 0.85rem;
+        right: 0.85rem;
+    }
+
+    .metric-card p {
+        max-width: none;
+    }
+}

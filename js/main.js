@@ -695,22 +695,33 @@
 
         if (!counters.length) return;
 
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
         const animate = (counter) => {
             const target = Number(counter.getAttribute("data-counter")) || 0;
-            const duration = 900;
+            const duration = 2600;
             const start = performance.now();
 
             const tick = (now) => {
                 const progress = Math.min((now - start) / duration, 1);
                 const eased = 1 - Math.pow(1 - progress, 3);
-                counter.textContent = Math.round(target * eased).toLocaleString("en-US");
+                const value = Math.round(target * eased);
+
+                counter.textContent = value.toLocaleString("en-US");
 
                 if (progress < 1) {
                     window.requestAnimationFrame(tick);
                 } else {
                     counter.textContent = target.toLocaleString("en-US");
+                    counter.classList.add("is-counted");
                 }
             };
+
+            if (prefersReduced) {
+                counter.textContent = target.toLocaleString("en-US");
+                counter.classList.add("is-counted");
+                return;
+            }
 
             window.requestAnimationFrame(tick);
         };
