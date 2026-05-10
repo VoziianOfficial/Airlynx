@@ -40,6 +40,11 @@
       </div>
     </section>
 
+    <!-- MARQUEE -->
+    <section class="about-marquee home-marquee" aria-label="HVAC provider matching benefits">
+      <div class="marquee-track" data-marquee-items></div>
+    </section>
+
     <!-- STORY -->
     <section class="about-story section section-deep" aria-labelledby="about-story-title">
       <div class="container about-story-grid">
@@ -81,93 +86,134 @@
       </div>
     </section>
 
-    <!-- MODEL -->
-    <section class="about-model section section-surface" aria-labelledby="about-model-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-kicker">Aggregator model</p>
-          <h2 class="section-title" id="about-model-title">
-            What the platform does — and what it does not do.
-          </h2>
-          <p class="section-text">
-            The platform helps organize comparison. It does not perform HVAC services directly.
-          </p>
+<!-- MODEL -->
+<section class="about-model about-model-photo section" aria-labelledby="about-model-title">
+  <div class="about-model-bg" aria-hidden="true">
+    <img src="./assets/images/about-model-bg.jpg" alt="" loading="lazy">
+  </div>
+
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">Aggregator model</p>
+      <h2 class="section-title" id="about-model-title">
+        What the platform does — and what it does not do.
+      </h2>
+      <p class="section-text">
+        The platform helps organize comparison. It does not perform HVAC services directly.
+      </p>
+    </div>
+
+    <div class="about-model-split">
+      <!-- LEFT SIDE -->
+      <div class="about-model-column about-model-column-positive">
+        <p class="about-model-label">Helps with</p>
+
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>Organizing basic HVAC project details.</span>
         </div>
 
-        <div class="about-model-grid">
-          <article class="about-model-card about-model-card-positive">
-            <span class="about-model-icon" aria-hidden="true">
-              <svg class="ui-icon" viewBox="0 0 24 24">
-                <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z" fill="none"
-                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path
-                  d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
-                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor" stroke-width="1.9"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
-            <h3>What it helps with</h3>
-            <ul class="clean-list">
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <span>Organizing basic HVAC project details.</span>
-              </li>
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <span>Comparing independent local provider options.</span>
-              </li>
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <span>Keeping verification questions visible.</span>
-              </li>
-            </ul>
-          </article>
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>Comparing independent local provider options.</span>
+        </div>
 
-          <article class="about-model-card about-model-card-negative">
-            <span class="about-model-icon" aria-hidden="true">
-              <svg class="ui-icon" viewBox="0 0 24 24">
-                <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
-                  stroke-linecap="round" />
-              </svg>
-            </span>
-            <h3>What it does not do</h3>
-            <ul class="clean-list">
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" />
-                </svg>
-                <span>It does not install or repair HVAC systems.</span>
-              </li>
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" />
-                </svg>
-                <span>It does not send technicians or crews.</span>
-              </li>
-              <li>
-                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" />
-                </svg>
-                <span>It does not guarantee provider work or pricing.</span>
-              </li>
-            </ul>
-          </article>
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>Keeping verification questions visible.</span>
         </div>
       </div>
-    </section>
+
+      <!-- CENTER REALISTIC THERMOMETER -->
+      <div class="about-model-center" aria-hidden="true">
+        <span class="about-model-rail-label">Platform boundary</span>
+        <span class="about-model-rail"></span>
+
+        <div class="about-model-real-thermo">
+          <span class="about-model-thermo-glass">
+            <span class="about-model-thermo-liquid"></span>
+            <span class="about-model-thermo-shine"></span>
+          </span>
+
+          <span class="about-model-thermo-bulb">
+            <span class="about-model-thermo-bulb-liquid"></span>
+            <span class="about-model-thermo-bulb-shine"></span>
+          </span>
+
+          <span class="about-model-thermo-marks">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="about-model-column about-model-column-negative">
+        <p class="about-model-label">Does not do</p>
+
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>It does not install or repair HVAC systems.</span>
+        </div>
+
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>It does not send technicians or crews.</span>
+        </div>
+
+        <div class="about-model-line">
+          <span class="about-model-temp-icon" aria-hidden="true">
+            <svg class="ui-icon" viewBox="0 0 24 24">
+              <path d="M10 14.35V5.75a2 2 0 1 1 4 0v8.6a5 5 0 1 1-4 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 7.3v7.75" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M12 20.2a2.15 2.15 0 1 0 0-4.3 2.15 2.15 0 0 0 0 4.3Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>It does not guarantee provider work or pricing.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- WHY HOMEOWNERS USE IT -->
     <section class="about-why section" aria-labelledby="about-why-title">
@@ -233,11 +279,11 @@
     </section>
 
     <!-- VISUAL VERIFICATION STRIP -->
-    <section class="about-verification section section-deep" aria-labelledby="about-verification-title">
+    <section class="about-verification about-verification-scanner section" aria-labelledby="about-verification-title">
       <div class="about-verification-bg" aria-hidden="true">
         <img src="./assets/images/hvac-benefits-bg.jpg" alt="" loading="lazy">
       </div>
-
+    
       <div class="container about-verification-grid">
         <div class="about-verification-copy">
           <p class="section-kicker">Verification reminders</p>
@@ -248,27 +294,82 @@
             Provider availability, quote policies, licensing, insurance, permits, warranties, timelines, and service
             details should be confirmed directly with the independent provider before hiring.
           </p>
+    
+          <div class="about-verification-signal" aria-hidden="true">
+            <span>Verify before hiring</span>
+          </div>
         </div>
-
-        <div class="about-verification-list">
-          <article>
-            <strong>License & insurance</strong>
-            <span>Confirm local requirements directly with the provider.</span>
+    
+        <div class="about-verification-board">
+          <div class="about-verification-scanline" aria-hidden="true"></div>
+    
+          <article class="about-verification-row">
+            <span class="about-verification-number">01</span>
+            <span class="about-verification-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M12 2.9 19.2 5v5.95c0 4.58-2.95 8.42-7.2 10.15-4.25-1.73-7.2-5.57-7.2-10.15V5L12 2.9Z" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>License & insurance</strong>
+              <span>Confirm local requirements directly with the provider.</span>
+            </div>
           </article>
-
-          <article>
-            <strong>Quote scope</strong>
-            <span>Review inclusions, exclusions, equipment notes, and possible fees.</span>
+    
+          <article class="about-verification-row">
+            <span class="about-verification-number">02</span>
+            <span class="about-verification-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z" fill="none"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path
+                  d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
+                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>Quote scope</strong>
+              <span>Review inclusions, exclusions, equipment notes, and possible fees.</span>
+            </div>
           </article>
-
-          <article>
-            <strong>Warranty terms</strong>
-            <span>Ask what is covered, for how long, and under what conditions.</span>
+    
+          <article class="about-verification-row">
+            <span class="about-verification-number">03</span>
+            <span class="about-verification-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M4.2 15.8a8.1 8.1 0 1 1 15.6 0" fill="none" stroke="currentColor" stroke-width="1.85"
+                  stroke-linecap="round" />
+                <path d="M12 13.7l4.05-4.05" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+                <path d="M7.2 15.8h9.6M6.1 12.1h1.5M16.4 12.1h1.5M12 7.3v1.5" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round" />
+                <path d="M12 16.4a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" fill="currentColor" />
+              </svg>
+            </span>
+            <div>
+              <strong>Warranty terms</strong>
+              <span>Ask what is covered, for how long, and under what conditions.</span>
+            </div>
           </article>
-
-          <article>
-            <strong>Availability</strong>
-            <span>Service areas and timelines may vary by ZIP code and category.</span>
+    
+          <article class="about-verification-row">
+            <span class="about-verification-number">04</span>
+            <span class="about-verification-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M12 21.2s6.45-5.5 6.45-11.1A6.45 6.45 0 0 0 5.55 10.1c0 5.6 6.45 11.1 6.45 11.1Z" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                <path d="M12 12.55a2.45 2.45 0 1 0 0-4.9 2.45 2.45 0 0 0 0 4.9Z" fill="none" stroke="currentColor"
+                  stroke-width="1.7" />
+              </svg>
+            </span>
+            <div>
+              <strong>Availability</strong>
+              <span>Service areas and timelines may vary by ZIP code and category.</span>
+            </div>
           </article>
         </div>
       </div>
