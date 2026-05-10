@@ -1808,3 +1808,227 @@
     height: auto !important;
     max-height: none !important;
 }
+
+/* ==========================================================
+   REDESIGN — SERVICE CTA COMPACT PHOTO CARD
+   applies to every service page
+   ========================================================== */
+
+.service-cta {
+    padding-block: clamp(2.8rem, 5vw, 4.4rem) !important;
+    overflow: hidden;
+}
+
+.service-cta-box {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    max-width: 1080px;
+    padding: clamp(1.45rem, 3.4vw, 2.6rem) !important;
+    border: 1px solid rgba(94, 214, 240, 0.24);
+    border-radius: clamp(1.2rem, 2.5vw, 1.8rem);
+    background: rgba(3, 8, 18, 0.72);
+    box-shadow:
+        0 24px 72px rgba(0, 0, 0, 0.36),
+        0 0 34px rgba(94, 214, 240, 0.1);
+    text-align: center;
+}
+
+/* background photo only inside CTA card */
+.service-cta-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background-image: url("../assets/images/hvac-hero-01.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(1.12) saturate(1.14) contrast(1.06);
+    transform: scale(1.02);
+    transition:
+        transform 0.55s ease,
+        filter 0.55s ease;
+}
+
+.service-cta-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(94, 214, 240, 0.22), transparent 23rem),
+        radial-gradient(circle at 84% 74%, rgba(225, 77, 87, 0.18), transparent 21rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.92), rgba(3, 8, 18, 0.66), rgba(3, 8, 18, 0.92)),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.2), rgba(3, 8, 18, 0.9));
+}
+
+.service-cta-box:hover::before {
+    transform: scale(1.06);
+    filter: brightness(1.2) saturate(1.22) contrast(1.08);
+}
+
+.service-cta-box:hover {
+    border-color: rgba(110, 243, 214, 0.42);
+    box-shadow:
+        0 28px 84px rgba(0, 0, 0, 0.42),
+        0 0 42px rgba(94, 214, 240, 0.16),
+        0 0 34px rgba(225, 77, 87, 0.12);
+}
+
+/* content */
+.service-cta-box .section-kicker,
+.service-cta-box .section-title,
+.service-cta-box .section-text,
+.service-cta-box .service-cta-actions,
+.service-cta-box .service-cta-note {
+    position: relative;
+    z-index: 2;
+}
+
+.service-cta-box .section-title {
+    max-width: 860px;
+    margin-inline: auto;
+    margin-bottom: 0.75rem;
+}
+
+.service-cta-box .section-text {
+    max-width: 720px;
+    margin-inline: auto;
+    margin-bottom: 0;
+    color: rgba(221, 234, 242, 0.88);
+}
+
+.service-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.15rem;
+}
+
+.service-cta-note {
+    max-width: 880px;
+    margin: 1.1rem auto 0;
+    padding: 0.75rem 0.9rem;
+    color: rgba(221, 234, 242, 0.78);
+    border: 1px solid rgba(94, 214, 240, 0.18);
+    border-radius: 0.95rem;
+    background: rgba(3, 8, 18, 0.5);
+    backdrop-filter: blur(14px);
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+/* small glowing top line */
+.service-cta-box .section-kicker::after {
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    width: 5rem;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--color-cold), var(--color-warm), transparent);
+    box-shadow: 0 0 18px rgba(94, 214, 240, 0.26);
+    transform: translateX(-50%);
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .service-cta {
+        padding-block: 3rem !important;
+    }
+
+    .service-cta-box {
+        padding: 1.55rem 1.35rem !important;
+        border-radius: 1.35rem;
+    }
+
+    .service-cta-box .section-title {
+        max-width: 760px;
+        font-size: clamp(1.75rem, 3.4vw, 2.45rem);
+    }
+
+    .service-cta-box .section-text {
+        max-width: 680px;
+        font-size: 0.94rem;
+    }
+
+    .service-cta-note {
+        font-size: 0.66rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .service-cta {
+        padding-block: 2.6rem !important;
+    }
+
+    .service-cta-box {
+        padding: 1.25rem 0.95rem !important;
+        border-radius: 1.1rem;
+    }
+
+    .service-cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+    }
+
+    .service-cta-note {
+        padding: 0.7rem;
+        font-size: 0.66rem;
+    }
+}
+
+/* ==========================================================
+   FIX — SERVICE CTA PHOTO BRIGHTER
+   ========================================================== */
+
+.service-cta-box::before {
+    filter: brightness(1.38) saturate(1.22) contrast(1.04) !important;
+}
+
+.service-cta-box::after {
+    background:
+        radial-gradient(circle at 50% 18%, rgba(94, 214, 240, 0.14), transparent 23rem),
+        radial-gradient(circle at 84% 74%, rgba(225, 77, 87, 0.12), transparent 21rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.76), rgba(3, 8, 18, 0.42), rgba(3, 8, 18, 0.76)),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.08), rgba(3, 8, 18, 0.7)) !important;
+}
+
+.service-cta-box:hover::before {
+    filter: brightness(1.48) saturate(1.28) contrast(1.05) !important;
+}
+
+/* ==========================================================
+   SERVICE PAGES — MARQUEE STRIP AFTER HERO
+   ========================================================== */
+
+.service-marquee {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-top: 1px solid rgba(94, 214, 240, 0.12);
+    border-bottom: 1px solid rgba(94, 214, 240, 0.12);
+    background:
+        radial-gradient(circle at 14% 50%, rgba(94, 214, 240, 0.13), transparent 18rem),
+        radial-gradient(circle at 84% 50%, rgba(225, 77, 87, 0.1), transparent 18rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.96), rgba(10, 33, 54, 0.74), rgba(3, 8, 18, 0.96));
+}
+
+.service-marquee .marquee-track {
+    min-height: 4.25rem;
+}
+
+.service-marquee .marquee-item:hover {
+    color: var(--color-warm-soft);
+}
+
+@media (max-width: 767px) {
+    .service-marquee .marquee-track {
+        min-height: 3.7rem;
+    }
+}
