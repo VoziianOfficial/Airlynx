@@ -158,7 +158,7 @@ window.SITE_CONFIG = {
     services: [
         {
             id: "cooling",
-            title: "Cooling Provider Matching",
+            title: "Cooling Provider",
             shortTitle: "Cooling",
             href: "cooling-provider-matching.html",
             icon: "snowflake",
@@ -168,7 +168,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare independent local provider options for AC replacement, cooling system requests, and quote discussions.",
             cardText:
-                "Compare cooling provider options for AC projects, replacement requests, and system questions.",
+                "Compare cooling provider options for AC projects, replacement requests.",
             pageKicker: "Cooling provider matching",
             pageTitle: "Compare local cooling provider options.",
             pageIntro:
@@ -205,7 +205,7 @@ window.SITE_CONFIG = {
         },
         {
             id: "heating",
-            title: "Heating Provider Matching",
+            title: "Heating Provider",
             shortTitle: "Heating",
             href: "heating-provider-matching.html",
             icon: "flame",
@@ -215,7 +215,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare independent provider options for heating systems, furnace projects, heat pumps, and quote requests.",
             cardText:
-                "Review heating provider options for furnace, heat pump, and system-related requests.",
+                "Review heating provider options for furnace, heat pump.",
             pageKicker: "Heating provider matching",
             pageTitle: "Compare local heating provider options.",
             pageIntro:

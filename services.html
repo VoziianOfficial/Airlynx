@@ -40,77 +40,37 @@
       </div>
     </section>
 
-    <!-- SERVICES OVERVIEW -->
-    <section class="services-overview section-compact section-deep" aria-labelledby="services-overview-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-kicker">Only four categories</p>
-          <h2 class="section-title" id="services-overview-title">
-            Focused HVAC categories without turning the site into a contractor layout.
-          </h2>
-          <p class="section-text">
-            Each category is built around comparison, quote preparation, provider fit, and homeowner verification. The
-            platform does not perform HVAC work directly.
-          </p>
-        </div>
-
-        <div class="services-feature-layout">
-          <div class="services-feature-card">
-            <span class="services-feature-icon" aria-hidden="true">
-              <svg class="ui-icon" viewBox="0 0 24 24">
-                <path d="M12 2.9 19.2 5v5.95c0 4.58-2.95 8.42-7.2 10.15-4.25-1.73-7.2-5.57-7.2-10.15V5L12 2.9Z"
-                  fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
-            <h3>Aggregator-safe by design</h3>
-            <p>
-              The page language stays focused on comparing independent providers, not direct installation, repair, or
-              technician dispatch.
-            </p>
-          </div>
-
-          <div class="services-feature-card services-feature-card-accent">
-            <span class="services-feature-icon" aria-hidden="true">
-              <svg class="ui-icon" viewBox="0 0 24 24">
-                <path d="M4.2 15.8a8.1 8.1 0 1 1 15.6 0" fill="none" stroke="currentColor" stroke-width="1.85"
-                  stroke-linecap="round" />
-                <path d="M12 13.7l4.05-4.05" fill="none" stroke="currentColor" stroke-width="1.9"
-                  stroke-linecap="round" />
-                <path d="M7.2 15.8h9.6M6.1 12.1h1.5M16.4 12.1h1.5M12 7.3v1.5" fill="none" stroke="currentColor"
-                  stroke-width="1.6" stroke-linecap="round" />
-                <path d="M12 16.4a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" fill="currentColor" />
-              </svg>
-            </span>
-            <h3>Clear comparison factors</h3>
-            <p>
-              Homeowners can compare quote scope, service category, licensing, insurance, warranty terms, and local
-              availability.
-            </p>
-          </div>
-
-          <div class="services-feature-card">
-            <span class="services-feature-icon" aria-hidden="true">
-              <svg class="ui-icon" viewBox="0 0 24 24">
-                <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z" fill="none"
-                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path
-                  d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
-                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor" stroke-width="1.9"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
-            <h3>Request details prepared</h3>
-            <p>
-              The platform encourages homeowners to organize ZIP code, project category, timeline, and basic comfort
-              concerns.
-            </p>
-          </div>
-        </div>
-      </div>
+    <!-- MARQUEE -->
+    <section class="services-marquee home-marquee" aria-label="HVAC provider matching benefits">
+      <div class="marquee-track" data-marquee-items></div>
     </section>
+
+      <!-- COMPARISON SECTION -->
+      <section class="services-compare section section-surface" aria-labelledby="services-compare-title">
+        <div class="container services-compare-grid">
+          <div class="services-compare-copy">
+            <p class="section-kicker">Provider comparison</p>
+            <h2 class="section-title" id="services-compare-title">
+              Compare more than just the first quote.
+            </h2>
+            <p class="section-text">
+              HVAC projects can vary by category, equipment, access, property size, local requirements, provider schedule,
+              and warranty language. A cleaner comparison process helps homeowners ask better questions.
+            </p>
+      
+            <p class="services-safe-note" data-safe-reminder>
+              Before hiring any independent provider, homeowners should verify licensing, insurance, quote details,
+              warranty language, timelines, and local requirements.
+            </p>
+          </div>
+      
+          <div class="services-compare-panel">
+            <h3>Common comparison factors</h3>
+            <ul class="clean-list" data-comparison-factors></ul>
+          </div>
+        </div>
+      </section>
+
 
     <!-- SERVICE CARDS -->
     <section class="services-catalog section" aria-labelledby="services-catalog-title">
@@ -130,31 +90,96 @@
       </div>
     </section>
 
-    <!-- COMPARISON SECTION -->
-    <section class="services-compare section section-surface" aria-labelledby="services-compare-title">
-      <div class="container services-compare-grid">
-        <div class="services-compare-copy">
-          <p class="section-kicker">Provider comparison</p>
-          <h2 class="section-title" id="services-compare-title">
-            Compare more than just the first quote.
+    <!-- SERVICES OVERVIEW -->
+    <section class="services-overview section-compact section-deep" aria-labelledby="services-overview-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Only four categories</p>
+          <h2 class="section-title" id="services-overview-title">
+            Focused HVAC categories without turning the site into a contractor layout.
           </h2>
           <p class="section-text">
-            HVAC projects can vary by category, equipment, access, property size, local requirements, provider schedule,
-            and warranty language. A cleaner comparison process helps homeowners ask better questions.
-          </p>
-
-          <p class="services-safe-note" data-safe-reminder>
-            Before hiring any independent provider, homeowners should verify licensing, insurance, quote details,
-            warranty language, timelines, and local requirements.
+            Each category is built around comparison, quote preparation, provider fit, and homeowner verification. The
+            platform does not perform HVAC work directly.
           </p>
         </div>
-
-        <div class="services-compare-panel">
-          <h3>Common comparison factors</h3>
-          <ul class="clean-list" data-comparison-factors></ul>
+    
+        <div class="services-feature-layout">
+          <div class="services-feature-card" data-step="01">
+            <span class="services-feature-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M12 2.9 19.2 5v5.95c0 4.58-2.95 8.42-7.2 10.15-4.25-1.73-7.2-5.57-7.2-10.15V5L12 2.9Z" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                <path d="m8.7 12.1 2.05 2.05 4.75-5.05" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+    
+            <div class="services-feature-copy">
+              <h3>Aggregator-safe by design</h3>
+              <p>
+                The page language stays focused on comparing independent providers, not direct installation, repair, or
+                technician dispatch.
+              </p>
+            </div>
+          </div>
+    
+          <div class="services-feature-card services-feature-card-accent" data-step="02">
+            <span class="services-feature-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M4.2 15.8a8.1 8.1 0 1 1 15.6 0" fill="none" stroke="currentColor" stroke-width="1.85"
+                  stroke-linecap="round" />
+                <path d="M12 13.7l4.05-4.05" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+                <path d="M7.2 15.8h9.6M6.1 12.1h1.5M16.4 12.1h1.5M12 7.3v1.5" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round" />
+                <path d="M12 16.4a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" fill="currentColor" />
+              </svg>
+            </span>
+    
+            <div class="services-feature-copy">
+              <h3>Clear comparison factors</h3>
+              <p>
+                Homeowners can compare quote scope, service category, licensing, insurance, warranty terms, and local
+                availability.
+              </p>
+            </div>
+          </div>
+    
+          <div class="services-feature-card" data-step="03">
+            <span class="services-feature-icon" aria-hidden="true">
+              <svg class="ui-icon" viewBox="0 0 24 24">
+                <path d="M9 4.7h6M9.5 3h5a1.5 1.5 0 0 1 1.5 1.5v1.1H8V4.5A1.5 1.5 0 0 1 9.5 3Z" fill="none"
+                  stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path
+                  d="M7.2 5.2H5.9a1.7 1.7 0 0 0-1.7 1.7v12.2a1.7 1.7 0 0 0 1.7 1.7h12.2a1.7 1.7 0 0 0 1.7-1.7V6.9a1.7 1.7 0 0 0-1.7-1.7h-1.3"
+                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="m8.1 13.25 2.35 2.35 5.45-5.75" fill="none" stroke="currentColor" stroke-width="1.9"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+    
+            <div class="services-feature-copy">
+              <h3>Request details prepared</h3>
+              <p>
+                The platform encourages homeowners to organize ZIP code, project category, timeline, and basic comfort
+                concerns.
+              </p>
+            </div>
+          </div>
+    
+          <div class="services-feature-photo">
+            <img src="./assets/images/services-overview-photo.jpg" alt="" loading="lazy">
+    
+            <div class="services-feature-photo-badge">
+              <strong>4 HVAC paths</strong>
+              <span>Provider matching only</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+
 
     <!-- PROCESS STRIP -->
     <section class="services-process section-compact" aria-labelledby="services-process-title">
