@@ -78,74 +78,116 @@
       </div>
     </section>
 
-    <!-- FACTORS -->
-    <section class="service-factors section section-surface" aria-labelledby="service-factors-title">
-      <div class="container service-factors-grid">
-        <div class="service-factors-copy">
-          <p class="section-kicker">Provider evaluation</p>
-          <h2 class="section-title" id="service-factors-title">
-            Compare ductwork providers by airflow needs, scope, and verification details.
-          </h2>
-          <p class="section-text">
-            Ductwork and ventilation recommendations may vary based on property layout, duct access, room-by-room
-            airflow concerns, materials, provider evaluation approach, and local requirements.
-          </p>
-          <p class="services-safe-note" data-safe-reminder></p>
-        </div>
-
-        <div class="service-factor-panel">
-          <h3>Ductwork provider comparison factors</h3>
-          <ul class="clean-list" data-service-evaluation-points></ul>
-        </div>
+  <!-- FACTORS -->
+  <section class="service-factors service-factors-radar service-factors-photo section"
+    aria-labelledby="service-factors-title">
+    <div class="service-factors-bg" aria-hidden="true">
+      <img src="./assets/images/service-factors-bg.jpg" alt="" loading="lazy">
+    </div>
+  
+    <div class="container">
+      <div class="section-header service-factors-top">
+        <p class="section-kicker">Provider evaluation</p>
+  
+        <h2 class="section-title" id="service-factors-title">
+          Compare <span data-service-short-title></span> options by scope, fit, and verification details.
+        </h2>
+  
+        <p class="section-text">
+          Provider quotes may vary by system type, property size, equipment notes, access conditions, local requirements,
+          provider schedule, warranty language, and quote scope.
+        </p>
       </div>
-    </section>
-
-    <!-- PREPARE -->
-    <section class="service-prepare section" aria-labelledby="service-prepare-title">
-      <div class="container service-prepare-grid">
-        <div class="service-prepare-visual">
-          <div class="service-prepare-icon-large" aria-hidden="true">
-            <svg class="ui-icon" viewBox="0 0 24 24">
-              <path
-                d="M3.2 7.4h10.7c1.4 0 2.4-.78 2.4-1.95 0-1.08-.82-1.85-1.9-1.85-.88 0-1.52.43-1.92 1.15M3.2 12h15.3c1.72 0 2.9 1.02 2.9 2.45 0 1.38-1.05 2.35-2.5 2.35-1.12 0-1.95-.55-2.42-1.45M3.2 16.6h8.1c1.27 0 2.15.75 2.15 1.82 0 1.02-.78 1.78-1.82 1.78-.82 0-1.43-.4-1.8-1.02"
-                fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+  
+      <div class="service-factors-radar-grid">
+        <div class="service-factor-radar" aria-hidden="true">
+          <span class="service-factor-radar-ring ring-one"></span>
+          <span class="service-factor-radar-ring ring-two"></span>
+          <span class="service-factor-radar-ring ring-three"></span>
+          <span class="service-factor-radar-ring ring-four"></span>
+          <span class="service-factor-radar-sweep"></span>
+  
+          <span class="service-factor-radar-dot dot-one"></span>
+          <span class="service-factor-radar-dot dot-two"></span>
+          <span class="service-factor-radar-dot dot-three"></span>
+          <span class="service-factor-radar-dot dot-four"></span>
+          <span class="service-factor-radar-dot dot-five"></span>
+  
+          <span class="service-factor-radar-label">Provider fit scan</span>
+        </div>
+  
+        <div class="service-factor-scan">
+          <div class="service-factor-scan-head">
+            <span class="service-factor-scan-status" aria-hidden="true"></span>
+            <h3><span data-service-short-title></span> comparison factors</h3>
           </div>
+  
+          <ul class="clean-list service-factor-scan-list" data-service-evaluation-points></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="service-prepare-note">
-            <strong>Helpful before quotes</strong>
-            <span>Room airflow notes, duct access, property layout, ZIP code, and recent HVAC changes can make provider
-              conversations clearer.</span>
+      <!-- RELATED SERVICES -->
+      <section class="service-related section section-surface" aria-labelledby="service-related-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">Other HVAC categories</p>
+            <h2 class="section-title" id="service-related-title">
+              Compare ductwork alongside other HVAC provider categories.
+            </h2>
+            <p class="section-text">
+              Airflow concerns may connect with cooling, heating, or indoor air quality questions. Explore all four
+              categories before choosing the request path that fits best.
+            </p>
           </div>
+      
+          <div class="service-related-grid" data-service-cards="all"></div>
         </div>
+      </section>
+      
+<!-- PREPARE -->
+<section class="service-prepare service-prepare-board section" aria-labelledby="service-prepare-title">
+  <div class="container service-prepare-board-grid">
+    <div class="service-prepare-media" aria-hidden="true">
+      <img src="./assets/images/hvac-benefits-bg.jpg" alt="" loading="lazy">
 
-        <div class="service-prepare-panel">
-          <p class="section-kicker">Before requesting options</p>
-          <h2 class="section-title" id="service-prepare-title">
-            Prepare airflow and ductwork details providers often ask for.
-          </h2>
-          <ul class="clean-list" data-service-prepare-details></ul>
-        </div>
+      <div class="service-prepare-thermo">
+        <span class="service-prepare-thermo-line"></span>
+        <span class="service-prepare-thermo-bulb"></span>
+        <span class="service-prepare-thermo-mark mark-one"></span>
+        <span class="service-prepare-thermo-mark mark-two"></span>
+        <span class="service-prepare-thermo-mark mark-three"></span>
       </div>
-    </section>
 
-    <!-- RELATED SERVICES -->
-    <section class="service-related section section-surface" aria-labelledby="service-related-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-kicker">Other HVAC categories</p>
-          <h2 class="section-title" id="service-related-title">
-            Compare ductwork alongside other HVAC provider categories.
-          </h2>
-          <p class="section-text">
-            Airflow concerns may connect with cooling, heating, or indoor air quality questions. Explore all four
-            categories before choosing the request path that fits best.
-          </p>
-        </div>
-
-        <div class="service-related-grid" data-service-cards="all"></div>
+      <div class="service-prepare-float service-prepare-float-top">
+        <strong>Quote-ready</strong>
+        <span>Details organized first</span>
       </div>
-    </section>
+
+      <div class="service-prepare-float service-prepare-float-bottom">
+        <strong data-service-short-title></strong>
+        <span>Provider matching only</span>
+      </div>
+    </div>
+
+    <div class="service-prepare-content">
+      <p class="section-kicker">Before requesting options</p>
+
+      <h2 class="section-title" id="service-prepare-title">
+        Prepare the details providers often ask for.
+      </h2>
+
+      <p class="section-text">
+        A clearer request can make provider conversations easier to compare. Organize the basics before reviewing quote
+        scope, timing, credentials, and availability.
+      </p>
+
+      <ul class="clean-list service-prepare-checklist" data-service-prepare-details></ul>
+    </div>
+  </div>
+</section>
+
 
     <!-- CTA -->
     <section class="service-cta section section-deep" aria-labelledby="service-cta-title">

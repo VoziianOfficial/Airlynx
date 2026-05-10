@@ -490,3 +490,1321 @@
         font-size: 0.72rem;
     }
 }
+
+/* ==========================================================
+   FIX — SERVICE INTRO IMAGE FULL COVER + CENTERED
+   ========================================================== */
+
+.service-intro-panel.image-panel {
+    position: relative;
+    min-height: clamp(360px, 42vw, 540px);
+    overflow: hidden;
+}
+
+/* photo stretches inside the card and stays centered */
+.service-intro-panel.image-panel>img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* dark overlay for readability */
+.service-intro-panel.image-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(94, 214, 240, 0.16), transparent 16rem),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.08), rgba(3, 8, 18, 0.62));
+}
+
+/* overlay cards / badges stay above the photo */
+.service-intro-panel.image-panel :is(.service-intro-badge,
+    .service-intro-card,
+    .service-panel-badge,
+    .intro-badge,
+    .floating-badge) {
+    position: absolute;
+    z-index: 3;
+    margin: 0;
+}
+
+/* first card — top left */
+.service-intro-panel.image-panel :is(.service-intro-badge,
+    .service-intro-card,
+    .service-panel-badge,
+    .intro-badge,
+    .floating-badge):first-of-type {
+    top: 1rem;
+    left: 1rem;
+    right: auto;
+    bottom: auto;
+}
+
+/* second card — bottom right */
+.service-intro-panel.image-panel :is(.service-intro-badge,
+    .service-intro-card,
+    .service-panel-badge,
+    .intro-badge,
+    .floating-badge):last-of-type {
+    right: 1rem;
+    bottom: 1rem;
+    top: auto;
+    left: auto;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .service-intro-panel.image-panel {
+        min-height: 340px;
+    }
+
+    .service-intro-panel.image-panel :is(.service-intro-badge,
+        .service-intro-card,
+        .service-panel-badge,
+        .intro-badge,
+        .floating-badge):first-of-type {
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .service-intro-panel.image-panel :is(.service-intro-badge,
+        .service-intro-card,
+        .service-panel-badge,
+        .intro-badge,
+        .floating-badge):last-of-type {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+}
+
+
+/* ==========================================================
+   REDESIGN — SERVICE PREPARE BOARD
+   applies to every individual service page
+   ========================================================== */
+
+.service-prepare-board {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 20%, rgba(94, 214, 240, 0.12), transparent 26rem),
+        radial-gradient(circle at 88% 72%, rgba(225, 77, 87, 0.1), transparent 24rem),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.96), rgba(6, 16, 29, 0.98));
+}
+
+.service-prepare-board-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: center;
+}
+
+/* left photo visual */
+.service-prepare-media {
+    position: relative;
+    min-height: clamp(360px, 42vw, 520px);
+    overflow: hidden;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(94, 214, 240, 0.2), transparent 18rem),
+        linear-gradient(135deg, #102B42, #030812);
+    box-shadow: var(--shadow-card);
+}
+
+.service-prepare-media img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(1.08) saturate(1.12) contrast(1.06);
+    transform: scale(1.02);
+    transition:
+        transform 0.55s ease,
+        filter 0.55s ease;
+}
+
+.service-prepare-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(circle at 36% 38%, rgba(94, 214, 240, 0.22), transparent 18rem),
+        radial-gradient(circle at 82% 74%, rgba(225, 77, 87, 0.18), transparent 18rem),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.12), rgba(3, 8, 18, 0.82));
+    pointer-events: none;
+}
+
+.service-prepare-media:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.16) saturate(1.2) contrast(1.08);
+}
+
+/* animated thermometer visual */
+.service-prepare-thermo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 4.2rem;
+    height: 13rem;
+    transform: translate(-50%, -50%);
+    filter:
+        drop-shadow(0 0 20px rgba(94, 214, 240, 0.26)) drop-shadow(0 0 20px rgba(225, 77, 87, 0.18));
+}
+
+.service-prepare-thermo-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1.05rem;
+    height: 9.6rem;
+    overflow: hidden;
+    border: 2px solid rgba(221, 234, 242, 0.72);
+    border-radius: 999px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 38%, rgba(255, 255, 255, 0.08)),
+        rgba(3, 8, 18, 0.72);
+    transform: translateX(-50%);
+}
+
+.service-prepare-thermo-line::before {
+    content: "";
+    position: absolute;
+    right: 0.22rem;
+    bottom: 0;
+    left: 0.22rem;
+    height: 38%;
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, var(--color-cold), var(--color-fresh), var(--color-warm));
+    box-shadow:
+        0 0 16px rgba(94, 214, 240, 0.32),
+        0 0 18px rgba(225, 77, 87, 0.22);
+    animation: servicePrepareTemp 5.4s ease-in-out infinite;
+}
+
+.service-prepare-thermo-bulb {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 2px solid rgba(221, 234, 242, 0.72);
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.28), transparent 24%),
+        linear-gradient(135deg, var(--color-warm-soft), var(--color-warm));
+    box-shadow:
+        inset 0 0 16px rgba(255, 255, 255, 0.1),
+        0 0 26px rgba(225, 77, 87, 0.34),
+        0 18px 40px rgba(0, 0, 0, 0.3);
+    transform: translateX(-50%);
+    animation: servicePrepareBulb 5.4s ease-in-out infinite;
+}
+
+.service-prepare-thermo-mark {
+    position: absolute;
+    left: calc(50% + 0.95rem);
+    width: 0.9rem;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(221, 234, 242, 0.58);
+    box-shadow: 0 0 12px rgba(94, 214, 240, 0.2);
+}
+
+.service-prepare-thermo-mark.mark-one {
+    top: 1.45rem;
+}
+
+.service-prepare-thermo-mark.mark-two {
+    top: 3.8rem;
+    width: 0.62rem;
+}
+
+.service-prepare-thermo-mark.mark-three {
+    top: 6.15rem;
+}
+
+/* floating labels on photo */
+.service-prepare-float {
+    position: absolute;
+    z-index: 4;
+    width: min(72%, 260px);
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 1rem;
+    background: rgba(3, 8, 18, 0.68);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.service-prepare-float-top {
+    top: 1rem;
+    left: 1rem;
+}
+
+.service-prepare-float-bottom {
+    right: 1rem;
+    bottom: 1rem;
+    border-color: rgba(225, 77, 87, 0.24);
+}
+
+.service-prepare-float strong,
+.service-prepare-float span {
+    display: block;
+}
+
+.service-prepare-float strong {
+    margin-bottom: 0.2rem;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.service-prepare-float span {
+    color: var(--color-cold);
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.service-prepare-float-bottom span {
+    color: var(--color-warm-soft);
+}
+
+/* right content */
+.service-prepare-content {
+    max-width: 620px;
+}
+
+.service-prepare-content .section-kicker {
+    justify-content: flex-start;
+}
+
+.service-prepare-content .section-title,
+.service-prepare-content .section-text {
+    text-align: left;
+}
+
+.service-prepare-content .section-text {
+    margin-inline: 0;
+}
+
+/* list generated from config */
+.service-prepare-checklist {
+    position: relative;
+    margin-top: 1.25rem;
+    padding-left: 1rem;
+}
+
+.service-prepare-checklist::before {
+    content: "";
+    position: absolute;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    left: 0;
+    width: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg,
+            var(--color-cold),
+            var(--color-fresh),
+            var(--color-warm));
+    box-shadow:
+        0 0 18px rgba(94, 214, 240, 0.26),
+        0 0 18px rgba(225, 77, 87, 0.14);
+}
+
+.service-prepare-checklist li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    min-height: 3.35rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(94, 214, 240, 0.13);
+    color: var(--color-text);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.service-prepare-checklist li:last-child {
+    border-bottom: 0;
+}
+
+.service-prepare-checklist li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -1.24rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-cold);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.72),
+        0 0 16px rgba(94, 214, 240, 0.48);
+    transform: translateY(-50%);
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.service-prepare-checklist li:nth-child(even)::before {
+    background: var(--color-warm);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.72),
+        0 0 16px rgba(225, 77, 87, 0.44);
+}
+
+.service-prepare-checklist .ui-icon {
+    color: var(--color-cold);
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.service-prepare-checklist li:nth-child(even) .ui-icon {
+    color: var(--color-warm);
+}
+
+.service-prepare-checklist li:hover {
+    transform: translateX(6px);
+    border-color: rgba(110, 243, 214, 0.34);
+    color: var(--color-heading);
+}
+
+.service-prepare-checklist li:hover::before {
+    background: var(--color-fresh);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.72),
+        0 0 20px rgba(110, 243, 214, 0.58);
+    transform: translateY(-50%) scale(1.16);
+}
+
+.service-prepare-checklist li:hover .ui-icon {
+    color: var(--color-fresh);
+    transform: rotate(-6deg) scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(110, 243, 214, 0.34));
+}
+
+.service-prepare-checklist li:nth-child(even):hover {
+    border-color: rgba(255, 138, 146, 0.34);
+}
+
+.service-prepare-checklist li:nth-child(even):hover::before {
+    background: var(--color-warm-soft);
+    box-shadow:
+        0 0 0 5px rgba(3, 8, 18, 0.72),
+        0 0 20px rgba(225, 77, 87, 0.58);
+}
+
+.service-prepare-checklist li:nth-child(even):hover .ui-icon {
+    color: var(--color-warm-soft);
+    filter: drop-shadow(0 0 12px rgba(225, 77, 87, 0.34));
+}
+
+@keyframes servicePrepareTemp {
+
+    0%,
+    100% {
+        height: 34%;
+    }
+
+    45% {
+        height: 82%;
+    }
+
+    70% {
+        height: 58%;
+    }
+}
+
+@keyframes servicePrepareBulb {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(0.94);
+    }
+
+    45% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .service-prepare-board-grid {
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin-inline: auto;
+    }
+
+    .service-prepare-content {
+        max-width: none;
+        text-align: center;
+    }
+
+    .service-prepare-content .section-kicker {
+        justify-content: center;
+    }
+
+    .service-prepare-content .section-title,
+    .service-prepare-content .section-text {
+        text-align: center;
+    }
+
+    .service-prepare-content .section-text {
+        margin-inline: auto;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .service-prepare-media {
+        min-height: 350px;
+        border-radius: 1.15rem;
+    }
+
+    .service-prepare-thermo {
+        width: 3.5rem;
+        height: 10.4rem;
+    }
+
+    .service-prepare-thermo-line {
+        height: 7.2rem;
+    }
+
+    .service-prepare-thermo-bulb {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .service-prepare-float {
+        width: min(78%, 240px);
+        padding: 0.78rem 0.85rem;
+    }
+
+    .service-prepare-float-top {
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .service-prepare-float-bottom {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+
+    .service-prepare-checklist {
+        padding-left: 0.85rem;
+    }
+
+    .service-prepare-checklist li {
+        grid-template-columns: 2rem minmax(0, 1fr);
+        gap: 0.62rem;
+        min-height: auto;
+        padding: 0.65rem 0;
+        text-align: left;
+    }
+
+    .service-prepare-checklist li:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-prepare-thermo-line::before,
+    .service-prepare-thermo-bulb {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================
+   FIX — SERVICE PREPARE BOARD TABLET LIKE DESKTOP
+   ========================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .service-prepare-board-grid {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
+        max-width: none !important;
+        gap: clamp(1rem, 2.4vw, 1.6rem) !important;
+        align-items: center !important;
+    }
+
+    .service-prepare-media {
+        min-height: clamp(330px, 46vw, 420px) !important;
+        border-radius: 1.25rem !important;
+    }
+
+    .service-prepare-media img {
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    .service-prepare-thermo {
+        width: 3.3rem !important;
+        height: 10.5rem !important;
+    }
+
+    .service-prepare-thermo-line {
+        width: 0.95rem !important;
+        height: 7.35rem !important;
+    }
+
+    .service-prepare-thermo-bulb {
+        width: 2.7rem !important;
+        height: 2.7rem !important;
+    }
+
+    .service-prepare-thermo-mark {
+        left: calc(50% + 0.82rem) !important;
+        width: 0.72rem !important;
+    }
+
+    .service-prepare-thermo-mark.mark-one {
+        top: 1.1rem !important;
+    }
+
+    .service-prepare-thermo-mark.mark-two {
+        top: 2.95rem !important;
+        width: 0.52rem !important;
+    }
+
+    .service-prepare-thermo-mark.mark-three {
+        top: 4.8rem !important;
+    }
+
+    .service-prepare-float {
+        width: min(74%, 220px) !important;
+        padding: 0.72rem 0.82rem !important;
+        border-radius: 0.85rem !important;
+    }
+
+    .service-prepare-float-top {
+        top: 0.75rem !important;
+        left: 0.75rem !important;
+    }
+
+    .service-prepare-float-bottom {
+        right: 0.75rem !important;
+        bottom: 0.75rem !important;
+    }
+
+    .service-prepare-float strong {
+        font-size: 0.9rem !important;
+    }
+
+    .service-prepare-float span {
+        font-size: 0.7rem !important;
+    }
+
+    .service-prepare-content {
+        max-width: none !important;
+        text-align: left !important;
+    }
+
+    .service-prepare-content .section-kicker {
+        justify-content: flex-start !important;
+    }
+
+    .service-prepare-content .section-title,
+    .service-prepare-content .section-text {
+        text-align: left !important;
+    }
+
+    .service-prepare-content .section-title {
+        font-size: clamp(1.75rem, 3.4vw, 2.55rem) !important;
+        line-height: 1.08 !important;
+    }
+
+    .service-prepare-content .section-text {
+        max-width: 520px !important;
+        margin-inline: 0 !important;
+        font-size: 0.94rem !important;
+    }
+
+    .service-prepare-checklist {
+        margin-top: 0.95rem !important;
+        padding-left: 0.9rem !important;
+    }
+
+    .service-prepare-checklist li {
+        grid-template-columns: 2.1rem minmax(0, 1fr) !important;
+        gap: 0.62rem !important;
+        min-height: 2.85rem !important;
+        padding: 0.46rem 0 !important;
+        font-size: 0.86rem !important;
+        text-align: left !important;
+    }
+
+    .service-prepare-checklist li::before {
+        left: -1.12rem !important;
+        width: 0.48rem !important;
+        height: 0.48rem !important;
+    }
+
+    .service-prepare-checklist .ui-icon {
+        width: 1.05rem !important;
+        height: 1.05rem !important;
+    }
+}
+
+/* ==========================================================
+   FIX — SERVICE PREPARE CHECKLIST MOBILE SHIFT RIGHT
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+    .service-prepare-checklist.clean-list,
+    .clean-list.service-prepare-checklist {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0.85rem !important;
+        padding-left: 1.15rem !important;
+        padding-right: 0.15rem !important;
+        overflow: visible;
+    }
+
+    .service-prepare-checklist::before {
+        left: 0.35rem !important;
+    }
+
+    .service-prepare-checklist li {
+        grid-template-columns: 1.45rem minmax(0, 1fr) !important;
+        gap: 0.5rem !important;
+        min-height: auto !important;
+        padding: 0.52rem 0 0.52rem 0.45rem !important;
+        font-size: 0.78rem !important;
+        line-height: 1.35 !important;
+        text-align: left !important;
+        overflow-wrap: anywhere;
+    }
+
+    .service-prepare-checklist li::before {
+        left: -0.9rem !important;
+        width: 0.42rem !important;
+        height: 0.42rem !important;
+        box-shadow:
+            0 0 0 4px rgba(3, 8, 18, 0.72),
+            0 0 12px rgba(94, 214, 240, 0.42) !important;
+    }
+
+    .service-prepare-checklist li:nth-child(even)::before {
+        box-shadow:
+            0 0 0 4px rgba(3, 8, 18, 0.72),
+            0 0 12px rgba(225, 77, 87, 0.4) !important;
+    }
+
+    .service-prepare-checklist .ui-icon {
+        width: 0.95rem !important;
+        height: 0.95rem !important;
+        margin-top: 0.08rem !important;
+    }
+
+    .service-prepare-checklist li span {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .service-prepare-content {
+        overflow: hidden;
+    }
+}
+
+/* ==========================================================
+   FIX — SERVICE PREPARE THERMOMETER LEFT POSITION
+   ========================================================== */
+
+.service-prepare-thermo {
+    top: 50% !important;
+    left: clamp(2.2rem, 5vw, 4rem) !important;
+    right: auto !important;
+    transform: translateY(-50%) !important;
+}
+
+/* чтобы верхняя плашка не налезала на градусник */
+.service-prepare-float-top {
+    left: clamp(5.8rem, 11vw, 8rem) !important;
+}
+
+/* нижняя плашка оставляем справа снизу как была */
+.service-prepare-float-bottom {
+    right: 1rem !important;
+    bottom: 1rem !important;
+    left: auto !important;
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .service-prepare-thermo {
+        left: 2rem !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .service-prepare-float-top {
+        left: 5.2rem !important;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .service-prepare-thermo {
+        left: 1.45rem !important;
+        top: 52% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .service-prepare-float-top {
+        top: 0.75rem !important;
+        left: 4.7rem !important;
+        width: min(64%, 220px) !important;
+    }
+
+    .service-prepare-float-bottom {
+        right: 0.75rem !important;
+        bottom: 0.75rem !important;
+        width: min(72%, 230px) !important;
+    }
+}
+
+/* ==========================================================
+   FINAL REDESIGN — SERVICE FACTORS PHOTO RADAR SECTION
+   background photo / top full-width heading / big radar left
+   ========================================================== */
+
+.service-factors-photo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 16% 20%, rgba(94, 214, 240, 0.16), transparent 28rem),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.96), rgba(6, 16, 29, 0.98));
+}
+
+.service-factors-bg,
+.service-factors-bg img {
+    position: absolute;
+    inset: 0;
+    z-index: -5;
+    width: 100%;
+    height: 100%;
+}
+
+.service-factors-bg img {
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1.12) saturate(1.14) contrast(1.06);
+    transform: scale(1.02);
+}
+
+.service-factors-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 22% 44%, rgba(94, 214, 240, 0.22), transparent 28rem),
+        radial-gradient(circle at 82% 58%, rgba(225, 77, 87, 0.18), transparent 28rem),
+        linear-gradient(90deg, rgba(3, 8, 18, 0.92), rgba(3, 8, 18, 0.62), rgba(3, 8, 18, 0.9)),
+        linear-gradient(180deg, rgba(3, 8, 18, 0.35), rgba(3, 8, 18, 0.94));
+    pointer-events: none;
+}
+
+/* top header full width */
+.service-factors-photo .service-factors-top {
+    width: min(100%, 1040px);
+    max-width: 1040px;
+    margin-inline: auto;
+    margin-bottom: clamp(2rem, 4vw, 3.2rem);
+    text-align: center;
+}
+
+.service-factors-photo .service-factors-top .section-title {
+    max-width: 1040px;
+    margin-inline: auto;
+}
+
+.service-factors-photo .service-factors-top .section-text {
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+/* main layout */
+.service-factors-photo .service-factors-radar-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.4rem, 4vw, 3.4rem);
+    align-items: center;
+}
+
+/* big radar left */
+.service-factors-photo .service-factor-radar {
+    position: relative;
+    display: grid;
+    width: min(100%, 390px);
+    aspect-ratio: 1;
+    place-items: center;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid rgba(94, 214, 240, 0.26);
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(94, 214, 240, 0.2), transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(225, 77, 87, 0.1), transparent 58%),
+        rgba(3, 8, 18, 0.58);
+    box-shadow:
+        inset 0 0 42px rgba(94, 214, 240, 0.1),
+        0 24px 70px rgba(0, 0, 0, 0.34),
+        0 0 46px rgba(94, 214, 240, 0.16);
+    backdrop-filter: blur(12px);
+    transition:
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        transform 0.28s ease;
+}
+
+.service-factors-photo .service-factor-radar::before,
+.service-factors-photo .service-factor-radar::after {
+    content: "";
+    position: absolute;
+    background: rgba(94, 214, 240, 0.22);
+    transition: background 0.28s ease, box-shadow 0.28s ease;
+}
+
+.service-factors-photo .service-factor-radar::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+}
+
+.service-factors-photo .service-factor-radar::after {
+    right: 0;
+    left: 0;
+    top: 50%;
+    height: 1px;
+}
+
+.service-factors-photo .service-factor-radar-ring {
+    position: absolute;
+    border: 1px solid rgba(94, 214, 240, 0.2);
+    border-radius: 999px;
+    transition:
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        transform 0.28s ease;
+}
+
+.service-factors-photo .service-factor-radar-ring.ring-one {
+    inset: 13%;
+}
+
+.service-factors-photo .service-factor-radar-ring.ring-two {
+    inset: 27%;
+    border-color: rgba(110, 243, 214, 0.2);
+}
+
+.service-factors-photo .service-factor-radar-ring.ring-three {
+    inset: 41%;
+    border-color: rgba(225, 77, 87, 0.22);
+}
+
+.service-factors-photo .service-factor-radar-ring.ring-four {
+    inset: 54%;
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+.service-factors-photo .service-factor-radar-sweep {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background:
+        conic-gradient(from 0deg,
+            rgba(94, 214, 240, 0.46),
+            rgba(110, 243, 214, 0.12),
+            transparent 34%,
+            transparent 100%);
+    mask-image: radial-gradient(circle, transparent 0 8%, black 9% 100%);
+    animation: serviceFactorSweep 6s linear infinite;
+}
+
+.service-factors-photo .service-factor-radar-dot {
+    position: absolute;
+    z-index: 3;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 999px;
+    background: var(--color-cold);
+    box-shadow: 0 0 18px rgba(94, 214, 240, 0.68);
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.service-factors-photo .service-factor-radar-dot.dot-one {
+    top: 22%;
+    left: 62%;
+}
+
+.service-factors-photo .service-factor-radar-dot.dot-two {
+    top: 56%;
+    left: 21%;
+    background: var(--color-fresh);
+    box-shadow: 0 0 18px rgba(110, 243, 214, 0.64);
+}
+
+.service-factors-photo .service-factor-radar-dot.dot-three {
+    right: 20%;
+    bottom: 24%;
+    background: var(--color-warm);
+    box-shadow: 0 0 18px rgba(225, 77, 87, 0.64);
+}
+
+.service-factors-photo .service-factor-radar-dot.dot-four {
+    top: 42%;
+    right: 15%;
+}
+
+.service-factors-photo .service-factor-radar-dot.dot-five {
+    bottom: 17%;
+    left: 42%;
+    background: var(--color-warm-soft);
+    box-shadow: 0 0 18px rgba(255, 138, 146, 0.6);
+}
+
+.service-factors-photo .service-factor-radar-label {
+    position: relative;
+    z-index: 4;
+    width: min-content;
+    color: var(--color-heading);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: 0.13em;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px rgba(94, 214, 240, 0.26);
+    transition: color 0.28s ease, text-shadow 0.28s ease;
+}
+
+/* radar hover */
+.service-factors-photo .service-factor-radar:hover {
+    transform: translateY(-4px) scale(1.015);
+    border-color: rgba(110, 243, 214, 0.48);
+    box-shadow:
+        inset 0 0 46px rgba(110, 243, 214, 0.12),
+        0 28px 80px rgba(0, 0, 0, 0.38),
+        0 0 52px rgba(94, 214, 240, 0.24),
+        0 0 38px rgba(225, 77, 87, 0.12);
+}
+
+.service-factors-photo .service-factor-radar:hover::before,
+.service-factors-photo .service-factor-radar:hover::after {
+    background: rgba(110, 243, 214, 0.34);
+    box-shadow: 0 0 16px rgba(110, 243, 214, 0.3);
+}
+
+.service-factors-photo .service-factor-radar:hover .service-factor-radar-ring {
+    border-color: rgba(110, 243, 214, 0.34);
+    box-shadow: inset 0 0 18px rgba(110, 243, 214, 0.06);
+}
+
+.service-factors-photo .service-factor-radar:hover .service-factor-radar-dot {
+    transform: scale(1.22);
+}
+
+.service-factors-photo .service-factor-radar:hover .dot-three,
+.service-factors-photo .service-factor-radar:hover .dot-five {
+    background: var(--color-warm-soft);
+    box-shadow: 0 0 22px rgba(225, 77, 87, 0.72);
+}
+
+.service-factors-photo .service-factor-radar:hover .service-factor-radar-label {
+    color: var(--color-fresh);
+    text-shadow: 0 0 22px rgba(110, 243, 214, 0.34);
+}
+
+/* right scan panel */
+.service-factors-photo .service-factor-scan {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    padding: clamp(1.05rem, 2vw, 1.4rem);
+    border: 1px solid rgba(94, 214, 240, 0.22);
+    border-radius: 1.35rem;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(94, 214, 240, 0.14), transparent 18rem),
+        radial-gradient(circle at 90% 100%, rgba(225, 77, 87, 0.12), transparent 18rem),
+        rgba(3, 8, 18, 0.64);
+    box-shadow:
+        0 22px 62px rgba(0, 0, 0, 0.32),
+        0 0 34px rgba(94, 214, 240, 0.08);
+    backdrop-filter: blur(16px);
+    transition:
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        background 0.28s ease;
+}
+
+.service-factors-photo .service-factor-scan::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(94, 214, 240, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 214, 240, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 78%);
+}
+
+.service-factors-photo .service-factor-scan:hover {
+    border-color: rgba(110, 243, 214, 0.4);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(110, 243, 214, 0.16), transparent 18rem),
+        radial-gradient(circle at 90% 100%, rgba(225, 77, 87, 0.14), transparent 18rem),
+        rgba(3, 8, 18, 0.72);
+    box-shadow:
+        0 26px 72px rgba(0, 0, 0, 0.36),
+        0 0 40px rgba(110, 243, 214, 0.12);
+}
+
+.service-factors-photo .service-factor-scan-head {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.72rem;
+    margin-bottom: 0.9rem;
+}
+
+.service-factors-photo .service-factor-scan-status {
+    width: 0.68rem;
+    height: 0.68rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--color-fresh);
+    box-shadow: 0 0 16px rgba(110, 243, 214, 0.6);
+    animation: serviceFactorStatus 2.2s ease-in-out infinite;
+}
+
+.service-factors-photo .service-factor-scan-head h3 {
+    margin: 0;
+    font-size: clamp(1.08rem, 1.8vw, 1.42rem);
+}
+
+/* generated list */
+.service-factors-photo .service-factor-scan-list {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 0;
+    margin-top: 0;
+}
+
+.service-factors-photo .service-factor-scan-list li {
+    display: grid;
+    grid-template-columns: 2.05rem minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: center;
+    min-height: 3.05rem;
+    padding: 0.56rem 0;
+    border-bottom: 1px solid rgba(94, 214, 240, 0.13);
+    color: var(--color-text);
+    font-size: 0.87rem;
+    line-height: 1.38;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.service-factors-photo .service-factor-scan-list li:last-child {
+    border-bottom: 0;
+}
+
+.service-factors-photo .service-factor-scan-list .ui-icon {
+    color: var(--color-cold);
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.service-factors-photo .service-factor-scan-list li:nth-child(even) .ui-icon {
+    color: var(--color-warm);
+}
+
+.service-factors-photo .service-factor-scan-list li:hover {
+    transform: translateX(6px);
+    border-color: rgba(110, 243, 214, 0.36);
+    color: var(--color-heading);
+}
+
+.service-factors-photo .service-factor-scan-list li:hover .ui-icon {
+    color: var(--color-fresh);
+    transform: rotate(-7deg) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(110, 243, 214, 0.36));
+}
+
+.service-factors-photo .service-factor-scan-list li:nth-child(even):hover {
+    border-color: rgba(255, 138, 146, 0.36);
+}
+
+.service-factors-photo .service-factor-scan-list li:nth-child(even):hover .ui-icon {
+    color: var(--color-warm-soft);
+    filter: drop-shadow(0 0 12px rgba(225, 77, 87, 0.36));
+}
+
+@keyframes serviceFactorSweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes serviceFactorStatus {
+
+    0%,
+    100% {
+        transform: scale(0.88);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+}
+
+/* tablet — same idea, more compact */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .service-factors-photo .service-factors-top {
+        max-width: 860px;
+        margin-bottom: 2rem;
+    }
+
+    .service-factors-photo .service-factors-radar-grid {
+        grid-template-columns: minmax(230px, 0.85fr) minmax(0, 1.15fr);
+        gap: 1.1rem;
+    }
+
+    .service-factors-photo .service-factor-radar {
+        width: min(100%, 250px);
+    }
+
+    .service-factors-photo .service-factor-radar-label {
+        font-size: 0.68rem;
+    }
+
+    .service-factors-photo .service-factor-radar-dot {
+        width: 0.56rem;
+        height: 0.56rem;
+    }
+
+    .service-factors-photo .service-factor-scan {
+        padding: 0.95rem;
+        border-radius: 1.05rem;
+    }
+
+    .service-factors-photo .service-factor-scan-list li {
+        grid-template-columns: 1.65rem minmax(0, 1fr);
+        gap: 0.5rem;
+        min-height: 2.55rem;
+        font-size: 0.76rem;
+    }
+
+    .service-factors-photo .service-factor-scan-list .ui-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .service-factors-photo .service-factors-top {
+        margin-bottom: 1.6rem;
+    }
+
+    .service-factors-photo .service-factors-radar-grid {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+    }
+
+    .service-factors-photo .service-factor-radar {
+        width: min(100%, 230px);
+    }
+
+    .service-factors-photo .service-factor-radar-label {
+        font-size: 0.66rem;
+    }
+
+    .service-factors-photo .service-factor-scan {
+        padding: 0.9rem;
+        border-radius: 1rem;
+    }
+
+    .service-factors-photo .service-factor-scan-list li {
+        grid-template-columns: 1.5rem minmax(0, 1fr);
+        gap: 0.48rem;
+        min-height: auto;
+        padding: 0.56rem 0;
+        font-size: 0.76rem;
+    }
+
+    .service-factors-photo .service-factor-scan-list li:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-factors-photo .service-factor-radar-sweep,
+    .service-factors-photo .service-factor-scan-status {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================
+   FIX — SERVICE FACTOR SCAN NATURAL HEIGHT + CENTERED
+   ========================================================== */
+
+.service-factors-photo .service-factor-scan {
+    min-height: 0 !important;
+    height: auto !important;
+    align-self: center !important;
+}
+
+/* чтобы правая панель не тянулась на всю высоту радара */
+.service-factors-photo .service-factors-radar-grid {
+    align-items: center !important;
+}
+
+/* если внутри список слишком длинный — пусть панель остается естественной */
+.service-factors-photo .service-factor-scan-list {
+    height: auto !important;
+    max-height: none !important;
+}

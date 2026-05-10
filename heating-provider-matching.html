@@ -77,77 +77,118 @@
       </div>
     </section>
 
-    <!-- FACTORS -->
-    <section class="service-factors section section-surface" aria-labelledby="service-factors-title">
-      <div class="container service-factors-grid">
-        <div class="service-factors-copy">
-          <p class="section-kicker">Provider evaluation</p>
-          <h2 class="section-title" id="service-factors-title">
-            Compare heating providers by system fit, scope, and verification details.
-          </h2>
-          <p class="section-text">
-            Heating quotes may vary by system type, property layout, access conditions, equipment needs, provider
-            schedule, warranty terms, and local requirements.
-          </p>
-          <p class="services-safe-note" data-safe-reminder></p>
-        </div>
+<!-- FACTORS -->
+<section class="service-factors service-factors-radar service-factors-photo section"
+  aria-labelledby="service-factors-title">
+  <div class="service-factors-bg" aria-hidden="true">
+    <img src="./assets/images/service-factors-bg.jpg" alt="" loading="lazy">
+  </div>
 
-        <div class="service-factor-panel">
-          <h3>Heating provider comparison factors</h3>
-          <ul class="clean-list" data-service-evaluation-points></ul>
-        </div>
+  <div class="container">
+    <div class="section-header service-factors-top">
+      <p class="section-kicker">Provider evaluation</p>
+
+      <h2 class="section-title" id="service-factors-title">
+        Compare <span data-service-short-title></span> options by scope, fit, and verification details.
+      </h2>
+
+      <p class="section-text">
+        Provider quotes may vary by system type, property size, equipment notes, access conditions, local requirements,
+        provider schedule, warranty language, and quote scope.
+      </p>
+    </div>
+
+    <div class="service-factors-radar-grid">
+      <div class="service-factor-radar" aria-hidden="true">
+        <span class="service-factor-radar-ring ring-one"></span>
+        <span class="service-factor-radar-ring ring-two"></span>
+        <span class="service-factor-radar-ring ring-three"></span>
+        <span class="service-factor-radar-ring ring-four"></span>
+        <span class="service-factor-radar-sweep"></span>
+
+        <span class="service-factor-radar-dot dot-one"></span>
+        <span class="service-factor-radar-dot dot-two"></span>
+        <span class="service-factor-radar-dot dot-three"></span>
+        <span class="service-factor-radar-dot dot-four"></span>
+        <span class="service-factor-radar-dot dot-five"></span>
+
+        <span class="service-factor-radar-label">Provider fit scan</span>
       </div>
-    </section>
 
-    <!-- PREPARE -->
-    <section class="service-prepare section" aria-labelledby="service-prepare-title">
-      <div class="container service-prepare-grid">
-        <div class="service-prepare-visual">
-          <div class="service-prepare-icon-large" aria-hidden="true">
-            <svg class="ui-icon" viewBox="0 0 24 24">
-              <path
-                d="M13 2.8c.55 3.25 3.7 4.7 4.85 7.55 1.38 3.4-.45 7.9-4.2 9.35-4.15 1.6-8.7-1.2-8.7-5.85 0-2.75 1.5-4.55 3.35-6.35.15 1.95 1.25 3.15 2.7 3.85-.5-3.05.6-5.85 2-8.55Z"
-                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M12.15 20.25c-1.8-.45-3.1-1.85-3.1-3.55 0-1.35.65-2.25 1.55-3.1.28 1.35 1.15 2.1 2.2 2.5-.2-1.65.38-3.05 1.1-4.2 1.25 1.65 2.35 2.75 2.35 4.65 0 2.15-1.75 3.75-4.1 3.7Z"
-                fill="currentColor" />
-            </svg>
-          </div>
-
-          <div class="service-prepare-note">
-            <strong>Helpful before quotes</strong>
-            <span>System type, uneven heat notes, property size, ZIP code, and preferred timing can make provider
-              conversations clearer.</span>
-          </div>
+      <div class="service-factor-scan">
+        <div class="service-factor-scan-head">
+          <span class="service-factor-scan-status" aria-hidden="true"></span>
+          <h3><span data-service-short-title></span> comparison factors</h3>
         </div>
 
-        <div class="service-prepare-panel">
-          <p class="section-kicker">Before requesting options</p>
-          <h2 class="section-title" id="service-prepare-title">
-            Prepare the heating details providers often ask for.
-          </h2>
-          <ul class="clean-list" data-service-prepare-details></ul>
-        </div>
+        <ul class="clean-list service-factor-scan-list" data-service-evaluation-points></ul>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- RELATED SERVICES -->
-    <section class="service-related section section-surface" aria-labelledby="service-related-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-kicker">Other HVAC categories</p>
-          <h2 class="section-title" id="service-related-title">
-            Compare heating alongside other HVAC provider categories.
-          </h2>
-          <p class="section-text">
-            Heating projects may connect with airflow, ductwork, cooling, or indoor air quality questions. Explore all
-            four categories before choosing the best request path.
-          </p>
-        </div>
-
-        <div class="service-related-grid" data-service-cards="all"></div>
+  <!-- RELATED SERVICES -->
+  <section class="service-related section section-surface" aria-labelledby="service-related-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Other HVAC categories</p>
+        <h2 class="section-title" id="service-related-title">
+          Compare heating alongside other HVAC provider categories.
+        </h2>
+        <p class="section-text">
+          Heating projects may connect with airflow, ductwork, cooling, or indoor air quality questions. Explore all
+          four categories before choosing the best request path.
+        </p>
       </div>
-    </section>
+  
+      <div class="service-related-grid" data-service-cards="all"></div>
+    </div>
+  </section>
+
+
+<!-- PREPARE -->
+<section class="service-prepare service-prepare-board section" aria-labelledby="service-prepare-title">
+  <div class="container service-prepare-board-grid">
+    <div class="service-prepare-media" aria-hidden="true">
+      <img src="./assets/images/hvac-benefits-bg.jpg" alt="" loading="lazy">
+
+      <div class="service-prepare-thermo">
+        <span class="service-prepare-thermo-line"></span>
+        <span class="service-prepare-thermo-bulb"></span>
+        <span class="service-prepare-thermo-mark mark-one"></span>
+        <span class="service-prepare-thermo-mark mark-two"></span>
+        <span class="service-prepare-thermo-mark mark-three"></span>
+      </div>
+
+      <div class="service-prepare-float service-prepare-float-top">
+        <strong>Quote-ready</strong>
+        <span>Details organized first</span>
+      </div>
+
+      <div class="service-prepare-float service-prepare-float-bottom">
+        <strong data-service-short-title></strong>
+        <span>Provider matching only</span>
+      </div>
+    </div>
+
+    <div class="service-prepare-content">
+      <p class="section-kicker">Before requesting options</p>
+
+      <h2 class="section-title" id="service-prepare-title">
+        Prepare the details providers often ask for.
+      </h2>
+
+      <p class="section-text">
+        A clearer request can make provider conversations easier to compare. Organize the basics before reviewing quote
+        scope, timing, credentials, and availability.
+      </p>
+
+      <ul class="clean-list service-prepare-checklist" data-service-prepare-details></ul>
+    </div>
+  </div>
+</section>
+
+  
 
     <!-- CTA -->
     <section class="service-cta section section-deep" aria-labelledby="service-cta-title">
